@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <link rel="stylesheet" type="text/css" href="../CSS/BlogPost.CSS">
+    <link rel="icon" type="image/x-icon" href="/BlogPictures/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="charset" content="UTF-8">
+    <meta name="keywords" content="Journey, Programming, HMTL">
+    <meta name="description" content="My journey from being a progamming noob to a programing hero">
+    <title>Day 13</title>
+  </head>
+  <body>
+    <nav>
+      <a href="../index.html"><h1 id="mainTitle">Journey To Improve</h1></a>
+      <button class="NavButton" type="button" name="button"><a Class="NavLink"href="../AboutMe.html">About Me</a></button>
+      <button class="NavButton" type="button" name="button"><a Class="NavLink"href="../ProjectPage.html">Projects</a></button>
+      <button class="NavButton" type="button" name="button"><a Class="NavLink"href="BlogNavigation.html">Blogs</a></button>
+      <button class="NavButton" type="button" name="button"> <a Class="NavLink"href="../index.html">Home</a> </button>
+    </nav>
+    <div class="grid-container">
+      <div>
+      </div>
+      <div>
+        <article class="BlogPost">
+
+          <h3 class="title">Day 13: Grid and Box </h3>
+          <p class="blogText">
+            More responsive website content today! I&apos;m going to be going over very briefly CSS grid and Flex box since they are a pretty big part of responsive websites. These concepts are sometimes very hard to understand with words alone. I encourage everyone to take a look at the websites I link today and there are even games that well help you understand the concepts
+          </p>
+
+
+          <h4 class="sectionHeader">CSS Grid</h4>
+          <p class="blogText">
+            There are two main concepts when it comes to CSS grid. There is the parent which is the container for all the grid items. Then there are the grid items which will be all the children of the CSS gird container. Now the container will be your gird. The first thing you will need to do is in CSS set your display of the container to grid or inline-grid. This will make sure that your element is a grid. Next set up the grid-template-columns and grid-template-rows. These names will tell the system how many columns and rows you want inside the grid. You will have to add in widths and heights for these each width will be a new column. If you have seven widths you will have seven columns. Next you can set up your gaps by using one of the four name to set in CSS column-gap, row-gap, grid-column-gap, or grid-row-gap. That&apos;s the very basics of the container, and when I say the very basics I mean it.
+          </p>
+
+
+          <h4 class="sectionHeader">Flex Box</h4>
+          <p class="blogText">
+            Flex box also has a container and flex items. The container will be shown by making the display flex. You can set the flex-direction which will tell the computer which way your containers are to be aligned. Also the wrap can be defined with flex-wrap. This will tell the computer what to do in the case the items hit the end of the container. Once you set that you can set justify-content. This will either move everything to the left, right or center. If you want there is also space-between, space around, and space-evenly.
+          </p>
+
+          <p class="blogText">
+            With flex-items everything will be sized by numbers. With flex-grow or flex-shrink the items will change size. If every item is 1 they will be the same size. Alternatively if one item is set to 2 and the other items are set to 1 the first item will be twice the size.
+          </p>
+          <p class="blogText">
+            That is the very very basics of both flex box and CSS grid. There is so much more that can be learned and you should take the time to learn. I really think you should take a look at the links and play the games! Tomorrow I&apos;ll be taking a look at my website and trying to make everything a little bit more responsive. This may take more than one day.
+          </p>
+
+          <div class="HelpfulLinks">
+            <h4>Some Helpful links</h4>
+            <a href="https://css-tricks.com/snippets/css/complete-guide-grid/" target="_blank">CSS Tricks CSS Grid Guide</a><br>
+            <a href="https://cssgridgarden.com/" target="_blank">CSS Grid Game </a><br>
+            <a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/" target="_blank">CSS Tricks Flexbox Guide</a><br>
+            <a href="https://flexboxfroggy.com/" target="_blank">Flexbox Game </a><br>
+          </div>
+        </article>
+      </div>
+      <div>
+      </div>
+    </div>
+  </body>
+</html>

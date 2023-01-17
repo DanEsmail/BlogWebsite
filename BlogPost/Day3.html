@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <link rel="stylesheet" type="text/css" href="../CSS/BlogPost.CSS">
+    <link rel="icon" type="image/x-icon" href="/BlogPictures/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="charset" content="UTF-8">
+    <meta name="keywords" content="Journey, Programming, HMTL">
+    <meta name="description" content="My journey from being a progamming noob to a programing hero">
+    <title>Day 3</title>
+  </head>
+  <body>
+    <nav>
+      <a href="../index.html"><h1 id="mainTitle">Journey To Improve</h1></a> 
+      <button class="NavButton" type="button" name="button"><a Class="NavLink"href="../AboutMe.html">About Me</a></button>
+      <button class="NavButton" type="button" name="button"><a Class="NavLink"href="../ProjectPage.html">Projects</a></button>
+      <button class="NavButton" type="button" name="button"><a Class="NavLink"href="BlogNavigation.html">Blogs</a></button>
+      <button class="NavButton" type="button" name="button"> <a Class="NavLink"href="../index.html">Home</a> </button>
+    </nav>
+    <div class="grid-container">
+      <div>
+
+      </div>
+      <div>
+
+
+    <article class="BlogPost">
+      <h3 class="title">Day 3: A Better Looking Site </h3>
+
+  <p class="blogText">
+        Day 3 here we come! Today was a lot of CSS and research. There is so much left to do with the website and a lot of other CSS
+  that I want to do but I don&apos;t want to overload everything on day 3 since there is so much that I have to research. Also I have
+  finally found out how to get more pages on my website. Super easy actually just a quick website read. To make a multipage website
+  it&apos;s super easy and all you need to do is bring in a file and link to that file. That going to look the same for everyone at the
+  most basic level. I made a folder that holds all my blog post and them made an html file for each blog post. I upload in my
+  public_html folder the blog post. After that I can link to them by putting the file destination in the herf attribute of the link
+  element. Now these blog post HTML are very basic and in the coming days I&apos;ll make a new style sheet for the post.
+    The main page is what suffers the most at this point and needs a lot of TLC. I started everything by opening up my old friend
+  google. Then searched up some design aspects of website and came up with a few major points that I&apos;m going to be using in the
+  future. Some of those points were things like keep the layout simple, design for the user first, have all elements connected, keep
+  your design balanced and much more. I also took some time and looked at another blog that was showing off some nice looking blogs.
+  I think it&apos;s great to look an as many examples of what you are trying to build so you can see what has worked and what looks good.
+  Now I only looked at five examples this time but I&apos;ll continue looking at sites and improving as I go. That was most of the
+  research I did and it got me started in the right direction.
+    From there I was able to go to a website called Figma. This website lets you build a wire frame for your website. I had to look
+  at a quick video to understand the very basics. It was around fifteen minutes. Then it was off to the races. I drew up a really
+  basic version of a main page for my website. Kept everything in black, white and gray. This is because I don&apos;t think I&apos;m ready to
+  get into color at this point in time. There is two huge section that I need to talk about in this article to let everyone know how
+  I got this far.
+	 First there is the HTML this is the probably the easiest part. I made sure to keep sort of true with breaking up the page in
+  sections. I&apos;ll break up my code drops by sections so it&apos;s easier to digest.
+</p>
+<h5 class="codeTitle">Header HTML code</h5>
+<pre>
+<code>
+&lt;header&gt;
+  &lt;h1 id="mainTitle"&gt;Journey To Improve&lt;/h1&gt;
+  &lt;button class="NavButton" type="button" name="button"&gt;About Me&lt;/button&gt;
+  &lt;button class="NavButton" type="button" name="button"&gt;Blogs&lt;/button&gt;
+  &lt;button class="NavButton" type="button" name="button"&gt;Projects&lt;/button&gt;
+&lt;/header&gt;
+</code>
+</pre>
+<br>
+<h5 class="codeTitle">Header CSS Code</h5>
+<pre>
+<code>
+#mainTitle{
+  color:white;
+  text-align: left;
+  display: inline;
+  position: relative;
+  top: 1vw;
+  padding-left: 1vw;
+  font-size: 2vw;
+}
+.NavButton{
+  float: right;
+  position: relative;
+  font-size: 1vw;
+  top: 1.5vw;
+  background-color: Black;
+  color: white;
+  border-left: solid white 0.25vw;
+}
+header{
+  background-color: Black;
+  height: 4vw;
+}
+#titlecaption{
+  text-align: center;
+}
+.titleCenter{
+  text-align: center;
+
+}
+</code>
+</pre>
+<p class="blogText">
+  The header is the first section. This is the section that I used for my navbar but now thinking about that I should have used Nav
+for that and I will make an adjustment for that tomorrow. I made sure to include the title or the main phrase for my website in the
+header and that was the “Journey to Improve”. Next is what is going to be the links to other sections of the website and that&apos;s the
+about me, blogs, and projects buttons. These will have nested links in them as I continue and my website grows. Also as I was
+building these I made sure to add classes to the button to be styled all the same way.
+	Let&apos;s talk about the CSS. I wanted to work in responsive units for all my website. I have been working with VW, EM, and
+percentages. I wanted to contrast colors so all my fonts on the header were going to be white while the back drop was black. This
+gave me a great opportunity to make my main page background white for now. The hard things about using VW is centering my text.
+I did that by just changing the numbers until I finally got what looks centered on my screen. Add a border on the links for a
+little bit of style and then that was that.
+</p>
+<h5 class="codeTitle">Project Section HTML Code</h5>
+<pre>
+<code>
+&lt;section class="leftSection" id="ProjectSection"&gt;
+&lt;h2 class="titleCenter"&gt;Latest Project&lt;/h2&gt;
+&lt;div id="blogBox"&gt;
+  &lt;div id="ProjectPicBox"&gt;
+    &lt;h3 &gt;Project Name&lt;/h3&gt;
+    &lt;div id="ProjectPic"&gt;
+      Project Box
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;div id="projectDesGroup" class=""&gt;
+    &lt;article id="projectDes" class=""&gt;
+      &lt;p&gt;this is where the description of the latest project is going to go&lt;/p&gt;
+      &lt;br&gt;
+      &lt;p&gt;This site might look like it has a bunch of links but the only working links right now are going to be the blog posts at the bottom&lt;/p&gt;
+    &lt;/article&gt;
+    &lt;div class=""&gt;
+      &lt;span class="tag"&gt;
+        &lt;p class="tagText"&gt;HTML&lt;/p&gt;
+      &lt;/span&gt;
+      &lt;span class="tag"&gt;
+        &lt;p class="tagText"&gt;CSS&lt;/p&gt;
+      &lt;/span&gt;
+      &lt;span class="tag"&gt;
+        &lt;p class="tagText"&gt;JavaScript&lt;/p&gt;
+      &lt;/span&gt;
+      &lt;span class="tag"&gt;
+        &lt;p class="tagText"&gt;Game&lt;/p&gt;
+      &lt;/span&gt;
+      &lt;span class="tag"&gt;
+        &lt;p class="tagText"&gt;Simple AI&lt;/p&gt;
+      &lt;/span&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+
+&lt;/section&gt;
+</code>
+</pre>
+<br>
+<h5 class="codeTitle">Project Section CSS Code</h5>
+<pre>
+<code>
+.leftSection{
+  float: left;
+  width: 66.6%;
+  height: 27.5em;
+}
+
+#ProjectSection{
+  background-color: lightgray;
+
+}
+
+#ProjectPicBox{
+  display: inline-block;
+  position: relative;
+  left: 1%;
+  width: 48%;
+
+  float: left;
+}
+
+#ProjectPic{
+  width: 15vw;
+  height: 15vw;
+  background-color: black;
+}
+#projectDesGroup{
+  display: inline-block;
+  position: relative;
+  right: 1%;
+  width: 48%;
+  top: 4vw;
+  float: right;
+}
+#projectDes{
+  height: 10vw;
+
+  width: 80%;
+  font-size: 1em;
+}
+
+.tag{
+  background-color: black;
+  display: inline-block;
+  margin-right: 1vw;
+  padding: 0 0.4vw;
+  height: 2vw;
+  border-radius: 10%;
+}
+.tagText{
+  color: white;
+  position: relative;
+  bottom: 0.3vw
+}
+</code>
+</pre>
+<p class="blogText">
+  Next is the first section that is going to be used for the projects that I complete while building my skill base. When I was
+building this I wanted to make sure that I had some place to put a picture for the project, a description, and some tags. First off I
+made sure that I put all the divs into another div because I wanted to make sure they were aligned at the baseline. I do this to make
+sure that they don&apos;t get crazy and move around when I add text.
+  The left side of this section is going to be taken up by a title and a box which will hold the picture of the project. That was
+easy to accomplish by adding in an H3 element and div. the div will hold an auto sized Img element down the line once I finish. The
+title will always just be the title of the project. Both of these are nested in another div. I use that div to move everything
+around in a group so it won&apos;t separate when I&apos;m working with the HTML.
+  The right side is also pretty simple I wanted to add tags for the project and a description. Both element of the right side are
+also grouped by a div this is also done so I can float each group to their sides. The description is just a set of paragraph
+elements. The tags are a little bit more complex and will get more complex down the road. The tags are first grouped in a div to
+hold them and use display box to make sure they are under the description and not side by side.  Next all the tag classes are in
+spans so the tags themselves will be next to each other. This lines my tags and finishes my project area.
+  Now While building the CSS for this section I wanted to float everything in the webpage that was supposed to go left to the left.
+While I floated the aside to the right and that&apos;s why I have a class called left section. Now like before I wanted contrast color.
+That made me use all three off my colors with light gray being my background, white and black being the text colors, and black being
+any item that would be a container. I also make the background a random color like pink or red when I want to move around the
+elements and groups in my website. To move around things I used position relative. That lets me tell the browser where elements
+should go based on their parent element.
+</p>
+<h5 class="codeTitle">Aside HTML Code</h5>
+<pre>
+<code>
+&lt;aside class=""&gt;
+  &lt;div id="Profilepic"&gt;
+    &lt;p&gt; &lt;/p&gt;
+  &lt;/div&gt;
+  &lt;h4 class="titleCenter"&gt;The Destination&lt;/h4&gt;
+  &lt;p class="profileDes"&gt;The main goal of this website is to work as a record of my journey to become a better programmer. this is will entire a lot of work in HTML, css, JavaScript, design and a lot of other aspects&lt;/p&gt;
+  &lt;br&gt;
+  &lt;p class="profileDes"&gt;I have been working on improving for a while now and I would like to write down everything I learn on my journey. maybe what I learn will help someone else. &lt;/p&gt;
+&lt;/aside&gt;
+</code>
+</pre>
+<br>
+<h5 class="codeTitle">Aside CSS Code</h5>
+<pre>
+
+<code>
+aside{
+  float: right;
+  background-color: white;
+  width: 33%;
+  height: 55em;
+  border: solid black 0.15vw;
+  border-top: none;
+}
+
+#Profilepic{
+  background-color: lightgray;
+  width: 10vw;
+  border-radius: 100%;
+  position: relative;
+  left: 11.5vw;
+  text-align:  center;
+  height: 10vw;
+}
+
+.profileDes{
+  text-align: center;
+  margin: 0 1vw;
+}
+</code>
+</pre>
+<p class="blogText">
+  The aside was a little easier to manage then everything else. This is going to just be a brief description of what the website is
+about and what I&apos;m trying to do. This will also hold my face later down the road. The first big thing about this is floating the
+aside to the right and grouping the elements I want together. There is a profile picture and a description.
+  The picture was going to be a full circle so I made sure to make the border radius 100% and tried to move that dive to the center.
+Next was the description this is also another really part I used two paragraph element to write what I wanted to write. Made sure to
+add a line break. Next was styling it I just centered all the text and was done.
+</p>
+<h5 class="codeTitle">Blog Post Section HTML Code</h5>
+<pre>
+<code>
+&lt;section class="leftSection"&gt;
+&lt;h2&gt;Recent Blogs&lt;/h2&gt;
+&lt;div id="blogBox"&gt;
+  &lt;div class="BlogArticle"&gt;
+    &lt;h5 class="blogTitle"&gt;Day 1:Starting a Blog&lt;/h5&gt;
+    &lt;a class="blogLink" href="BlogPost/Day1.html"&gt;
+      &lt;div class="BlogDescrption"&gt;
+        &lt;p class="blogdes"&gt;This is going to be a look at how to start a website&lt;/p&gt;
+      &lt;/div&gt;
+    &lt;/a&gt;
+  &lt;/div&gt;
+
+  &lt;div class="BlogArticle"&gt;
+    &lt;h5 class="blogTitle"&gt;Day 2:Basic Code&lt;/h5&gt;
+    &lt;a class="blogLink" href="#"&gt;
+      &lt;div class="BlogDescrption"&gt;
+        &lt;p class="blogdes"&gt;My site looks a little less basic. Plus I go into the HTML head element&lt;/p&gt;
+      &lt;/div&gt;
+    &lt;/a&gt;
+  &lt;/div&gt;
+
+  &lt;div class="BlogArticle"&gt;
+    &lt;h5 class="blogTitle"&gt;Day 3: Starting CSS&lt;/h5&gt;
+    &lt;a class="blogLink" href="#"&gt;
+      &lt;div class="BlogDescrption"&gt;
+        &lt;p class="blogdes"&gt;Making my website look a little better with some CSS&lt;/p&gt;
+      &lt;/div&gt;
+    &lt;/a&gt;
+  &lt;/div&gt;
+
+  &lt;div class="BlogArticle"&gt;
+    &lt;h5 class="blogTitle"&gt;Day 4 Blog&lt;/h5&gt;
+    &lt;a class="blogLink" href="#"&gt;
+      &lt;div class="BlogDescrption"&gt;
+        &lt;p class="blogdes"&gt;TBA doesn&apos;t go anyware right now&lt;/p&gt;
+      &lt;/div&gt;
+    &lt;/a&gt;
+  &lt;/div&gt;
+
+  &lt;div class="BlogArticle"&gt;
+    &lt;h5 class="blogTitle"&gt;Day 5 Blog&lt;/h5&gt;
+    &lt;a class="blogLink" href="#"&gt;
+      &lt;div class="BlogDescrption"&gt;
+        &lt;p class="blogdes"&gt;TBA doesn&apos;t go anyware right now&lt;/p&gt;
+      &lt;/div&gt;
+    &lt;/a&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/section&gt;
+</code>
+</pre>
+<br>
+<h5 class="codeTitle">Blog Post Section CSS Code</h5>
+<pre>
+<code>
+
+.BlogArticle{
+  width: 10vw;
+  height: 15vw;
+  text-align: center;
+  display: inline-block;
+  margin-left: 2vw;
+  position: relative;
+  bottom: 1vw;
+  top: 1vw;
+
+
+}
+#blogBox{
+  display: flex;
+  align-items: baseline;
+
+}
+
+.blogTitle{
+  font-size: 1em;
+}
+
+.BlogDescrption{
+  width: 10vw;
+  height: 10vw;
+  background-color: black;
+}
+
+.blogdes{
+  color: white;
+  text-decoration: none;
+  padding: 0.2vw;
+}
+
+.blogLink{
+  text-decoration: none;
+}
+body{
+  background-color: white
+}
+.BlogPost{
+  width: 60em;
+  background-color: lightgray;
+  overflow: auto;
+  padding: 0.5em;
+}
+.title{
+  text-align: center;
+}
+</code>
+</pre>
+<p class="blogText">
+  Okay final bit of code to go over. This is the section that is going to hold recent blog post and change whenever I update a blog
+post. I wanted an area for the title and a common way to make blog post links. This was done by creating a div to hold everything
+and the major purpose of that was to align the items to baseline otherwise they would move around like crazy depending on how many
+lines of text there was. Next I add a div to box up each blog post. A title and another div were nested in this. The other div holds
+the link and description for the blog post.
+	I know today was long but there was a lot that went into and tomorrow will hopefully be shorter.
+</p>
+
+      <br>
+      <div class="HelpfulLinks">
+
+
+      <h4>Some Helpful links</h4>
+      <a href="https://www.learnhowtoprogram.com/user-interfaces/building-layouts-preprocessors/multi-page-html-sites" target="_blank">Mutipage info</a><br>
+      <a href="https://www.addthis.com/academy/how-to-create-engaging-website-design/" target="_blank">Design Website 1</a><br>
+      <a href="https://www.jotform.com/blog/how-to-make-a-web-design-look-good/" target="_blank">Design Website 2</a><br>
+      <a href="https://www.webfx.com/blog/web-design/beautiful-websites/" target="_blank">Design Website 3</a><br>
+      <a href="https://blog.hubspot.com/blog/tabid/6307/bid/34143/12-inspiring-examples-of-beautiful-blog-homepage-designs.aspx" target="_blank">Other Blogs</a>
+      <a href="https://www.youtube.com/watch?v=dXQ7IHkTiMM" target="_blank">Figma Tutorial</a>
+      <a href="https://www.figma.com/" target="_blank">Figma</a>
+    </div>
+    </article>
+    </div>
+    <div>
+
+    </div>
+  </div>
+  </body>
+</html>

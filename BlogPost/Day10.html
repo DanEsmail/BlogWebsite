@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <link rel="stylesheet" type="text/css" href="../CSS/BlogPost.CSS">
+    <link rel="icon" type="image/x-icon" href="/BlogPictures/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="charset" content="UTF-8">
+    <meta name="keywords" content="Journey, Programming, HMTL">
+    <meta name="description" content="My journey from being a progamming noob to a programing hero">
+    <title>Day 10</title>
+  </head>
+  <body>
+    <nav>
+      <a href="../index.html"><h1 id="mainTitle">Journey To Improve</h1></a> 
+      <button class="NavButton" type="button" name="button"><a Class="NavLink"href="../AboutMe.html">About Me</a></button>
+      <button class="NavButton" type="button" name="button"><a Class="NavLink"href="../ProjectPage.html">Projects</a></button>
+      <button class="NavButton" type="button" name="button"><a Class="NavLink"href="BlogNavigation.html">Blogs</a></button>
+      <button class="NavButton" type="button" name="button"> <a Class="NavLink"href="../index.html">Home</a> </button>
+    </nav>
+    <div class="grid-container">
+      <div>
+      </div>
+      <div>
+        <article class="BlogPost">
+
+          <h3 class="title">Day 10: Repairs to the Project</h3>
+
+          <p class="blogText">
+            Day 10 double digits finally. I have been doing a lot of work in-between stations and some play testing for the tic tac toe game todays post is going to be a lot more about the fixes I did and the new code I wrote. The computers AI is going to come tomorrow and be a pretty short post
+          </p>
+
+          <h4 class="sectionHeader">New Variables</h4>
+
+          <h5 class="codeTitle">New Variables Code</h5>
+          <pre>
+            <code>
+let gameStatus = 1;
+let aiPiece = "o";
+let playerPiece = "x";
+let moveCounter = 0;
+let playerCount = 2;
+
+            </code>
+          </pre>
+
+          <p class="blogText">
+          I added some new variables to help make the game move a little bit smoother. The first variable is game status. I made this so that a player can&apos;t click on the board when it&apos;s the computers turn or while the winning animation is going on. I am constantly changing the variable from 1 to 0. When it&apos;s zero the player can&apos;t click on the any tile.
+          </p>
+          <p class="blogText">
+            Next I have AI piece and player Piece. These variable help to make sure the computer is using the right piece when the game starts and if the player switches pieces it will also switch the computers piece this also helps for win conditions
+          </p>
+          <p class="blogText">
+            Move counter was added so that I could tell when cats games were happening. Whenever a move happens I increment the move counter up by one. Once it hits 9 I restart the game checks to see if someone wins and if not the board is reset
+          </p>
+          <p class="blogText">
+            Finally the player count. This is used to make sure that the computer knows if two people are  player or if the computer is playing the user.
+          </p>
+
+          <h4 class="sectionHeader">Hot Fixes </h4>
+          <p class="blogText">
+            Some of the functions that I wrote needed to be updated since the last time that I made them. This includes the move function, switch function, and the reset function
+          </p>
+
+          <h5 class="codeTitle">Move Function Code</h5>
+          <pre>
+            <code>
+              function  move(letter,obj){
+                  if ($(obj).children("p").text() != "x" && $(obj).children("p").text() != "o") {
+                    $(obj).children("p").text(letter)
+                    board[$(obj).children("p").attr("id")] = letter
+                    return "Correct"
+                  }else{
+                    return "error"
+                  }
+
+              }
+            </code>
+          </pre>
+          <p class="blogText">
+            The move function was changed to make sure the player wasn&apos;t adding a piece within a title that was already filled with a different piece. I did this by checking the title for either an x or an o. if there was nothing back the function returns correct otherwise it returns an error.
+          </p>
+
+          <h5 class="codeTitle">Switch Function Code</h5>
+          <pre>
+            <code>
+              function switchPlayer (letter){
+                if (letter == "x") {
+                  gameStatus = 1
+                  return "o";
+
+                }else{
+                  gameStatus = 1
+                  return "x";
+
+                }
+              }
+            </code>
+          </pre>
+          <p class="blogText">
+            Next the switch code didn&apos;t get much of an upgrade. All I did was add in that the game status would get updated to 1 in this function. This is just to give back the board to a player after the turn is over
+          </p>
+
+          <h5 class="codeTitle">Reset Function Code</h5>
+          <pre>
+            <code>
+              function boardReset(arr){
+                $(".Game-Piece").text(" ")
+                for (var i in arr) {
+                  arr[i] =""
+                }
+                moveCounter = 0
+
+              }
+            </code>
+          </pre>
+          <p class="blogText">
+            Finally the board reset got two upgrades. First off I added a loop so that I can throw the board array in this function and reset it as well. I did this because I kept running into the issue of the board looking clean but someone winning after one turn. Next I reset the move counter for the cats games.
+          </p>
+
+          <h4 class="sectionHeader">Button Functionality</h4>
+          <p class="blogText">
+            With this update I also added in some button functionality. All the buttons work now and work the way they need too.
+          </p>
+
+          <h5 class="codeTitle">Clear Function</h5>
+          <pre>
+            <code>
+              function clearScore(){
+                $(".Score").text("0")
+              }
+            </code>
+          </pre>
+          <h5 class="codeTitle">Reset and Clear score Button </h5>
+          <pre>
+            <code>
+              //Reset Game Button
+              $("#reset-button").click(function(){
+                boardReset(board)
+              })
+              //clear score button
+              $("#clear-score").click(function(){
+                clearScore()
+              })
+            </code>
+          </pre>
+          <p class="blogText">
+            First the reset and clear score button have been added and when they are clicked they will run the function that has been assigned to them. The new function here to look at is the clear score function. This function looks for the score classes which are all spans. Then it sets all the spans back to zero.
+          </p>
+
+          <h5 class="codeTitle">Switch pieces Fucntion </h5>
+          <pre>
+            <code>
+              function switchPieces(obj){
+                boardReset(board);
+                clearScore();
+                if ($(obj).text() == "x") {
+                  aiPiece = "o"
+                  playerPiece = "x"
+                }else{
+                  aiPiece = "x"
+                  playerPiece = "o"
+                }
+                return $(obj).text()
+              }
+            </code>
+          </pre>
+          <p class="blogText">
+            Next the way players switch pieces. I created a function that takes one argument and that&apos;s the button that is being pressed. The function will look to see if you have pressed the x or o button. Then it will switch the pieces accordingly for the computer and the player. If the player is playing a two player game the piece will be switched by a return function that returns the letter pressed.
+          </p>
+
+          <h5 class="codeTitle">Switch button code</h5>
+          <pre>
+            <code>
+              $(".switch-button").click(function(){
+                currentMove = switchPieces(this)
+              })
+            </code>
+          </pre>
+          <p class="blogText">
+            The switch button code is a simple on click listener that will run the function switch pieces once clicked.
+          </p>
+
+          <h5 class="codeTitle">Player Button Code</h5>
+          <pre>
+            <code>
+              $(".player-button").click(function(){
+                if ($(this).text()== "One Player") {
+                  playerCount = 1;
+                  boardReset(board)
+                  clearScore()
+                }else{
+                  playerCount = 2;
+                  boardReset(board)
+                  clearScore()
+                }
+              })
+            </code>
+          </pre>
+          <p class="blogText">
+            Finally the player count buttons. This function is a listener for the player buttons. Once it hears the click it will change the players to either one or two depending on which button is clicked. Then the board will be reset and the score cleared.
+          </p>
+
+          <p class="blogText">
+            I think that&apos;s it for today and tomorrow I going go into the details about the computer AI and the new game loop. Then that will close up everything about the project I have been working on the last few days.
+          </p>
+
+
+
+
+
+        </article>
+      </div>
+      <div>
+      </div>
+    </div>
+  </body>
+</html>

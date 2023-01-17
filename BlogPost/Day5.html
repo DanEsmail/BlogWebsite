@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <link rel="stylesheet" type="text/css" href="../CSS/BlogPost.CSS">
+    <link rel="icon" type="image/x-icon" href="/BlogPictures/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="charset" content="UTF-8">
+    <meta name="keywords" content="Journey, Programming, HMTL">
+    <meta name="description" content="My journey from being a progamming noob to a programing hero">
+    <title>Day 5</title>
+  </head>
+  <body>
+    <nav>
+      <a href="../index.html"><h1 id="mainTitle">Journey To Improve</h1></a> 
+      <button class="NavButton" type="button" name="button"><a Class="NavLink"href="../AboutMe.html">About Me</a></button>
+      <button class="NavButton" type="button" name="button"><a Class="NavLink"href="../ProjectPage.html">Projects</a></button>
+      <button class="NavButton" type="button" name="button"><a Class="NavLink"href="BlogNavigation.html">Blogs</a></button>
+      <button class="NavButton" type="button" name="button"> <a Class="NavLink"href="../index.html">Home</a> </button>
+    </nav>
+    <div class="grid-container">
+      <div>
+      </div>
+      <div>
+        <article class="BlogPost">
+
+          <h3 class="title">Day 5: Adding Content </h3>
+          <p class="blogText">
+            Day 5 is here and gone. I have started to flesh out my website a little more. There isn&apos;t a ton but it&apos;s a good start. The main things that got done today where a mockup of what the about me page and the blog navigation page is going to look like. These are both just the start of the pages and will be refined more.
+          </p>
+          <h4 class="sectionHeader">About Me Page</h4>
+          <p class="blogText">
+            I wanted the about me section to emulate the section that I have on the home page. This was going to be something have an image and a little bit about me. Here is the HTML and the CSS for the page minus the long text
+          </p>
+          <h5 class="codeTitle">HTML About me page Code</h5>
+          <pre>
+            <code>
+              &lt;body&gt;
+  &lt;nav&gt;
+    &lt;h1 id="mainTitle"&gt;Journey To Improve&lt;/h1&gt;
+    &lt;button class="NavButton" type="button" name="button"&gt;&lt;a Class="NavLink"href="#"&gt;About Me&lt;/a&gt;&lt;/button&gt;
+    &lt;button class="NavButton" type="button" name="button"&gt;&lt;a Class="NavLink"href="#"&gt;Projects&lt;/a&gt;&lt;/button&gt;
+    &lt;button class="NavButton" type="button" name="button"&gt;&lt;a Class="NavLink"href="BlogPost/BlogNavigation.html"&gt;Blogs&lt;/a&gt;&lt;/button&gt;
+    &lt;button class="NavButton" type="button" name="button"&gt; &lt;a Class="NavLink"href="index.html"&gt;Home&lt;/a&gt; &lt;/button&gt;
+  &lt;/nav&gt;
+  &lt;div class="grid-container"&gt;
+    &lt;div class=""&gt;
+
+    &lt;/div&gt;
+    &lt;div id="AboutMeSection"&gt;
+      &lt;div id="Profilepic"&gt;
+        &lt;p&gt; &lt;/p&gt;
+      &lt;/div&gt;
+      &lt;br&gt;
+      &lt;br&gt;
+      &lt;p class="AboutmeText"&gt;text &lt;/p&gt;
+      &lt;br&gt;
+      &lt;p class="AboutmeText"&gt;text&lt;/p&gt;
+        &lt;br&gt;
+        &lt;br&gt;
+    &lt;/div&gt;
+    &lt;div class=""&gt;
+
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;/body&gt;
+
+            </code>
+          </pre>
+          <h5 class="codeTitle">About me page CSS</h5>
+          <pre>
+            <code>
+              #mainTitle{
+  color:white;
+  text-align: left;
+  display: inline;
+  position: relative;
+  top: 1vw;
+  padding-left: 1vw;
+  font-size: 2vw;
+}
+.NavButton{
+  float: right;
+  position: relative;
+  font-size: 1vw;
+  top: 1.5vw;
+  background-color: Black;
+  color: white;
+  border-left: solid white 0.25vw;
+}
+nav{
+  background-color: Black;
+  height: 4vw;
+}
+.NavLink{
+    color: white;
+    text-decoration: none;
+  }
+  body{
+    background-color: gray;
+  }
+  .grid-container{
+    display: grid;
+    grid-template-columns: 30% 40% 30%;
+    grid-column-gap: 1vw;
+  }
+#AboutMeSection{
+  background-color: white;
+  text-align: center;
+
+}
+#Profilepic{
+  background-color: lightgray;
+  width: 15vw;
+  border-radius: 100%;
+  position: relative;
+  left: 12vw;
+  text-align:  center;
+  height: 15vw;
+}
+.AboutmeText{
+  padding: 0 5vw;
+}
+
+            </code>
+          </pre>
+          <p class="blogText">
+            The about me section only has two paragraph elements in it and some divs to create the container for the grid. The grid uses the same code as the blog pages to create a container using CSS.
+          </p>
+          <h4 class="sectionHeader">Blog Navigation Page</h4>
+          <p class="blogText">
+            Here is the code for it
+          </p>
+
+          <h5 class="codeTitle">Blog Navigation HTML Code</h5>
+          <pre>
+            <code>
+              &lt;body&gt;
+  &lt;nav&gt;
+    &lt;h1 id="mainTitle"&gt;Journey To Improve&lt;/h1&gt;
+    &lt;button class="NavButton" type="button" name="button"&gt;&lt;a Class="NavLink"href="../AboutMe.html"&gt;About Me&lt;/a&gt;&lt;/button&gt;
+    &lt;button class="NavButton" type="button" name="button"&gt;&lt;a Class="NavLink"href="#"&gt;Projects&lt;/a&gt;&lt;/button&gt;
+    &lt;button class="NavButton" type="button" name="button"&gt;&lt;a Class="NavLink"href="BlogNavigation.html"&gt;Blogs&lt;/a&gt;&lt;/button&gt;
+    &lt;button class="NavButton" type="button" name="button"&gt; &lt;a Class="NavLink"href="../index.html"&gt;Home&lt;/a&gt; &lt;/button&gt;
+  &lt;/nav&gt;
+  &lt;div class="grid-container"&gt;
+    &lt;div&gt;
+
+    &lt;/div&gt;
+    &lt;div id="blog-container"&gt;
+      &lt;h2 class="center"&gt;Blogs&lt;/h2&gt;
+      &lt;div class="BlogPostBox"&gt;
+        &lt;a class="blogLink" href="#"&gt;&lt;h3 class="BlogPostText"&gt;Day 5 Blog&lt;/h3&gt;&lt;/a&gt;
+      &lt;/div&gt;
+      &lt;div class="BlogPostBox"&gt;
+        &lt;a class="blogLink" href="Day4.html"&gt;&lt;h3 class="BlogPostText"&gt;Day 4: Blog Post Upgrade&lt;/h3&gt;&lt;/a&gt;
+      &lt;/div&gt;
+      &lt;div class="BlogPostBox"&gt;
+        &lt;a class="blogLink" href="Day3.html"&gt;&lt;h3 class="BlogPostText"&gt;Day 3: A Better Looking Site&lt;/h3&gt;&lt;/a&gt;
+      &lt;/div&gt;
+      &lt;div class="BlogPostBox"&gt;
+        &lt;a class="blogLink" href="Day2.html"&gt;&lt;h3 class="BlogPostText"&gt;Day 2: Basics and headers&lt;/h3&gt;&lt;/a&gt;
+      &lt;/div&gt;
+      &lt;div class="BlogPostBox"&gt;
+        &lt;a class="blogLink" href="Day1.html"&gt;&lt;h3 class="BlogPostText"&gt;Day 1: Staring a Blog and Website &lt;/h3&gt;&lt;/a&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div &gt;
+
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/body&gt;
+
+            </code>
+          </pre>
+
+          <h5 class="codeTitle">CSS Code for the Blog Navigation</h5>
+          <pre>
+            <code>
+              .grid-container{
+  display: grid;
+  grid-template-columns: 20% 60% 20%;
+  grid-column-gap: 1vw
+}
+.title{
+  text-align: center;
+  font-size: 2em;
+}
+#mainTitle{
+  color:white;
+  text-align: left;
+  display: inline;
+  position: relative;
+  top: 1vw;
+  padding-left: 1vw;
+  font-size: 2vw;
+}
+.NavButton{
+  float: right;
+  position: relative;
+  font-size: 1vw;
+  top: 1.5vw;
+  background-color: Black;
+  color: white;
+  border-left: solid white 0.25vw;
+}
+nav{
+  background-color: Black;
+  height: 4vw;
+}
+body{
+  background-color: gray;
+}
+.NavLink{
+  color: white;
+  text-decoration: none;
+}
+.grid-container{
+  display: grid;
+  grid-template-columns: 30% 40% 30%;
+  grid-column-gap: 1vw
+}
+#blog-container{
+  background-color: white;
+}
+.BlogPostBox{
+  background-color: black;
+  color: white;
+  height: 3vw;
+  border: solid white 0.1vw;
+}
+.center{
+  text-align: center;
+}
+.BlogPostText{
+  position: relative;
+  padding: 0.6vw;
+  margin: 0vw;
+}
+.blogLink{
+  text-decoration: none;
+  color: white;
+}
+
+            </code>
+          </pre>
+          <p class="blogText">
+            For the blog page I wanted to have a way that I could keep adding different blog posts in this for the future. The way that I achieved that is with a few divs to break up the sections. These way I have a good way to copy and paste a div above all the other blog posts. Then I just have to change the title and the link and I will have new navigation. Finally I made sure to do the grid again to bring everything in the middle. I have future plans for this page to add an animation on hover.
+          </p>
+          <h4 class="sectionHeader">Conclusion</h4>
+          <p class="blogText">
+            The very basics of the website have been made now. The only page left to make is the project page but that will wait till I have actually made a project. Some of the things that I will do in the near future is refresh my JavaScript and jQuery knowledge. I would also like to find a good way to automate adding pages to my website
+          </p>
+
+          <div class="HelpfulLinks">
+            <h4>Some Helpful links</h4>
+
+        </article>
+      </div>
+      <div>
+      </div>
+    </div>
+  </body>
+</html>

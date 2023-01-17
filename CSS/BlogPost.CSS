@@ -1,0 +1,46 @@
+.BlogPost{
+
+  background-color: white;
+  overflow: auto;
+  padding: 0.5em;
+}
+
+body{
+  background-color: gray;
+}
+
+.grid-container{
+  display: grid;
+  grid-template-columns: 20% 60% 20%;
+  grid-column-gap: 1vw
+}
+.title{
+  text-align: center;
+  font-size: 2em;
+}
+.blogText{
+  padding: 0 2vw;
+  font-size: 1.1em
+}
+
+pre{
+  height: 6vw;
+  overflow-y: scroll;
+  background-color: WhiteSmoke;
+  margin: 0 2vw;
+  border: solid black 0.1vw;
+
+}
+.codeTitle{
+  margin: 0 2vw;
+}
+code{
+    color: green
+}
+.HelpfulLinks{
+  text-align: center;
+}
+.sectionHeader{
+  margin: 2vw 2vw 1vw 2vw;
+  font-size: 1.25em
+}

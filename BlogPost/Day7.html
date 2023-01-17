@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <link rel="stylesheet" type="text/css" href="../CSS/BlogPost.CSS">
+    <link rel="icon" type="image/x-icon" href="/BlogPictures/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="charset" content="UTF-8">
+    <meta name="keywords" content="Journey, Programming, HMTL">
+    <meta name="description" content="My journey from being a progamming noob to a programing hero">
+    <title>Day 7</title>
+  </head>
+  <body>
+    <nav>
+      <a href="../index.html"><h1 id="mainTitle">Journey To Improve</h1></a> 
+      <button class="NavButton" type="button" name="button"><a Class="NavLink"href="../AboutMe.html">About Me</a></button>
+      <button class="NavButton" type="button" name="button"><a Class="NavLink"href="../ProjectPage.html">Projects</a></button>
+      <button class="NavButton" type="button" name="button"><a Class="NavLink"href="BlogNavigation.html">Blogs</a></button>
+      <button class="NavButton" type="button" name="button"> <a Class="NavLink"href="../index.html">Home</a> </button>
+    </nav>
+    <div class="grid-container">
+      <div>
+      </div>
+      <div>
+        <article class="BlogPost">
+
+          <h3 class="title">Day 7: transition and Projects </h3>
+          <h4 class="sectionHeader">About Me</h4>
+          <p class="blogText">
+            Alright one week into making blogs and improving. It’s been a good week and I think I can finally say that the whole website is up at the most basic level. I have just finished the project page but for the most part I am using the same html and CSS that the blog navigation page is using. Speaking of projects I’m working on my first JavaScript project this weekend and will hopefully have something up on Monday to play around with.
+          </p>
+
+          <h4 class="sectionHeader">CSS Transitions </h4>
+          <p class="blogText">
+            Lets talk about something I did do to add a little something to my site. CSS Transitions or one of them that is. I have added in a transition to change what is being hovered over in the blog navigation. This is the code for it. This is all CSS
+          </p>
+          <h5 class="codeTitle">CSS Code for transitions</h5>
+          <pre>
+            <code>
+              .BlogPostText{
+  position: relative;
+  padding: 0.6vw;
+  margin: 0vw;
+  -webkit-transition: background-color 0.5s ease-out;
+  -moz-transition: background-color 0.5s ease-out;
+  -o-transition: background-color 0.5s ease-out;
+  transition: background-color 0.5s ease-out;
+
+}
+
+.BlogPostText:hover{
+  color: black;
+  background-color: white;
+
+}
+
+            </code>
+          </pre>
+
+          <p class="blogText">
+            With the transition CSS name I was able to transition slowing when I change something with a pseudo class. The pseudo class being the hover for the text. I made sure that I used all the other definitions for it for webpages that don’t support it.
+Today is another short post but hopefully tomorrow we will be able to talk about my new project in detail
+
+          </p>
+
+
+          <div class="HelpfulLinks">
+            <h4>Some Helpful links</h4>
+            <a href="https://css-tricks.com/almanac/properties/t/transition/" target="_blank">transition tutorial</a><br>
+
+          </div>
+        </article>
+      </div>
+      <div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,164 @@
+
+#mainTitle{
+  color:white;
+  text-align: left;
+  display: inline;
+  position: relative;
+  top: 1vw;
+  padding-left: 1vw;
+  font-size: 2vw;
+}
+.NavButton{
+  float: right;
+  position: relative;
+  font-size: 1vw;
+  top: 1.5vw;
+  background-color: Black;
+  color: white;
+  border-left: solid white 0.25vw;
+}
+nav{
+  background-color: Black;
+  height: 4vw;
+}
+#titlecaption{
+  text-align: center;
+}
+.titleCenter{
+  text-align: center;
+
+}
+
+
+.leftSection{
+  float: left;
+  width: 66.6%;
+  height: 27.5em;
+}
+
+#ProjectSection{
+  background-color: lightgray;
+
+}
+
+#ProjectPicBox{
+  display: inline-block;
+  position: relative;
+  left: 1%;
+  width: 48%;
+
+  float: left;
+}
+img{
+  position: relative;
+  width: 13vw;
+  height: 13vw;
+  top: 1vw;
+  left: 1vw;
+}
+
+#ProjectPic{
+  width: 15vw;
+  height: 15vw;
+  background-color: black;
+}
+#projectDesGroup{
+  display: inline-block;
+  position: relative;
+  right: 1%;
+  width: 48%;
+  top: 4vw;
+  float: right;
+}
+#projectDes{
+  height: 10vw;
+
+  width: 80%;
+  font-size: 1em;
+}
+
+.tag{
+  background-color: black;
+  display: inline-block;
+  margin-right: 1vw;
+  padding: 0 0.4vw;
+  height: 2vw;
+  border-radius: 10%;
+}
+.tagText{
+  color: white;
+  position: relative;
+  bottom: 0.3vw
+}
+
+aside{
+  float: right;
+  background-color: white;
+  width: 33%;
+  height: 55em;
+  border: solid black 0.15vw;
+  border-top: none;
+}
+
+#Profilepic{
+  background-color: lightgray;
+  width: 10vw;
+  border-radius: 100%;
+  position: relative;
+  left: 11.5vw;
+  text-align:  center;
+  height: 10vw;
+}
+
+.profileDes{
+  text-align: center;
+  margin: 0 1vw;
+}
+
+.BlogArticle{
+  width: 10vw;
+  height: 15vw;
+  text-align: center;
+  display: inline-block;
+  margin-left: 2vw;
+  position: relative;
+  bottom: 1vw;
+  top: 1vw;
+
+
+}
+#blogBox{
+  display: flex;
+  align-items: baseline;
+
+}
+
+.blogTitle{
+  font-size: 1em;
+}
+
+.BlogDescrption{
+  width: 10vw;
+  height: 10vw;
+  background-color: black;
+}
+
+.blogdes{
+  color: white;
+  text-decoration: none;
+  padding: 0.2vw;
+}
+
+.blogLink{
+  text-decoration: none;
+}
+
+
+.title{
+  text-align: center;
+}
+
+.NavLink{
+  color: white;
+  text-decoration: none;
+}

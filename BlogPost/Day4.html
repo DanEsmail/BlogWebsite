@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <link rel="stylesheet" type="text/css" href="../CSS/BlogPost.CSS">
+    <link rel="icon" type="image/x-icon" href="/BlogPictures/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="charset" content="UTF-8">
+    <meta name="keywords" content="Journey, Programming, HMTL">
+    <meta name="description" content="My journey from being a progamming noob to a programing hero">
+    <title>Day 4</title>
+  </head>
+  <body>
+    <nav>
+      <a href="../index.html"><h1 id="mainTitle">Journey To Improve</h1></a> 
+      <button class="NavButton" type="button" name="button"><a Class="NavLink"href="../AboutMe.html">About Me</a></button>
+      <button class="NavButton" type="button" name="button"><a Class="NavLink"href="../ProjectPage.html">Projects</a></button>
+      <button class="NavButton" type="button" name="button"><a Class="NavLink"href="BlogNavigation.html">Blogs</a></button>
+      <button class="NavButton" type="button" name="button"> <a Class="NavLink"href="../index.html">Home</a> </button>
+    </nav>
+    <div class="grid-container">
+      <div>
+      </div>
+      <div>
+        <article class="BlogPost">
+
+          <h3 class="title">Day 4: Blog Post Upgrade  </h3>
+          <p class="blogText">
+            Day 4 another day in improving the look of my website. This one is way more focused on the blog post. I have made a new stylesheet for the blog post pages. I have also updated the HTML that I&apos;m going to be using for the blog post too. I&apos;m going to be throwing in the boiler plate code that I&apos;m using for my blog posts to show the code
+          </p>
+          <h5 class="codeTitle">Head and nav HTML Code</h5>
+          <pre>
+            <code>
+              &lt;head&gt;
+    &lt;link rel="stylesheet" type="text/css" href= "../CSS/BlogPost.CSS"&gt;
+    &lt;link rel="icon" type="image/x-icon" href="/BlogPictures/favicon.ico"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;meta name="charset" content="UTF-8"&gt;
+    &lt;meta name="keywords" content="Journey, Programming, HMTL"&gt;
+    &lt;meta name="description" content="My journey from being a progamming noob to a programing hero"&gt;
+    &lt;title&gt;Day &lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;nav&gt;
+      &lt;h1 id="mainTitle"&gt;Journey To Improve&lt;/h1&gt;
+      &lt;button class="NavButton" type="button" name="button"&gt;About Me&lt;/button&gt;
+      &lt;button class="NavButton" type="button" name="button"&gt;Blogs&lt;/button&gt;
+      &lt;button class="NavButton" type="button" name="button"&gt;Projects&lt;/button&gt;
+      &lt;button class="NavButton" type="button" name="button"&gt; &lt;a Class="NavLink"href="../index.html"&gt;Home&lt;/a&gt; &lt;/button&gt;
+    &lt;/nav&gt;
+
+            </code>
+          </pre>
+          <p class="blogText">
+            I wanted to take a quick parapgrah to talk about the head and the nav bar. These are both going to be just like the main page the only difference is I have added a button to the Navigation bar. The button that has been added to the navigation bar is a home button. This will take the user back to the home page. I did this because it was annoying to try and go back and forth before between the home and blogs. This button is the first one to actually work. Next thing that is different is the style sheet is now linking to a different location. This is to hold the new style sheet that will be used for the blog post. With the style sheets I plan to condense some of the common code in the future to reduce redundancy.
+
+          </p>
+          <h5 class="codeTitle">HTML Body Code</h5>
+          <pre>
+            <code>
+              &lt;div class="grid-container"&gt;
+      &lt;div&gt;
+      &lt;/div&gt;
+      &lt;div&gt;
+        &lt;article class="BlogPost"&gt;
+
+          &lt;h3 class="title"&gt;Day  &lt;/h3&gt;
+          &lt;p class="blogText"&gt;
+          &lt;/p&gt;
+          &lt;h5 class="codeTitle"&gt;HTML head code&lt;/h5&gt;
+          &lt;pre&gt;
+            &lt;code&gt;
+            &lt;/code&gt;
+          &lt;/pre&gt;
+
+
+          &lt;div class="HelpfulLinks"&gt;
+            &lt;h4&gt;Some Helpful links&lt;/h4&gt;
+            &lt;a href="https://www.favicon.cc/" target="_blank"&gt;Favicon Website&lt;/a&gt;&lt;br&gt;
+            &lt;a href="https://www.w3schools.com/html/default.asp" target="_blank"&gt;HTML Tutorial&lt;/a&gt;&lt;br&gt;
+            &lt;a href="https://www.w3schools.com/css/default.asp" target="_blank"&gt;CSS Tutorial&lt;/a&gt;
+          &lt;/div&gt;
+        &lt;/article&gt;
+      &lt;/div&gt;
+      &lt;div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/body&gt;
+
+            </code>
+          </pre>
+          <h5 class="codeTitle">CSS code for Blog</h5>
+          <pre>
+            <code>
+              .BlogPost{
+
+  background-color: white;
+  overflow: auto;
+  padding: 0.5em;
+}
+#mainTitle{
+  color:white;
+  text-align: left;
+  display: inline;
+  position: relative;
+  top: 1vw;
+  padding-left: 1vw;
+  font-size: 2vw;
+}
+.NavButton{
+  float: right;
+  position: relative;
+  font-size: 1vw;
+  top: 1.5vw;
+  background-color: Black;
+  color: white;
+  border-left: solid white 0.25vw;
+}
+nav{
+  background-color: Black;
+  height: 4vw;
+}
+body{
+  background-color: gray;
+}
+.NavLink{
+  color: white;
+  text-decoration: none;
+}
+.grid-container{
+  display: grid;
+  grid-template-columns: 20% 60% 20%;
+  grid-column-gap: 1vw
+}
+.title{
+  text-align: center;
+  font-size: 2em;
+}
+.blogText{
+  padding: 0 2vw;
+  font-size: 1.1em
+}
+
+pre{
+  height: 6vw;
+  overflow-y: scroll;
+  background-color: WhiteSmoke;
+  margin: 0 2vw;
+  border: solid black 0.1vw;
+
+}
+.codeTitle{
+  margin: 0 2vw;
+}
+code{
+    color: green
+}
+.HelpfulLinks{
+  text-align: center;
+}
+
+            </code>
+          </pre>
+
+          <p class="blogText">
+            Now let&apos;s get into the meat and potatoes of the code for the blog post. One first things that I changes with the blog posts is putting the actual post in the middle of the screen. I achieve this with the container class. Which can be any name as long as it has the display of grid. I just have to set up a div with a class and then any div that is a direct child of this class will be in the grid. Next to make the grid you need to have the attribute in your CSS of grid-template-columns or/and grid-template-rows. These attributes take in the width or height of amount of rows or columns you want. So if you want three columns you will need to put in three widths.
+            Next thing styling the code and the post text. This is something where I ended up looking at a few different blog post to have an idea of how they did and what I thought looks good. The main thing that I got was I wanted to contain the code so it doesn&apos;t take up everything and make the text the star of the show. With the text I changed it to a paragraph element so that it would automatically wrap once it hit the end of its container. I also made a few changes to font size and added padding on sides.
+            For the code I still wanted it to hold it&apos;s format so I left it as a pre element. Then I nested a code element so that the text would be styled the way I wanted it to. With the code since I wanted it only to take up small section I capped the height and made sure that overflow was set to scroll. This gave me the look that I wanted.
+            Now that&apos;s all a little shorter then yesterday. Tomorrow will most likely be an article about adding in the pages for the rest of the top links. I will also do some research in the coming days to refresh my brain with JavaScript and JQuery
+
+          </p>
+
+
+
+
+          <div class="HelpfulLinks">
+            <h4>Some Helpful links</h4>
+
+          </div>
+        </article>
+      </div>
+      <div>
+      </div>
+    </div>
+  </body>
+</html>

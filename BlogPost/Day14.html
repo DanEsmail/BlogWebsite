@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <link rel="stylesheet" type="text/css" href="../CSS/Navbar.CSS">
+    <link rel="stylesheet" type="text/css" href="../CSS/BlogPost.CSS">
+    <link rel="icon" type="image/x-icon" href="/BlogPictures/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="charset" content="UTF-8">
+    <meta name="keywords" content="Journey, Programming, HMTL">
+    <meta name="description" content="My journey from being a progamming noob to a programing hero">
+    <title>Day 14</title>
+  </head>
+  <body>
+    <header>
+      <h1><a id="header-title" href="../index.html">Journey <br> Of <br> Improvement</a></h1>
+    </header>
+
+    <nav class="main-nav">
+      <ul>
+        <li class="nav-button"><a class="nav-link" href="../index.html">Home</a></li>
+        <li class="nav-button">|</li>
+        <li class="nav-button"><a class="nav-link" href="../AboutMe.html">About Me</a></li>
+        <li class="nav-button">|</li>
+        <li class="nav-button"><a class="nav-link" href="BlogNavigation.html">Blogs</a></li>
+        <li class="nav-button">|</li>
+        <li class="nav-button"><a class="nav-link" href="../ProjectPage.html">Projects</a></li>
+        <li class="nav-button">|</li>
+        <li class="nav-button"><a class="nav-link" href="#">Skills</a></li>
+      </ul>
+    </nav>
+
+    <div class="grid-container">
+      <div>
+      </div>
+      <div>
+        <article class="BlogPost">
+
+          <h3 class="title">Day 14: Building out a Responsive HTML </h3>
+
+          <p class="blogText">
+            Today is the first look at actually building out the new webpage that is going to be my landing page. That has been a decent amount of research that has gone into this. Now it&apos;s all about practice. From most of the things that I have seen you need to build your html for the largest screen first and build your CSS for the smallest screen first. That's what I did and now let&apos;s talk about it.
+
+          </p>
+
+          <h4 class="sectionHeader">Header and Nav </h4>
+
+          <p class="blogText">
+            As I have been building out pages for the website I find that two things stay the same in my pages. That&apos;s the header and the navigation bar. Thinking like this one of the first things I did was split these into their own CSS file. I also took the time to split the two parts into different sections now.
+          </p>
+
+          <h5 class="codeTitle">Header and Nav Code</h5>
+          <pre>
+            <code>
+    &lt;header&gt;
+     &lt;h1&gt;&lt;a id="header-title" href="Home.html"&gt;Journey &lt;br&gt; Of &lt;br&gt; Improvement&lt;/a&gt;&lt;/h1&gt;
+   &lt;/header&gt;
+
+   &lt;nav class="main-nav"&gt;
+     &lt;ul&gt;
+       &lt;li class="nav-button"&gt;&lt;a class="nav-link" href="AboutMe.html"&gt;About Me&lt;/a&gt;&lt;/li&gt;
+       &lt;li class="nav-button"&gt;|&lt;/li&gt;
+       &lt;li class="nav-button"&gt;&lt;a class="nav-link" href="BlogPost/BlogNavigation.html"&gt;Blogs&lt;/a&gt;&lt;/li&gt;
+       &lt;li class="nav-button"&gt;|&lt;/li&gt;
+       &lt;li class="nav-button"&gt;&lt;a class="nav-link" href="ProjectPage.html"&gt;Projects&lt;/a&gt;&lt;/li&gt;
+       &lt;li class="nav-button"&gt;|&lt;/li&gt;
+       &lt;li class="nav-button"&gt;&lt;a class="nav-link" href="#"&gt;Skills&lt;/a&gt;&lt;/li&gt;
+     &lt;/ul&gt;
+   &lt;/nav&gt;
+
+            </code>
+          </pre>
+
+          <p class="blogText">
+            First things first the header will go inside a header tag. I wanted the title to be something that stood out right from the get go. I love the look of something that is centered in the page and takes up a few lines when it&apos;s long. It makes me think of a movie title. That is why I added in the line  breaks between words.
+          </p>
+
+          <p class="blogText">
+            Next let&apos;s talk about the navigation bar. I have seen in a lot of tutorials for the nav to be list items and this is where my decision came from. I also have an idea for a new page so I have added in the section for skills. I&apos;ll talk about that more once I have the page up and running. Next with the list items I obviously want to link everything to other pages so I added anchor elements and classed then nav links. I always name the element that holds the link something different so that I can take away the navigation link underline later on. Lastly I added in pipes to help add some separation.
+          </p>
+
+          <h4 class="sectionHeader">Main Section</h4>
+
+          <p class="blogText">
+            When building the body of this page I tried to think about how it&apos;s going to look on a cell phone and how it&apos;s going to look on a desktop. I knew each section was going to hold two elements. When the user is on the phone I want the elements to be stacked on top of each other. While on the desktop I want the elements to be next to each other.  I also want in both cases the elements to have a little space away from the edges of the page.
+          </p>
+
+          <h5 class="codeTitle">About me Section HTML</h5>
+          <pre>
+            <code>
+              &lt;main class="grid-container"&gt;
+      &lt;section id="about-me" class="grid-box"&gt;
+        &lt;div class="padding-grid"&gt;
+
+        &lt;/div&gt;
+        &lt;div class=""&gt;
+          &lt;h2&gt;About Me&lt;/h2&gt;
+          &lt;picture&gt;
+            &lt;a href="AboutMe.html"&gt;
+            &lt;img src="BlogPictures/About-me.jpg" alt=""&gt;
+            &lt;/a&gt;
+          &lt;/picture&gt;
+        &lt;/div&gt;
+        &lt;div class="padding-grid"&gt;
+
+        &lt;/div&gt;
+        &lt;div class="padding-grid"&gt;
+
+        &lt;/div&gt;
+        &lt;div class=""&gt;
+          &lt;p class="about-me-text"&gt;Hi I&apos;m Daniel Esmail. I&apos;m a Novice Programmer and working on my skills to become a better program.&lt;/p&gt;
+          &lt;p class="about-me-text"&gt;One of my goals for the new year was to program every day or learn about programming every day. The way that I&apos;m going to do that is through this website.&lt;/p&gt;
+          &lt;p class="about-me-text"&gt;So sit back and enjoy and maybe me stumbling through this will help you or someone you know&lt;/p&gt;
+        &lt;/div&gt;
+        &lt;div class="padding-grid"&gt;
+
+        &lt;/div&gt;
+      &lt;/section&gt;
+
+            </code>
+          </pre>
+
+          <p class="blogText">
+            The first section that I wanted to lead with was the about me section. This was going to have my picture and a little bit about me. Those were going to be my two elements for my section. Both of those would be put into a div to be considered part of my grid. Next I knew I wanted the spaces between the elements and the wall so I added 4 more divs to be padding between the walls. For the picture I wanted it to be a link too so I added an anchor tag to it. For the little section where I talk about myself I ended up making three paragraph elements to add some spacing.
+          </p>
+
+          <h5 class="codeTitle">Blog Section HTML</h5>
+          <pre>
+            <code>
+              &lt;section id="blogs" class="grid-box"&gt;
+        &lt;div class="padding-grid"&gt;
+
+        &lt;/div&gt;
+        &lt;div class=""&gt;
+          &lt;div class="blog-post-box"&gt;
+            &lt;a href="#" class="blog-post-text"&gt;Day 13: Flexbox &amp; CSS Grid&lt;/a&gt;
+          &lt;/div&gt;
+          &lt;div class="blog-post-box"&gt;
+            &lt;a href="#" class="blog-post-text"&gt;Day 12: Responsive Design&lt;/a&gt;
+          &lt;/div&gt;
+          &lt;div class="blog-post-box"&gt;
+            &lt;a href="#" class="blog-post-text"&gt;Day 11: Computer AI&lt;/a&gt;
+          &lt;/div&gt;
+          &lt;div class="blog-post-box"&gt;
+            &lt;a href="#" class="blog-post-text"&gt;Day 10: Project Repairs&lt;/a&gt;
+          &lt;/div&gt;
+          &lt;div class="blog-post-box"&gt;
+            &lt;a href="#" class="blog-post-text"&gt;Day 9: First JavaScript App&lt;/a&gt;
+          &lt;/div&gt;
+          &lt;div class="blog-post-box"&gt;
+            &lt;a href="#" class="blog-post-text"&gt;Day 8: Building Tic Tac Toe&lt;/a&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class="padding-grid"&gt;
+
+        &lt;/div&gt;
+        &lt;div class="padding-grid"&gt;
+
+        &lt;/div&gt;
+        &lt;div class=""&gt;
+
+          &lt;div id="calendar" &gt;
+            &lt;h3&gt;January &lt;br&gt; 2023&lt;/h3&gt;
+            &lt;table class="center"&gt;
+              &lt;thead&gt;
+                &lt;th&gt;Sun&lt;/th&gt;
+                &lt;th&gt;Mon&lt;/th&gt;
+                &lt;th&gt;Tue&lt;/th&gt;
+                &lt;th&gt;Wed&lt;/th&gt;
+                &lt;th&gt;Thu&lt;/th&gt;
+                &lt;th&gt;Fri&lt;/th&gt;
+                &lt;th&gt;Sat&lt;/th&gt;
+              &lt;/thead&gt;
+              &lt;tbody&gt;
+                &lt;tr&gt;
+                  &lt;td&gt;1&lt;/td&gt;
+                  &lt;td&gt;2&lt;/td&gt;
+                  &lt;td&gt;3&lt;/td&gt;
+                  &lt;td&gt;4&lt;/td&gt;
+                  &lt;td&gt;5&lt;/td&gt;
+                  &lt;td&gt;6&lt;/td&gt;
+                  &lt;td&gt;7&lt;/td&gt;
+                &lt;/tr&gt;
+                &lt;tr&gt;
+                  &lt;td&gt;8&lt;/td&gt;
+                  &lt;td&gt;9&lt;/td&gt;
+                  &lt;td&gt;10&lt;/td&gt;
+                  &lt;td&gt;11&lt;/td&gt;
+                  &lt;td&gt;12&lt;/td&gt;
+                  &lt;td&gt;13&lt;/td&gt;
+                  &lt;td&gt;14&lt;/td&gt;
+                &lt;/tr&gt;
+                &lt;tr&gt;
+                  &lt;td&gt;15&lt;/td&gt;
+                  &lt;td&gt;16&lt;/td&gt;
+                  &lt;td&gt;17&lt;/td&gt;
+                  &lt;td&gt;18&lt;/td&gt;
+                  &lt;td&gt;19&lt;/td&gt;
+                  &lt;td&gt;20&lt;/td&gt;
+                  &lt;td&gt;21&lt;/td&gt;
+                &lt;/tr&gt;
+                &lt;tr&gt;
+                  &lt;td&gt;22&lt;/td&gt;
+                  &lt;td&gt;23&lt;/td&gt;
+                  &lt;td&gt;24&lt;/td&gt;
+                  &lt;td&gt;25&lt;/td&gt;
+                  &lt;td&gt;26&lt;/td&gt;
+                  &lt;td&gt;27&lt;/td&gt;
+                  &lt;td&gt;28&lt;/td&gt;
+                &lt;/tr&gt;
+                &lt;tr&gt;
+                  &lt;td&gt;29&lt;/td&gt;
+                  &lt;td&gt;30&lt;/td&gt;
+                  &lt;td&gt;31&lt;/td&gt;
+                  &lt;td&gt;1&lt;/td&gt;
+                  &lt;td&gt;2&lt;/td&gt;
+                  &lt;td&gt;3&lt;/td&gt;
+                  &lt;td&gt;4&lt;/td&gt;
+                &lt;/tr&gt;
+              &lt;/tbody&gt;
+            &lt;/table&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class="padding-grid"&gt;
+
+        &lt;/div&gt;
+      &lt;/section&gt;
+
+            </code>
+          </pre>
+
+          <p class="blogText">
+            The next section I wanted users to see was the blog section. I like the idea of having the most recent blogs on the front page with their titles. I also have this crazy idea of adding in an area that will show a calendar where the user can click on a day and see the blog for that day. Those items will be the two elements for my page and will get their own div container. There will also be padding
+          </p>
+
+          <p class="blogText">
+            For the calendar section I have started to use a table to build out the start of the calendar. I&apos;m still trying to think of a way to make it function by changing months.
+
+          </p>
+
+          <h5 class="codeTitle">Proejct Sectino HTML</h5>
+          <pre>
+            <code>
+              &lt;section class="grid-box" id="projects"&gt;
+      &lt;div class="padding-grid"&gt;
+
+      &lt;/div&gt;
+      &lt;div class=""&gt;
+        &lt;h2&gt;Projects&lt;/h2&gt;
+        &lt;picture&gt;
+          &lt;a href="Projects/HTML/TICTACTOE.html"&gt;
+            &lt;img src="BlogPictures/TicTacToe.JPG" alt=""&gt;
+          &lt;/a&gt;
+
+        &lt;/picture&gt;
+      &lt;/div&gt;
+      &lt;div class="padding-grid"&gt;
+
+      &lt;/div&gt;
+      &lt;div class="padding-grid"&gt;
+
+      &lt;/div&gt;
+      &lt;div class=""&gt;
+        &lt;h2&gt;Tic Tac Toe&lt;/h2&gt;
+        &lt;p&gt;This is my first Project of the year. I wanted to create something
+        that I have made before with some complexity. I landed on a game of
+      tic tac toe. Since I have build that when I was learning with FreeCodeCamp&lt;/p&gt;
+      &lt;br&gt;
+      &lt;div class="tag-box"&gt;
+        &lt;span class="tag"&gt;&lt;a href="#"class="tag-link"&gt;HTML&lt;/a&gt;&lt;/span&gt;
+        &lt;span class="tag"&gt;&lt;a href="#"class="tag-link"&gt;CSS&lt;/a&gt;&lt;/span&gt;
+        &lt;span class="tag"&gt;&lt;a href="#"class="tag-link"&gt;JavaScript&lt;/a&gt;&lt;/span&gt;
+        &lt;span class="tag"&gt;&lt;a href="#"class="tag-link"&gt;JQuery&lt;/a&gt;&lt;/span&gt;
+        &lt;span class="tag"&gt;&lt;a href="#"class="tag-link"&gt;Game&lt;/a&gt;&lt;/span&gt;
+        &lt;span class="tag"&gt;&lt;a href="#"class="tag-link"&gt;Simple AI&lt;/a&gt;&lt;/span&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class="padding-grid"&gt;
+
+      &lt;/div&gt;
+    &lt;/section id="projects"&gt;
+
+
+            </code>
+          </pre>
+
+          <p class="blogText">
+            Finally, let's talk about the project section of the landing page. This is going to be an area for the most recent projects on the page. This will have a picture and a small section to talk about the project. The picture is easy and I did the same thing that I did for the about me section. Next to that will be the description of the project and tags for the project. I plan to later have the project tags have links so a user can find a project similar to it.
+          </p>
+
+          <p class="blogText">
+            Now that is the html for the responsive landing page. There is still a lot more to do. Tomorrow I will talk about the CSS that is going to make this responsive. Then it&apos;s a rush to try and make every other page responsive too
+          </p>
+
+
+
+
+        </article>
+      </div>
+      <div>
+      </div>
+    </div>
+  </body>
+</html>

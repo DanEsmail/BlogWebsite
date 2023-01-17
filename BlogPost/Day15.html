@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <link rel="stylesheet" type="text/css" href="../CSS/Navbar.CSS">
+    <link rel="stylesheet" type="text/css" href="../CSS/BlogPost.CSS">
+    <link rel="icon" type="image/x-icon" href="/BlogPictures/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="charset" content="UTF-8">
+    <meta name="keywords" content="Journey, Programming, HMTL">
+    <meta name="description" content="My journey from being a progamming noob to a programing hero">
+    <title>Day 15 </title>
+  </head>
+  <body>
+    <header>
+      <h1><a id="header-title" href="index.html">Journey <br> Of <br> Improvement</a></h1>
+    </header>
+
+    <nav class="main-nav">
+      <ul>
+        <li class="nav-button"><a class="nav-link" href="../index.html">Home</a></li>
+        <li class="nav-button">|</li>
+        <li class="nav-button"><a class="nav-link" href="../AboutMe.html">About Me</a></li>
+        <li class="nav-button">|</li>
+        <li class="nav-button"><a class="nav-link" href="BlogNavigation.html">Blogs</a></li>
+        <li class="nav-button">|</li>
+        <li class="nav-button"><a class="nav-link" href="../ProjectPage.html">Projects</a></li>
+        <li class="nav-button">|</li>
+        <li class="nav-button"><a class="nav-link" href="#">Skills</a></li>
+      </ul>
+    </nav>
+    <div class="grid-container">
+      <div>
+      </div>
+      <div>
+        <article class="BlogPost">
+
+          <h3 class="title">Day 15: Responsive HomePage CSS</h3>
+          <p class="blogText">
+            Now for the meat and potatoes of the responsive page. There were really two things that I used to make my page a lot more responsive. That was media breaks and CSS Grid. both in conjunction got my homepage where I wanted it for now.
+          </p>
+
+          <h4 class="sectionHeader">Media Breaks and CSS Grid</h4>
+          <p class="blogText">
+          </p>
+          <h5 class="codeTitle">Homepage CSS</h5>
+          <pre>
+            <code>
+@media  (max-width: 480px) {
+  img{
+    width:100%;
+    max-width: 20em;
+  }
+  .grid-box{
+    display: grid;
+    justify-content: center;
+    text-align: center;
+    grid-template-columns: 1fr 80% 1fr;
+  }
+}
+
+@media (min-width: 481px) and (max-width: 768px){
+  img{
+    width: 100%;
+    max-width: 50em;
+  }
+  .grid-box{
+    display: grid;
+    justify-content: center;
+    text-align: center;
+    grid-template-columns: 1fr 80% 1fr;
+  }
+}
+
+@media (min-width: 769px) {
+  img{
+    width: 100%;
+    max-width: 50em;
+  }
+  .grid-box{
+    display: grid;
+    justify-content: center;
+    text-align: center;
+    grid-template-columns: 1fr 30% 0 5% 30% 1fr;
+    align-items: end;
+  }
+  section{
+    margin-bottom: 5em
+  }
+  #projects{
+    align-items: start;
+  }
+}
+
+            </code>
+          </pre>
+          <p class="blogText">
+            Now I broke up the file into three different media breaks. I know there are a few more common media breaks then just three. For my use I really only needed the three. First off I had anything smaller than 481 px. This is used for phones. Anything within this break would be following a stacked method that we will talk about in the next section. Next week had anything between 481 and 760. This is used for tables and small monitors. This is also going to be a more stacked layout. Finally the desktop. This layout is going to be used for desktop and will have a layout with elements next to each other.
+          </p>
+          <p class="blogText">
+            When I was building this website A homepage There were two layouts that I wanted. A stacked one that would have all the elements on top of eachother. The other layout would be anything in the same section would be next to each other. So every section has sic divs in it. These are all the grid items. When working with cell phones and tables I wanted the stacked option. With this in mind I made the CSS grid have three columns and two rows. This allowed me to make the middle column take up the most space while using the outside columns to give the content padding from the walls of the window.
+          </p>
+          <p class="blogText">
+            When I was on the desktop I wanted everything in one row. I accomplished this by only giving the grid six columns and only one row. Then any column I didn't need I gave it zero width. This is how I accomplished the look I wanted.
+          </p>
+          <p class="blogText">
+            This was all I did for CSS for the page. There were a few more CSS things I did for the page but they are universal and we have gone over it a few times so I didn’t want to bore you.
+          </p>
+          <p class="blogText">
+            This is the end of the Responsive web page series. I will be going through the website and fixing the pages within to make them more responsive, but I won’t be blogging this so as to not keep putting out the same rehashed content over and over again. Tomorrow is going to be a research day. Probably going to look into either git or PHP. come back tomorrow to find out what.
+          </p>
+
+
+        </article>
+      </div>
+      <div>
+      </div>
+    </div>
+  </body>
+</html>

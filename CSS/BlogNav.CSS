@@ -1,0 +1,77 @@
+.grid-container{
+  display: grid;
+  grid-template-columns: 20% 60% 20%;
+  grid-column-gap: 1vw
+}
+.title{
+  text-align: center;
+  font-size: 2em;
+}
+#mainTitle{
+  color:white;
+  text-align: left;
+  display: inline;
+  position: relative;
+  top: 1vw;
+  padding-left: 1vw;
+  font-size: 2vw;
+}
+.NavButton{
+  float: right;
+  position: relative;
+  font-size: 1vw;
+  top: 1.5vw;
+  background-color: Black;
+  color: white;
+  border-left: solid white 0.25vw;
+}
+nav{
+  background-color: Black;
+  height: 4vw;
+}
+body{
+  background-color: gray;
+}
+.NavLink{
+  color: white;
+  text-decoration: none;
+}
+.grid-container{
+  display: grid;
+  grid-template-columns: 30% 40% 30%;
+  grid-column-gap: 1vw
+}
+#blog-container{
+  background-color: white;
+}
+.BlogPostBox{
+  background-color: black;
+  color: white;
+  height: 3vw;
+  border: solid white 0.1vw;
+  transition-timing-function: ease;
+
+}
+.center{
+  text-align: center;
+}
+.BlogPostText{
+  position: relative;
+  padding: 0.6vw;
+  margin: 0vw;
+  -webkit-transition: background-color 0.5s ease-out;
+  -moz-transition: background-color 0.5s ease-out;
+  -o-transition: background-color 0.5s ease-out;
+  transition: background-color 0.5s ease-out;
+
+}
+.blogLink{
+  text-decoration: none;
+  color: white;
+    text-align: center;
+}
+.BlogPostText:hover{
+  color: black;
+  background-color: white;
+
+}

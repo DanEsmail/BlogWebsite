@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <link rel="stylesheet" type="text/css" href="../../CSS/BlogPost.CSS">
+    <link rel="stylesheet" type="text/css" href="../CSS/TTT.CSS">
+    <link rel="icon" type="image/x-icon" href="/BlogPictures/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="charset" content="UTF-8">
+    <meta name="keywords" content="Journey, Programming, HMTL">
+    <meta name="description" content="My journey from being a progamming noob to a programing hero">
+    <title>Tic Tac Toe</title>
+  </head>
+  <body>
+    <nav>
+      <a href="../../index.html"><h1 id="mainTitle">Journey To Improve</h1></a> 
+      <button class="NavButton" type="button" name="button"><a Class="NavLink"href="../../AboutMe.html">About Me</a></button>
+      <button class="NavButton" type="button" name="button"><a Class="NavLink"href="../../ProjectPage.html">Projects</a></button>
+      <button class="NavButton" type="button" name="button"><a Class="NavLink"href="../../BlogPost/BlogNavigation.html">Blogs</a></button>
+      <button class="NavButton" type="button" name="button"> <a Class="NavLink"href="../../index.html">Home</a> </button>
+    </nav>
+    <h1>Tic Tac Toe Game</h1>
+    <div class="grid-container">
+      <div class="side">
+        <h3>Players</h3>
+        <button type="button" name="button" id="one-player" class="player-button">One Player</button>
+        <button type="button" name="button" id="two-player" class="player-button">Two Player</button>
+        <h3>Player 1's Piece</h3>
+        <p>(Resets Scores)</p>
+        <button type="button" name="button" class="switch-button">x</button>
+        <button type="button" name="button" class="switch-button">o</button><br><br>
+        <h3>Reset Options</h3>
+        <button type="button" name="button" id="reset-button">Reset</button>
+        <button type="button" name="button" id="clear-score">Clear Score</button>
+      </div>
+      <div class="side Tac-Board">
+        <div class="padding-box">
+          <p class="Game-Piece">  </p>
+        </div>
+        <div class="Tac-Square">
+          <p id="0" class="Game-Piece"> </p>
+        </div>
+        <div class="Tac-Square">
+          <p id="1" class="Game-Piece"> </p>
+        </div>
+        <div class="Tac-Square">
+          <p id="2" class="Game-Piece"> </p>
+        </div>
+        <div class="padding-box">
+          <p class="Game-Piece"></p>
+        </div>
+        <div class="padding-box">
+          <p class="Game-Piece"></p>
+        </div>
+        <div class="Tac-Square">
+          <p id="3" class="Game-Piece"> </p>
+        </div>
+        <div class="Tac-Square">
+          <p id="4" class="Game-Piece"> </p>
+        </div>
+        <div class="Tac-Square">
+          <p id="5" class="Game-Piece"> </p>
+        </div>
+        <div class="padding-box">
+          <p  class="Game-Piece"></p>
+        </div>
+        <div class="padding-box">
+          <p class="Game-Piece"></p>
+        </div>
+        <div class="Tac-Square">
+          <p id="6" class="Game-Piece"> </p>
+        </div>
+        <div class="Tac-Square">
+          <p id="7" class="Game-Piece"> </p>
+        </div>
+        <div class="Tac-Square">
+          <p id="8" class="Game-Piece"> </p>
+        </div>
+        <div class="padding-box">
+          <p class="Game-Piece"> </p>
+        </div>
+
+      </div>
+      <div class="side">
+        <h3>Score</h3>
+        <p>X: <span id="x-points" class="Score">0</span></p>
+        <p>O: <span id="o-points" class="Score">0</span></p>
+        <p>Cats: <span id="cats-points" class="Score">0</span></p>
+      </div>
+
+    </div>
+    <div id="rules">
+      <h2>Rules</h2>
+
+        <p>1.) The game is played within the 3x3 grid</p>
+        <p>2.) you get one turn and then it switches to the other player</p>
+        <p>3.) first player to have 3 in a row wins</p>
+
+
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script type="text/javascript" src="../JS/TTT.js"></script>
+
+  </body>
+</html>

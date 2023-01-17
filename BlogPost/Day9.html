@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <link rel="stylesheet" type="text/css" href="../CSS/BlogPost.CSS">
+    <link rel="icon" type="image/x-icon" href="/BlogPictures/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="charset" content="UTF-8">
+    <meta name="keywords" content="Journey, Programming, HMTL">
+    <meta name="description" content="My journey from being a progamming noob to a programing hero">
+    <title>Day 9</title>
+  </head>
+  <body>
+    <nav>
+      <a href="../index.html"><h1 id="mainTitle">Journey To Improve</h1></a> 
+      <button class="NavButton" type="button" name="button"><a Class="NavLink"href="../AboutMe.html">About Me</a></button>
+      <button class="NavButton" type="button" name="button"><a Class="NavLink"href="../ProjectPage.html">Projects</a></button>
+      <button class="NavButton" type="button" name="button"><a Class="NavLink"href="BlogNavigation.html">Blogs</a></button>
+      <button class="NavButton" type="button" name="button"> <a Class="NavLink"href="../index.html">Home</a> </button>
+    </nav>
+    <div class="grid-container">
+      <div>
+      </div>
+      <div>
+        <article class="BlogPost">
+
+          <h3 class="title">Day 9:First JavaScript Project  </h3>
+
+          <p class="blogText">
+            I have been reading up on a whole lot of JavaScript and JQuery while getting ready to code again. These were the first coding languages I was introduced to so I think it&apos;s fitting that these are the first one&apos;s I&apos;m working with here. When I set up my code the first couple of things that I wanted to set up was some comments to help me know what I was doing with the game.
+          </p>
+
+          <h4 class="sectionHeader">Stating The game moves</h4>
+          <h5 class="codeTitle">Move function and starting variables</h5>
+          <pre>
+            <code>
+              //start game
+              let currentMove = "x";
+              const board = ["","","","","","","","","",""]
+
+              //play Game function
+              function  move(letter,obj){
+                  $(obj).children("p").text(letter)
+                  board[$(obj).children("p").attr("id")] = letter
+              }
+            </code>
+          </pre>
+
+          <p class="blogText">
+            First thing that I need to do was set up the variables that I needed too. I wanted an array to hold the board. This way I could tell which spot held what players move. Next I wanted to have a variable that I could change for whose turn it was. I did that by setting a variable and it will switch between x&apos;s and o&apos;s. After that I had to work on the game play. I needed a way for a player to move and for the players to switch.
+          </p>
+          <p class="blogText">
+            First for the move function I used some jQuery and JavaScript. The prams will be letter which will be the current players move so and x or and o. the object will be whatever div the player presses on. This will make it so that the current div changes. Next the code inside. I have the first line using the objects child which is the paragraph element to change to the letter. The second line looks at what number is in the id of the paragraph. This will correspond to a spot in the array that is set for the board placing either an x or an o. with this the move is set up
+          </p>
+          <h5 class="codeTitle">Switch Player Function</h5>
+          <pre>
+            <code>
+              function switchPlayer (letter){
+                if (letter == "x") {
+                  return "o";
+                }else{
+                  return "x";
+                }
+              }
+
+            </code>
+          </pre>
+          <p class="blogText">
+            Next was how to switch players. This was going to be an easy function. I set one argument to be the letter of the move. I did this because the function will switch the currentmove variable based on the last move that was played.
+          </p>
+
+          <h4 class="sectionHeader">End Game Functions</h4>
+          <p class="blogText">
+            I&apos;m going to work backwards to explain my functions since the thing that happens first will need help from everything that comes after.
+          </p>
+
+          <h5 class="codeTitle">Reset Board Function</h5>
+          <pre>
+            <code>
+              function boardReset(){
+                $(".Game-Piece").text(" ")
+              }
+            </code>
+          </pre>
+          <p class="blogText">
+            The first function to talk about is the how we are going to reset the board after the game is over. The reset function is a basic function with no returns and no parameters. The only line in the code sets all the elements that have the class of game-piece to a blank string. This will reset the board.
+          </p>
+          <h5 class="codeTitle">Add Score Function</h5>
+          <pre>
+            <code>
+              function addScore(letter){
+                let currentScore = parseInt($("#"+letter+"-points").text())
+                let newscore = currentScore + 1
+                $("#"+letter+"-points").text(newscore)
+              }
+            </code>
+          </pre>
+          <p class="blogText">
+            Next the add score function this function will add a score to the winning player. The parameter will be the letter of the winning player. Then the code will look at the score in html of the winning player. It will hold that number in code add one and then change the score on screen to the new one.
+          </p>
+          <h5 class="codeTitle">Wingame function</h5>
+          <pre>
+            <code>
+              function winGame(letter){
+                  let sequance = 1
+                 wininterval = setInterval(function () {
+                  if (sequance == 1) {
+                    $(".Tac-Square").css("background-color","Green")
+                    sequance = 0;
+                  }else {
+                    $(".Tac-Square").css("background-color","white")
+                    sequance = 1;
+                  }
+
+                }, 500);
+                setTimeout(function(){
+                  clearInterval(wininterval)
+                  boardReset();
+                },3000)
+              }
+            </code>
+          </pre>
+          <p class="blogText">
+            Then we get on to a bit more of a flash function the wingame function. This is purely to add some visual effect when a player wins. The parameter will be the letter of the winning player. Next I have a set interval which will shoot off every 0.5 seconds and a set timeout which will stop the interval after 3 seconds. I need a way to change the color of boxes and let the computer know which color is up. To solve this I used a variable that will change from 1 when it&apos;s green to 0 when it&apos;s white. Finally we set everything together and we have a board that flashes from green to white every 0.5 seconds for 3 seconds.
+          </p>
+          <h5 class="codeTitle">Wincheck function</h5>
+          <pre>
+            <code>
+              function winCheck(letter,arr){
+
+                if (arr[4] == letter) {
+                  if (arr[3] == letter) {
+                    if (arr[5] == letter) {
+                      winGame(letter);
+                      addScore(letter);
+
+                    }
+                  }else if (arr[1] == letter) {
+                    if (arr[7] == letter) {
+                      winGame(letter);
+                      addScore(letter);
+
+                    }
+                  }else if (arr[0] == letter) {
+                    if (arr[8] == letter) {
+                      winGame(letter);
+
+                    }
+                  }else if (arr[2] == letter) {
+                    if (arr[6] == letter) {
+                      winGame(letter);
+                      addScore(letter);
+
+                    }
+                  }
+                }
+                if (arr[6] == letter) {
+                  if (arr[3]== letter) {
+                    if (arr[0] == letter) {
+                      winGame(letter);
+                      addScore(letter);
+
+                    }
+                  }else if (arr[7]==letter) {
+                    if (arr[8] == letter) {
+                      winGame(letter);
+                      addScore(letter);
+
+                    }
+                  }
+                }
+                if (arr[2] == letter) {
+                  if (arr[1] == letter) {
+                    if (arr[0] == letter) {
+                      winGame(letter);
+                      addScore(letter);
+
+                    }
+                  }else if (arr[5] == letter) {
+                    if (arr[8] == letter) {
+                      winGame(letter);
+                      addScore(letter);
+
+                    }
+                  }
+                }
+              }
+            </code>
+          </pre>
+          <p class="blogText">
+            Finally we have a long simple piece of code the wincheck function. This function will take two parameters. The first one is the letter that is being checked to see if the player won and the second is the array of the board. Now in tic tac toe there are only eight configurations that will win the game. I used three different if functions to look for a spot on the board that these configurations had to go through. Having a piece in the middle give you 4 chances. Then to get the other 4 I checked for a piece in the top corner and a piece in the opposite bottom corner. Now in each of these if function I have nested ifs that look to see if the player has the other two boxes needed to win. If so the game will be won, the board will flash and then reset as the score updates.
+          </p>
+
+          <h4 class="sectionHeader">Game Loop</h4>
+          <h5 class="codeTitle">GameLoop Function</h5>
+          <pre>
+            <code>
+              //game loop
+              $(".Tac-Square").click(function(){
+                move(currentMove,this)
+                winCheck(currentMove,board)
+                currentMove = switchPlayer(currentMove);
+              })
+            </code>
+          </pre>
+          <p class="blogText">
+            Finally let&apos;s talk about the game loop. This is where the function that controls the game and tell the computer when to use each function will go. First the game loop gets started when a player clicks on a div. this will put a piece in the spot that is going to get played. Once a piece is played it will look to see if the player wins. If they win the game will reset if not the next player will go and the piece will be switched.
+          </p>
+
+          <p class="blogText">
+            Now there is still a lot of work that has to get put into this. I want to add a computer player and then I also need to make sure that a user can&apos;t go when the computer is playing and that a piece can&apos;t be switch. So see you in the next post.
+          </p>
+
+
+
+
+
+        </article>
+      </div>
+      <div>
+      </div>
+    </div>
+  </body>
+</html>

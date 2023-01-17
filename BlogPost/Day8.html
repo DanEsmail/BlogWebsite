@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <link rel="stylesheet" type="text/css" href="../CSS/BlogPost.CSS">
+    <link rel="icon" type="image/x-icon" href="/BlogPictures/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="charset" content="UTF-8">
+    <meta name="keywords" content="Journey, Programming, HMTL">
+    <meta name="description" content="My journey from being a progamming noob to a programing hero">
+    <title>Day 8</title>
+  </head>
+  <body>
+    <nav>
+      <a href="../index.html"><h1 id="mainTitle">Journey To Improve</h1></a> 
+      <button class="NavButton" type="button" name="button"><a Class="NavLink"href="../AboutMe.html">About Me</a></button>
+      <button class="NavButton" type="button" name="button"><a Class="NavLink"href="../ProjectPage.html">Projects</a></button>
+      <button class="NavButton" type="button" name="button"><a Class="NavLink"href="BlogNavigation.html">Blogs</a></button>
+      <button class="NavButton" type="button" name="button"> <a Class="NavLink"href="../index.html">Home</a> </button>
+    </nav>
+    <div class="grid-container">
+      <div>
+      </div>
+      <div>
+        <article class="BlogPost">
+
+          <h3 class="title">Day 8: Building Tic Tac Toe </h3>
+          <p class="blogText">
+            For my first project I decided to go with a tic tac toe board game. I want this to be a board game where you can play against another user or against the computer. This is one of the first projects I remember doing for free code camp and wanted to see if I could still do it. Today we will go over the CSS and HTML that I build for this page.
+          </p>
+          <h4 class="sectionHeader">Page building</h4>
+          <p class="blogText">
+            When I was building this page I wanted to start to reorganize a little bit of my code so that I can reuse it later. This led to me make a CSS for my nav bar. The next thing that I was thinking about is how am I going to make this look and how will I have this play.
+          </p>
+          <h4 class="sectionHeader">Grids</h4>
+          <p class="blogText">
+            Here is the main code that I used for my html and CSS. These codes combined helped make the grid system for the game.
+          </p>
+          <h5 class="codeTitle">Board HTML Code</h5>
+          <pre>
+            <code>
+              &lt;body&gt;
+                &lt;nav&gt;
+                  &lt;h1 id="mainTitle"&gt;Journey To Improve&lt;/h1&gt;
+                  &lt;button class="NavButton" type="button" name="button"&gt;&lt;a Class="NavLink"href="../AboutMe.html"&gt;About Me&lt;/a&gt;&lt;/button&gt;
+                  &lt;button class="NavButton" type="button" name="button"&gt;&lt;a Class="NavLink"href="../ProjectPage.html"&gt;Projects&lt;/a&gt;&lt;/button&gt;
+                  &lt;button class="NavButton" type="button" name="button"&gt;&lt;a Class="NavLink"href="BlogNavigation.html"&gt;Blogs&lt;/a&gt;&lt;/button&gt;
+                  &lt;button class="NavButton" type="button" name="button"&gt; &lt;a Class="NavLink"href="../index.html"&gt;Home&lt;/a&gt; &lt;/button&gt;
+                &lt;/nav&gt;
+                &lt;h1&gt;Tic Tac Toe Game&lt;/h1&gt;
+                &lt;div class="grid-container"&gt;
+                  &lt;div class="side"&gt;
+                    &lt;h3&gt;Players&lt;/h3&gt;
+                    &lt;button type="button" name="button"&gt;one Player&lt;/button&gt;
+                    &lt;button type="button" name="button"&gt;Two Player&lt;/button&gt;
+                    &lt;h3&gt;Player 1's Piece&lt;/h3&gt;
+                    &lt;button type="button" name="button"&gt;X&lt;/button&gt;
+                    &lt;button type="button" name="button"&gt;O&lt;/button&gt;&lt;br&gt;&lt;br&gt;
+                    &lt;h3&gt;Reset Option&lt;/h3&gt;
+                    &lt;button type="button" name="button"&gt;Reset&lt;/button&gt;
+                  &lt;/div&gt;
+                  &lt;div class="side Tac-Board"&gt;
+                    &lt;div class="padding-box"&gt;
+                      &lt;p class="Game-Piece"&gt;  &lt;/p&gt;
+                    &lt;/div&gt;
+                    &lt;div class="Tac-Square"&gt;
+                      &lt;p id="0" class="Game-Piece"&gt;&lt;/p&gt;
+                    &lt;/div&gt;
+                    &lt;div class="Tac-Square"&gt;
+                      &lt;p id="1" class="Game-Piece"&gt; &lt;/p&gt;
+                    &lt;/div&gt;
+                    &lt;div class="Tac-Square"&gt;
+                      &lt;p id="2" class="Game-Piece"&gt; &lt;/p&gt;
+                    &lt;/div&gt;
+                    &lt;div class="padding-box"&gt;
+                      &lt;p class="Game-Piece"&gt; &lt;/p&gt;
+                    &lt;/div&gt;
+                    &lt;div class="padding-box"&gt;
+                      &lt;p class="Game-Piece"&gt; &lt;/p&gt;
+                    &lt;/div&gt;
+                    &lt;div class="Tac-Square"&gt;
+                      &lt;p id="3" class="Game-Piece"&gt; &lt;/p&gt;
+                    &lt;/div&gt;
+                    &lt;div class="Tac-Square"&gt;
+                      &lt;p id="4" class="Game-Piece"&gt; &lt;/p&gt;
+                    &lt;/div&gt;
+                    &lt;div class="Tac-Square"&gt;
+                      &lt;p id="5" class="Game-Piece"&gt; &lt;/p&gt;
+                    &lt;/div&gt;
+                    &lt;div class="padding-box"&gt;
+                      &lt;p  class="Game-Piece"&gt; &lt;/p&gt;
+                    &lt;/div&gt;
+                    &lt;div class="padding-box"&gt;
+                      &lt;p class="Game-Piece"&gt; &lt;/p&gt;
+                    &lt;/div&gt;
+                    &lt;div class="Tac-Square"&gt;
+                      &lt;p id="6" class="Game-Piece"&gt;&lt;/p&gt;
+                    &lt;/div&gt;
+                    &lt;div class="Tac-Square"&gt;
+                      &lt;p id="7" class="Game-Piece"&gt;  &lt;/p&gt;
+                    &lt;/div&gt;
+                    &lt;div class="Tac-Square"&gt;
+                      &lt;p id="8" class="Game-Piece"&gt; &lt;/p&gt;
+                    &lt;/div&gt;
+                    &lt;div class="padding-box"&gt;
+                      &lt;p class="Game-Piece"&gt; &lt;/p&gt;
+                    &lt;/div&gt;
+
+                  &lt;/div&gt;
+                  &lt;div class="side"&gt;
+                    &lt;h3&gt;Score&lt;/h3&gt;
+                    &lt;p&gt;X: &lt;span id="x-points"&gt;0&lt;/span&gt;&lt;/p&gt;
+                    &lt;p&gt;O: &lt;span id="o-points"&gt;0&lt;/span&gt;&lt;/p&gt;
+                  &lt;/div&gt;
+
+                &lt;/div&gt;
+
+                &lt;script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"&gt;&lt;/script&gt;
+                &lt;script type="text/javascript" src="../JS/TTT.js"&gt;&lt;/script&gt;
+
+              &lt;/body&gt;
+            </code>
+          </pre>
+
+          <h5 class="codeTitle">Board CSS Code</h5>
+          <pre>
+            <code>
+              h1{
+                color: darkgreen;
+                text-align: center;
+              }
+              .gird-container{
+                display: grid;
+                grid-template-columns: 20% 60% 20%;
+              }
+              .Tac-Board{
+                background: gray;
+                display: grid;
+                grid-template-columns: 16% 20% 20% 20% 16%;
+                grid-column-gap: 2%;
+
+
+              }
+              body{
+                background: white;
+              }
+              .Tac-Square{
+                background-color: white;
+                height: 10vw;
+                margin: 1vw 0;
+              }
+              .Game-Piece{
+                text-align: center;
+                margin: 0;
+                font-size: 10vw;
+                position: relative;
+                bottom: 1vw;
+
+              }
+              .side{
+                text-align: center;
+              }
+
+            </code>
+          </pre>
+          <p class="blogText">
+            The hardest thing to keep in mind was the area around my grids when I was making the game. I knew that I wanted a padding but I don&apos;t really know how to add something like that in the grid system evenly. My solution to this was making padding columns. I used these in conjunction with grid-column-gap to add a gap and a padding for the game. I ended up wanting to make some controls for the game so I put them up in one of the divs that wasn&apos;t in the main game area. Also when I was making the tic tac toe boxes I made the IDs numbers so they could be used in an array. I think this has set me where I want to be for the game for now. Tomorrow we will talk about most the code and the following day we will talk about how the computer makes its moves
+          </p>
+
+
+
+        </article>
+      </div>
+      <div>
+      </div>
+    </div>
+  </body>
+</html>

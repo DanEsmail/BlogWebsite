@@ -1,0 +1,38 @@
+h1{
+  color: darkgreen;
+  text-align: center;
+}
+.gird-container{
+  display: grid;
+  grid-template-columns: 20% 60% 20%;
+}
+.Tac-Board{
+  background: gray;
+  display: grid;
+  grid-template-columns: 16% 20% 20% 20% 16%;
+  grid-column-gap: 2%;
+
+
+}
+body{
+  background: white;
+}
+.Tac-Square{
+  background-color: white;
+  height: 10vw;
+  margin: 1vw 0;
+}
+.Game-Piece{
+  text-align: center;
+  margin: 0;
+  font-size: 10vw;
+  position: relative;
+  bottom: 1vw;
+
+}
+.side{
+  text-align: center;
+}
+#rules{
+  text-align: center;
+}
