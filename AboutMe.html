@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>
+  <link rel="stylesheet" type="text/css" href="CSS/SupportClass.CSS">
+  <link rel="stylesheet" type="text/css" href="CSS/Navbar.CSS">
   <link rel="stylesheet" type="text/css" href="CSS/AboutMe.CSS">
   <link rel="icon" type="image/x-icon" href="/BlogPictures/favicon.ico">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,21 +12,32 @@
   <title>About Me</title>
 </head>
 <body>
-  <nav>
-    <a href="index.html"><h1 id="mainTitle">Journey To Improve</h1></a> 
-    <button class="NavButton" type="button" name="button"><a Class="NavLink"href="AboutMe.html">About Me</a></button>
-    <button class="NavButton" type="button" name="button"><a Class="NavLink"href="ProjectPage.html">Projects</a></button>
-    <button class="NavButton" type="button" name="button"><a Class="NavLink"href="BlogPost/BlogNavigation.html">Blogs</a></button>
-    <button class="NavButton" type="button" name="button"> <a Class="NavLink"href="index.html">Home</a> </button>
+  <header>
+    <h1><a id="header-title" href="index.html">Journey <br> Of <br> Improvement</a></h1>
+  </header>
+
+  <nav class="main-nav">
+    <ul>
+      <li class="nav-button"><a class="nav-link" href="index.html">Home</a></li>
+      <li class="nav-button">|</li>
+      <li class="nav-button"><a class="nav-link" href="AboutMe.html">About Me</a></li>
+      <li class="nav-button">|</li>
+      <li class="nav-button"><a class="nav-link" href="BlogPost/BlogNavigation.html">Blogs</a></li>
+      <li class="nav-button">|</li>
+      <li class="nav-button"><a class="nav-link" href="ProjectPage.html">Projects</a></li>
+      <li class="nav-button">|</li>
+      <li class="nav-button"><a class="nav-link" href="Skills.html">Skills</a></li>
+    </ul>
   </nav>
   <div class="grid-container">
     <div class="">
 
     </div>
     <div id="AboutMeSection">
-      <div id="Profilepic">
-        <p> </p>
-      </div>
+      <picture id="Profilepic">
+        <img src="BlogPictures/About-Me.jpg" alt="">
+      </picture>
+
       <br>
       <br>
       <p class="AboutmeText">Hi I&apos;m Dan Esmail like the website says. This is my Blog and my Journey to become a stronger programmer. First let me introduce myself. I&apos;m a data analyst. This has me working with data in various ways all day. I have always enjoyed programming. I have done it on and off for the last 7 years. Nothing super intense just making something here and there. I have used a few different programming websites to learn like treehouse.com, freecodecamp, datacamp and others. They are great and I love using them. I also have a degree in Electronics engineering technology. This degree provided me with even more experience. Letting me program in other languages like C, assembly and Java. This degree also let me tinker with microcontroller and other sensors. Some of the other things that I enjoy as of right now are playing volleyball, lifting weights, and cooking. Those might come help me in some of the projects that I work on in the future. </p>

@@ -1,52 +1,60 @@
-
-#mainTitle{
-  color:white;
-  text-align: left;
-  display: inline;
-  position: relative;
-  top: 1vw;
-  padding-left: 1vw;
-  font-size: 2vw;
-}
-.NavButton{
-  float: right;
-  position: relative;
-  font-size: 1vw;
-  top: 1.5vw;
-  background-color: Black;
-  color: white;
-  border-left: solid white 0.25vw;
-}
-nav{
-  background-color: Black;
-  height: 4vw;
-}
-.NavLink{
-    color: white;
-    text-decoration: none;
-  }
-  body{
-    background-color: gray;
+@media  (max-width: 480px) {
+  img{
+    width: 100%;
+    max-width: 10em;
   }
   .grid-container{
     display: grid;
-    grid-template-columns: 30% 40% 30%;
+    grid-template-columns: 1fr 85% 1fr;
     grid-column-gap: 1vw;
+    background-color: gray;
   }
+
+}
+
+@media (min-width: 481px) and (max-width: 768px){
+  img{
+    width: 100%;
+    max-width: 20em;
+  }
+  .grid-container{
+    display: grid;
+    grid-template-columns: 1fr 85% 1fr;
+    grid-column-gap: 1vw;
+    background-color: gray;
+  }
+}
+
+@media (min-width: 769px) {
+  img{
+    width: 100%;
+    max-width: 20em;
+  }
+  .grid-container{
+    display: grid;
+    grid-template-columns: 1fr 85% 1fr;
+    grid-column-gap: 1vw;
+    background-color: gray;
+  }
+}
+#header-title{
+  color: white;
+}
+body{
+  background-color: gray;
+}
+
+img{
+  border-radius: 25%;
+  margin-top: 2em;
+}
+
 #AboutMeSection{
   background-color: white;
   text-align: center;
 
 }
-#Profilepic{
-  background-color: lightgray;
-  width: 15vw;
-  border-radius: 100%;
-  position: relative;
-  left: 12vw;
-  text-align:  center;
-  height: 15vw;
-}
+
 .AboutmeText{
   padding: 0 5vw;
 }

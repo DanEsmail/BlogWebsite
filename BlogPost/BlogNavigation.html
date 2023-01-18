@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
+    <link rel="stylesheet" type="text/css" href="../CSS/SupportClass.CSS">
+    <link rel="stylesheet" type="text/css" href="../CSS/Navbar.CSS">
     <link rel="stylesheet" type="text/css" href="../CSS/BlogNav.CSS">
     <link rel="icon" type="image/x-icon" href="/BlogPictures/favicon.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,72 +12,83 @@
     <title>Blog Navigation</title>
   </head>
   <body>
-    <nav>
-      <a href="../index.html"><h1 id="mainTitle">Journey To Improve</h1></a>
-      <button class="NavButton" type="button" name="button"><a Class="NavLink"href="../AboutMe.html">About Me</a></button>
-      <button class="NavButton" type="button" name="button"><a Class="NavLink"href="../ProjectPage.html">Projects</a></button>
-      <button class="NavButton" type="button" name="button"><a Class="NavLink"href="BlogNavigation.html">Blogs</a></button>
-      <button class="NavButton" type="button" name="button"> <a Class="NavLink"href="../index.html">Home</a> </button>
+    <header>
+      <h1><a id="header-title" href="index.html">Journey <br> Of <br> Improvement</a></h1>
+    </header>
+
+    <nav class="main-nav">
+      <ul>
+        <li class="nav-button"><a class="nav-link" href="../index.html">Home</a></li>
+        <li class="nav-button">|</li>
+        <li class="nav-button"><a class="nav-link" href="../AboutMe.html">About Me</a></li>
+        <li class="nav-button">|</li>
+        <li class="nav-button"><a class="nav-link" href="BlogNavigation.html">Blogs</a></li>
+        <li class="nav-button">|</li>
+        <li class="nav-button"><a class="nav-link" href="../ProjectPage.html">Projects</a></li>
+        <li class="nav-button">|</li>
+        <li class="nav-button"><a class="nav-link" href="../Skills.html">Skills</a></li>
+      </ul>
     </nav>
+
     <div class="grid-container">
-      <div>
+      <div class="padding-box">
 
       </div>
       <div id="blog-container">
-        <h2 class="center">Blogs</h2>
+        <h2 class="blog-title | center">Blogs</h2>
         <div class="BlogPostBox">
-          <a class="blogLink" href="Day17.html"><h3 class="BlogPostText">Day 17: A Little Bit of PHP </h3></a>
+          <a class="blogLink" href="Day17.html"><p class="BlogPostText">Day 17: A Little Bit of PHP </p></a>
         </div>
         <div class="BlogPostBox">
-          <a class="blogLink" href="Day16.html"><h3 class="BlogPostText">Day 16: Git </h3></a>
+          <a class="blogLink" href="Day16.html"><p class="BlogPostText">Day 16: Git </p></a>
         </div>
         <div class="BlogPostBox">
-          <a class="blogLink" href="Day15.html"><h3 class="BlogPostText">Day 15: Responsive HomePage CSS </h3></a>
+          <a class="blogLink" href="Day15.html"><p class="BlogPostText">Day 15: Responsive HomePage CSS </p></a>
         </div>
         <div class="BlogPostBox">
-          <a class="blogLink" href="Day14.html"><h3 class="BlogPostText">Day 14: building out the responsive HTML  </h3></a>
+          <a class="blogLink" href="Day14.html"><p class="BlogPostText">Day 14: building out the responsive HTML  </p></a>
         </div>
         <div class="BlogPostBox">
-          <a class="blogLink" href="Day13.html"><h3 class="BlogPostText">Day 13: Flexbox and CSS Grid  </h3></a>
+          <a class="blogLink" href="Day13.html"><p class="BlogPostText">Day 13: Flexbox and CSS Grid  </p></a>
         </div>
         <div class="BlogPostBox">
-          <a class="blogLink" href="Day12.html"><h3 class="BlogPostText">Day 12: A Little bit more Responsive </h3></a>
+          <a class="blogLink" href="Day12.html"><p class="BlogPostText">Day 12: A Little bit more Responsive </p></a>
         </div>
         <div class="BlogPostBox">
-          <a class="blogLink" href="Day11.html"><h3 class="BlogPostText">Day 11: Game Loop and Computer AI </h3></a>
+          <a class="blogLink" href="Day11.html"><p class="BlogPostText">Day 11: Game Loop and Computer AI </p></a>
         </div>
         <div class="BlogPostBox">
-          <a class="blogLink" href="Day10.html"><h3 class="BlogPostText">Day 10: Repairs to the Project </h3></a>
+          <a class="blogLink" href="Day10.html"><p class="BlogPostText">Day 10: Repairs to the Project </p></a>
         </div>
         <div class="BlogPostBox">
-          <a class="blogLink" href="Day9.html"><h3 class="BlogPostText">Day 9: First Javascript App </h3></a>
+          <a class="blogLink" href="Day9.html"><p class="BlogPostText">Day 9: First Javascript App </p></a>
         </div>
         <div class="BlogPostBox">
-          <a class="blogLink" href="Day8.html"><h3 class="BlogPostText">Day 8: Building Tic Tac Toe </h3></a>
+          <a class="blogLink" href="Day8.html"><p class="BlogPostText">Day 8: Building Tic Tac Toe </p></a>
         </div>
         <div class="BlogPostBox">
-          <a class="blogLink" href="Day7.html"><h3 class="BlogPostText">Day 7: Transitions and Projects </h3></a>
+          <a class="blogLink" href="Day7.html"><p class="BlogPostText">Day 7: Transitions and Projects </p></a>
         </div>
         <div class="BlogPostBox">
-          <a class="blogLink" href="Day6.html"><h3 class="BlogPostText">Day 6: JS varibles</h3></a>
+          <a class="blogLink" href="Day6.html"><p class="BlogPostText">Day 6: JS varibles</p></a>
         </div>
         <div class="BlogPostBox">
-          <a class="blogLink" href="Day5.html"><h3 class="BlogPostText">Day 5: Adding Content</h3></a>
+          <a class="blogLink" href="Day5.html"><p class="BlogPostText">Day 5: Adding Content</p></a>
         </div>
         <div class="BlogPostBox">
-          <a class="blogLink" href="Day4.html"><h3 class="BlogPostText">Day 4: Blog Post Upgrade</h3></a>
+          <a class="blogLink" href="Day4.html"><p class="BlogPostText">Day 4: Blog Post Upgrade</p></a>
         </div>
         <div class="BlogPostBox">
-          <a class="blogLink" href="Day3.html"><h3 class="BlogPostText">Day 3: A Better Looking Site</h3></a>
+          <a class="blogLink" href="Day3.html"><p class="BlogPostText">Day 3: A Better Looking Site</p></a>
         </div>
         <div class="BlogPostBox">
-          <a class="blogLink" href="Day2.html"><h3 class="BlogPostText">Day 2: Basics and headers</h3></a>
+          <a class="blogLink" href="Day2.html"><p class="BlogPostText">Day 2: Basics and headers</p></a>
         </div>
         <div class="BlogPostBox">
-          <a class="blogLink" href="Day1.html"><h3 class="BlogPostText">Day 1: Staring a Blog and Website </h3></a>
+          <a class="blogLink" href="Day1.html"><p class="BlogPostText">Day 1: Staring a Blog and Website </p></a>
         </div>
       </div>
-      <div >
+      <div class="Padding-box" >
 
       </div>
     </div>

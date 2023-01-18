@@ -1,0 +1,96 @@
+@media  (max-width: 480px) {
+  .grid-box{
+    display: grid;
+    grid-template-rows: 1fr 2% 1fr;
+  }
+
+}
+
+@media (min-width: 481px) and (max-width: 768px){
+  .grid-box{
+    display: grid;
+    grid-template-rows: 1fr 2% 1fr;
+  }
+}
+
+@media (min-width: 769px) {
+  .grid-box{
+    display: grid;
+    grid-template-columns: 1fr 2% 1fr;
+  }
+}
+
+
+
+
+
+.grid-container{
+  display: grid;
+  grid-template-columns: 1fr 60% 1fr;
+}
+
+
+
+.single-skill-box{
+  width: 100%;
+  border: solid 0.1em black;
+}
+.name-skill-container{
+  height: 3em;
+  margin-bottom: 0.5em;
+}
+
+
+.skill-name{
+  margin-left: 1em;
+  display: inline-block;
+
+}
+.icon-pic{
+  margin-left: 1em;
+  display: inline-block;
+  max-height: 2em;
+  max-width: 2em;
+  margin-top: 0.5em;
+}
+
+.stars{
+  margin-left: 1em;
+}
+.skill-level{
+  margin-left: 0.5em;
+  display:  inline-block;
+}
+.empty-bar{
+  width: 90%;
+  height: 2em;
+  background-color: lightgray;
+  margin-bottom: 1em;
+  margin-left: 1em;
+
+}
+.fill-bar{
+  background-color: #03C03C ;
+  height: 2em;
+}
+
+.checked{
+  color: orange;
+}
+
+footer{
+  background-color: black;
+}
+.footer-name{
+  color:white;
+  font-size: 1em;
+  background-color: gray;
+}
+.asset-link{
+  color: white;
+
+}
+.link-text{
+  color: white;
+  margin: 0;
+}

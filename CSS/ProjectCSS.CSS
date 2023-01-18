@@ -1,76 +1,74 @@
-.grid-container{
-  display: grid;
-  grid-template-columns: 20% 60% 20%;
-  grid-column-gap: 1vw
+@media  (max-width: 480px) {
+  .grid-container{
+    display: grid;
+    grid-template-columns: 1fr 85% 1fr;
+  }
 }
-.title{
-  text-align: center;
-  font-size: 2em;
+
+@media (min-width: 481px) and (max-width: 768px){
+  .grid-container{
+    display: grid;
+    grid-template-columns: 1fr 70% 1fr;
+
+  }
 }
-#mainTitle{
-  color:white;
-  text-align: left;
-  display: inline;
-  position: relative;
-  top: 1vw;
-  padding-left: 1vw;
-  font-size: 2vw;
+
+@media (min-width: 769px) {
+  .grid-container{
+    display: grid;
+    grid-template-columns: 1fr 60% 1fr;
+
+  }
 }
-.NavButton{
-  float: right;
-  position: relative;
-  font-size: 1vw;
-  top: 1.5vw;
-  background-color: Black;
-  color: white;
-  border-left: solid white 0.25vw;
-}
-nav{
-  background-color: Black;
-  height: 4vw;
-}
+
 body{
   background-color: gray;
 }
-.NavLink{
-  color: white;
-  text-decoration: none;
-}
-.grid-container{
-  display: grid;
-  grid-template-columns: 30% 40% 30%;
-  grid-column-gap: 1vw
-}
+
+
 #blog-container{
-  background-color: white;
+  background-color: lightgrey;
+}
+
+.blog-title{
+  font-size: 2em;
+  font-family: "Times New Roman", serif;
 }
 .BlogPostBox{
   background-color: black;
   color: white;
-  height: 3vw;
-  border: solid white 0.1vw;
-
-
-  display: block;
-}
-.center{
-  text-align: center;
-}
-.BlogPostText{
-  position: relative;
-  padding: 0.6vw;
-  margin: 0vw;
-  text-align: center;
-  -webkit-transition: background-color 0.5s ease-out;
-  -moz-transition: background-color 0.5s ease-out;
-  -o-transition: background-color 0.5s ease-out;
-  transition: background-color 0.5s ease-out;
+  height: 3em;
+  border: solid white 0.1em;
+  transition-timing-function: ease;
+  -webkit-transition: all 0.5s ease-out;
+  -moz-transition: all 0.5s ease-out;
+  -o-transition: all 0.5s ease-out;
+  transition: all 0.5s ease-out;
 }
 .blogLink{
   text-decoration: none;
   color: white;
+  text-align: center;
+  height: 3em;
+
+}
+.BlogPostText{
+  font-size: 1em;
+  height: 3em;
+  margin: 0;
+  padding-top: 1em;
+  -webkit-transition: all 0.5s ease-out;
+  -moz-transition: all 0.5s ease-out;
+  -o-transition: all 0.5s ease-out;
+  transition: all 0.5s ease-out;
+
+}
+
+.BlogPostBox:hover{
+  color: black;
+  background-color: white;
+  border-color: black;
 }
 .BlogPostText:hover{
   color: black;
-  background-color: white;
 }
