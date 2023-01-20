@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <link rel="stylesheet" type="text/css" href="../CSS/Navbar.CSS?v=1.1">
+    <link rel="stylesheet" type="text/css" href="../CSS/BlogPost.CSS">
+    <link rel="icon" type="image/x-icon" href="/BlogPictures/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="charset" content="UTF-8">
+    <meta name="keywords" content="Journey, Programming, HMTL">
+    <meta name="description" content="My journey from being a progamming noob to a programing hero">
+    <title>Day 18</title>
+  </head>
+  <body>
+    <header>
+      <h1><a id="header-title" href="index.html">Journey <br> Of <br> Improvement</a></h1>
+    </header>
+
+    <nav class="main-nav">
+      <ul>
+        <li class="nav-button"><a class="nav-link" href="../index.html">Home</a></li>
+        <li class="nav-pipe">|</li>
+        <li class="nav-button"><a class="nav-link" href="../AboutMe.html">About Me</a></li>
+        <li class="nav-pipe">|</li>
+        <li class="nav-button"><a class="nav-link" href="BlogNavigation.html">Blogs</a></li>
+        <li class="nav-pipe">|</li>
+        <li class="nav-button"><a class="nav-link" href="../ProjectPage.html">Projects</a></li>
+        <li class="nav-pipe">|</li>
+        <li class="nav-button"><a class="nav-link" href="../Skills.html">Skills</a></li>
+      </ul>
+    </nav>
+    <div class="grid-container">
+      <div>
+      </div>
+      <div>
+        <article class="BlogPost">
+
+          <h3 class="title">Day 18: Skills </h3>
+
+          <p class="blogText">
+            The days are going by a lot faster than I can keep track of. We are already at day 18 and the site has come a long way. I still have a long way to go when you think about the 347 days left in the year. I finally took some time to make a skills page. This will help track my progress and track things that I learn on the way! Also In the background, I have been updating things about my website. I am starting to refactor my CSS code. I&apos;ve split my code into different style sheets. One has been made for support classes, another is for the nav bar, and finally, I use a sheet that does anything specific to the page.
+          </p>
+          <h4 class="sectionHeader">CSS Splits</h4>
+
+          <p class="blogText">
+            Alright, let&apos;s quickly go over the way that I&apos;m splitting this CSS. first things is first I use the navigation bar on every page. The nav bar is the same no matter what, so that&apos;s a perfect opportunity to move all the CSS into one file. You have seen the code before but I&apos;ll drop it in again.
+          </p>
+
+
+          <h5 class="codeTitle">Nav Bar CSS Code</h5>
+          <pre>
+            <code>
+.main-nav{
+  background-color: black;
+  height: 3em;
+  display: flex;
+  justify-content: center;
+
+
+}
+header{
+  text-align: center;
+  width: 100%;
+}
+#header-title{
+  text-decoration: none;
+  color: black;
+  font-family: sans-serif;
+}
+.nav-button{
+  display: inline-block;
+  list-style: none;
+  font: 1em;
+  margin: 0;
+  color: white;
+}
+.nav-pipe{
+  display: inline-block;
+  list-style: none;
+  font: 1em;
+  margin: 0;
+  color: white;
+}
+.nav-link{
+  text-decoration: none;
+  color: white;
+}
+.nav-link:hover{
+
+  color: black;
+}
+.nav-button:hover{
+  background-color: white;
+}
+
+ul{
+  display: flex;
+  justify-content: center;
+  row-gap: 2em;
+  height: 1em;
+  margin: 1em 0;
+  padding-left: 0;
+}
+li{
+  padding: 0 0.5em;
+}
+
+            </code>
+          </pre>
+
+          <p class="blogText">
+            Next the code for support classes. I&apos;m starting to use classes that do one or two things that I keep reusing. Another opportunity to build once and use everywhere else. A big offender of this is the center class that I have been using to align text to the center. The only other thing in here is width properties to do a certain percentage.
+          </p>
+
+          <h5 class="codeTitle">Support Classes CSS</h5>
+          <pre>
+            <code>
+.center{
+  text-align: center;
+}
+.w0{
+  width: 0%
+}
+.w10{
+  width: 10%
+}
+.w20{
+  width: 20%
+}
+.w30{
+  width: 30%
+}
+.w40{
+  width: 40%
+}
+.w50{
+  width: 50%
+}
+.w60{
+  width: 60%
+}
+.w70{
+  width: 70%
+}
+.w80{
+  width: 80%
+}
+.w90{
+  width: 90%
+}
+.w100{
+  width: 100%
+}
+
+            </code>
+          </pre>
+
+          <p class="blogText">
+            Finally, there is the CSS that is specific to the page. All of this is going to just be CSS documents to help a page if it has specific classes or IDs or just something that I want to do on that page.
+          </p>
+
+          <h4 class="sectionHeader">Skills</h4>
+
+          <p class="blogText">
+            Now I love this page as is but know there are a bunch of things that I can still do to improve. The main thing I wanted was to have a place that would almost experience bars and give me a sense that I was improving. Let's talk about some of the code that went into these.
+          </p>
+
+          <p class="blogText">
+            When I was working on the page I wanted to break it up into two different grids. One was going to be a way to center the main content of the page. The other grid would give me two columns and some spacing for the content. I did this with CSS Grid
+          </p>
+
+
+          <h5 class="codeTitle">HTML For Grid</h5>
+          <pre>
+            <code>
+&lt;div class="grid-container"&gt;
+  &lt;div class="padding-box"&gt;
+
+  &lt;/div&gt;
+  &lt;div class="skills-box grid-box"&gt;
+    &lt;div class="skill-column"&gt;
+    &lt;/div&gt;
+    &lt;div class="Column-spacing"&gt;
+
+    &lt;/div&gt;
+    &lt;div class="skill-column"&gt;
+    &lt;/div&gt;
+  &lt;div class="padding-box"&gt;
+
+  &lt;/div&gt;
+&lt;/div&gt;
+
+
+            </code>
+          </pre>
+
+
+          <h5 class="codeTitle">CSS Grid Code</h5>
+          <pre>
+            <code>
+@media  (max-width: 480px) {
+  .grid-box{
+    display: grid;
+    grid-template-rows: 1fr 2% 1fr;
+  }
+
+}
+
+@media (min-width: 481px) and (max-width: 768px){
+  .grid-box{
+    display: grid;
+    grid-template-rows: 1fr 2% 1fr;
+  }
+}
+
+@media (min-width: 769px) {
+  .grid-box{
+    display: grid;
+    grid-template-columns: 1fr 2% 1fr;
+  }
+}
+
+.grid-container{
+  display: grid;
+  grid-template-columns: 1fr 60% 1fr;
+}
+
+            </code>
+          </pre>
+
+          <p class="blogText">
+            Now With both grids set up I needed to put content in the columns. In comes the skills boxes. These are going to have images, stars, and a progress bar. There is a lot going on in this so I&apos;ll show the code then explain. The code will be for one of these boxes but I have a box per element
+
+          </p>
+
+          <h5 class="codeTitle">Skill Box CSS </h5>
+          <pre>
+            <code>
+.single-skill-box{
+  width: 100%;
+  border: solid 0.1em black;
+}
+.name-skill-container{
+  height: 3em;
+  margin-bottom: 0.5em;
+}
+
+
+.skill-name{
+  margin-left: 1em;
+  display: inline-block;
+
+}
+.icon-pic{
+  margin-left: 1em;
+  display: inline-block;
+  max-height: 2em;
+  max-width: 2em;
+  margin-top: 0.5em;
+}
+
+.stars{
+  margin-left: 1em;
+}
+.skill-level{
+  margin-left: 0.5em;
+  display:  inline-block;
+}
+.empty-bar{
+  width: 90%;
+  height: 2em;
+  background-color: lightgray;
+  margin-bottom: 1em;
+  margin-left: 1em;
+
+}
+.fill-bar{
+  background-color: #03C03C ;
+  height: 2em;
+}
+
+.checked{
+  color: orange;
+}
+
+            </code>
+          </pre>
+
+          <h5 class="codeTitle">Skill Box HTML</h5>
+          <pre>
+            <code>
+&lt;div class="single-skill-box"&gt;
+  &lt;div class="name-skill-container"&gt;
+    &lt;h3 class="skill-name"&gt;HTML5&lt;/h3&gt;
+    &lt;picture&gt;
+      &lt;img class="icon-pic" src="BlogPictures/SkillPics/html5 icon.png" alt=""&gt;
+    &lt;/picture&gt;
+    &lt;/div&gt;
+      &lt;div class="stars"&gt;
+        &lt;span class="fa fa-star checked"&gt;&lt;/span&gt;
+        &lt;span class="fa fa-star checked"&gt;&lt;/span&gt;
+        &lt;span class="fa fa-star"&gt;&lt;/span&gt;
+        &lt;span class="fa fa-star"&gt;&lt;/span&gt;
+        &lt;span class="fa fa-star"&gt;&lt;/span&gt;
+        &lt;span class="skill-level"&gt;Entry&lt;/span&gt;
+      &lt;/div&gt;
+    &lt;div class="empty-bar"&gt;
+      &lt;div class="fill-bar | w10"&gt;
+      &lt;p&gt; &lt;/p&gt;
+      &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+            </code>
+          </pre>
+
+          <p class="blogText">
+            Okay, time to break this down. First I wanted to have a title to get things going this would be followed by an image. I put them both in a div so I could control the container they were in. Most of of the images I got came from an icon finder and I attributed them all down at the button of my page. I used an H3 element to show the header title for each skill and added a picture element for the images. Next, we get to the stars and what “level” I am in the skill. This is all going to be in one row too so I put it within a div to contain it. I used a Style sheet to make the stars. It's called font awesome and I&apos;ll link the site below.
+
+          </p>
+
+          <p class="blogText">
+            The final level of the skill box was the progress line. The way that I achieved this was to have a div nested within a div. Then I changed the color of the nested div. Once that was done I could use support classes to make the progress bar increase or decrease with the width percentage.
+          </p>
+
+
+          <p class="blogText">
+            That is how I was able to create the skills page that you now see! I got a lot of work done and there is a ton more to get done. I want to learn how to use canvas for an upcoming fun project. I also have to learn some stuff about javascript objects and classes so be on the lookout for that.
+          </p>
+
+
+
+          <div class="HelpfulLinks">
+            <h4>Some Helpful links</h4>
+            <a href="https://fontawesome.com/" target="_blank">Awesome Fonts</a><br>
+
+          </div>
+        </article>
+      </div>
+      <div>
+      </div>
+    </div>
+  </body>
+</html>
