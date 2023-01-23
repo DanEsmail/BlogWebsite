@@ -1,0 +1,118 @@
+@media  (max-width: 480px) {
+
+}
+
+@media (min-width: 481px) and (max-width: 768px){
+
+
+}
+
+@media (min-width: 769px) {
+  #phone-attack-box{
+    display: none;
+  }
+}
+
+
+
+
+
+*{
+  /*outline: solid 0.1em limegreen;*/
+}
+
+body{
+  background-image: url("../../BlogPictures/Magic BG.jpg")
+}
+
+.txt-white{
+    color: white;
+}
+#header-title{
+  color: white;
+}
+.grid-conatiner{
+  display: grid;
+  grid-template-columns: 1fr 60% 1fr;
+  margin-top: 2em;
+}
+
+
+.main-content{
+  display: grid;
+  grid-template-columns: 1fr 60% 1fr;
+}
+
+.long-box{
+  background-color: tan;
+}
+
+.main-content-size{
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#canvas{
+  margin-bottom: 2em;
+  display:  block;
+  background-color: white;
+}
+.stat-box{
+  height: 8em;
+  background-color: darkgray;
+}
+#phone-attack-box{
+  height: 8em;
+}
+.direction-button{
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  width: 90%;
+}
+#direction-text{
+  margin-top: 0.5em;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: white;
+  width: 90%;
+  display: block;
+}
+
+.attack{
+  width: 90%;
+  height: 4em;
+  background-color: 2em;
+  outline: solid black 0.1em;
+  background-color: white;
+  margin-left: auto;
+  margin-right: auto;
+}
+.attack-title{
+  padding: 0.25em;
+  color: #b22222;
+  margin: 0;
+}
+
+.attack-des{
+  margin: 0;
+  padding-top: 0.5em;
+
+}
+.attack-img{
+  transform: rotate(0deg);
+}
+.flex-box{
+  display: flex;
+  gap: 0.5em;
+}
+.enemy-box{
+  width: 90%;
+  height: 4em;
+  background-color: 2em;
+  outline: solid black 0.1em;
+  background-color: white;
+  margin-left: auto;
+  margin-right: auto;
+}

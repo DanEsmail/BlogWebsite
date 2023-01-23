@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <link rel="stylesheet" type="text/css" href="../CSS/Navbar.CSS?v=1.1">
+    <link rel="stylesheet" type="text/css" href="../CSS/BlogPost.CSS">
+    <link rel="icon" type="image/x-icon" href="/BlogPictures/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="charset" content="UTF-8">
+    <meta name="keywords" content="Journey, Programming, HMTL">
+    <meta name="description" content="My journey from being a progamming noob to a programing hero">
+    <title>Day 21</title>
+  </head>
+  <body>
+    <header>
+      <h1><a id="header-title" href="index.html">Journey <br> Of <br> Improvement</a></h1>
+    </header>
+
+    <nav class="main-nav">
+      <ul>
+        <li class="nav-button"><a class="nav-link" href="../index.html">Home</a></li>
+        <li class="nav-pipe">|</li>
+        <li class="nav-button"><a class="nav-link" href="../AboutMe.html">About Me</a></li>
+        <li class="nav-pipe">|</li>
+        <li class="nav-button"><a class="nav-link" href="BlogNavigation.html">Blogs</a></li>
+        <li class="nav-pipe">|</li>
+        <li class="nav-button"><a class="nav-link" href="../ProjectPage.html">Projects</a></li>
+        <li class="nav-pipe">|</li>
+        <li class="nav-button"><a class="nav-link" href="../Skills.html">Skills</a></li>
+      </ul>
+    </nav>
+    <div class="grid-container">
+      <div>
+      </div>
+      <div>
+        <article class="BlogPost">
+
+          <h3 class="title">Day 21: Some Game Progress </h3>
+          <p class="blogText">
+            Some exciting developments have been happening this weekend. I have been focusing a lot on this upcoming project. I can announce what the project is going to be since I&apos;m getting a lot closer to finishing. It will be done no later than Friday. The project is going to be a simple title-based game. It's something that I can keep updating as this challenge goes on. Today will be somewhat of a brief explanation of HTML code from what I have been writing. Also a little CSS.
+          </p>
+
+          <h4 class="sectionHeader">HTML Section </h4>
+          <p class="blogText">
+            When building a project or a webpage, I like to have an idea of how I&apos;m going to make it look at the end. I wanted this game to be magic and something I would like to play. That being said I wanted a screen to play the game, two scrolls to show attacks available and enemies on the board, and I wanted a stats screen for the player.
+          </p>
+
+          <p class="blogText">
+            Thinking about this made me think I was going to use two CSS grids to arrange the webpage. The basic look was something like this
+          </p>
+
+          <h5 class="codeTitle">Two Grids </h5>
+          <pre>
+            <code>
+    &lt;div class="grid-container"&gt;
+      &lt;div class="padding"&gt;
+
+      &lt;/div&gt;
+      &lt;div class="main-content"&gt;
+        &lt;div class="long-box" id="attack-box"&gt;
+
+        &lt;/div&gt;
+
+        &lt;div class="" id="canvas-area"&gt;
+         &lt;div class="long-box" id="enemy-box"&gt;
+
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class="padding"&gt;
+
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+            </code>
+          </pre>
+
+
+          <p class="blogText">
+            The code about lets me cut the screen into a main area and a padding area. I always like the look of having some space away from the screen when displaying my content. Next I split the content area into three columns an attack box, canvas, and an enemy box.
+          </p>
+
+          <h4 class="sectionHeader">Attack Box </h4>
+          <p class="blogText">
+            The next thing that I wanted to think about was the long box that is going to hold all the attacks. The main thought behind this was to have different cards of attack show up on the side for the player to use. I want the player to be able to see all the information in this box. Also the player will have to click on the attack to cast it. This being said this sort of what I came up with
+          </p>
+
+          <h5 class="codeTitle">Attack Box HTML</h5>
+          <pre>
+            <code>
+    &lt;div class="long-box" id="attack-box"&gt;
+
+      &lt;p class="center"&gt;Attacks&lt;/p&gt;
+
+        &lt;button class="direction-button" type="button" name="button"&gt;Switch Direction&lt;/button&gt;
+        &lt;p class="center no-margin" id="direction-text"&gt;Current Direction: right&lt;/p&gt;
+
+      &lt;hr&gt;
+      &lt;div class="attack"&gt;
+        &lt;p class="attack-title | center"&gt;Fire ball&lt;/p&gt;
+        &lt;div class="flex-box"&gt;
+            &lt;p class="attack-des"&gt;Dmg: 2&lt;/p&gt;
+            &lt;p class="attack-des" &gt;Cost: 4&lt;/p&gt;
+            &lt;i class="attack-des fa-solid fa-fire"&gt;&lt;/i&gt;
+            &lt;picture class="attack-img"&gt;
+              &lt;img src="../../BlogPictures/MagicAttackPics/3S.png" alt=""&gt;
+            &lt;/picture&gt;
+
+        &lt;/div&gt;
+
+      &lt;/div&gt;
+
+
+    &lt;/div&gt;
+
+            </code>
+          </pre>
+
+          <p class="blogText">
+            Now there a few things that I would like to mention with this so lets go top to bottom. First off you have the div that holds everything together and that&apos;s the long box this will be styled like a scroll to give a mystic feeling. Next I want the player to noice that this is the attack area so a title for that. Next I have a button and a paragraph element to show the direction the player is in. this will change the direction of the picture for later. Once we have all the it&apos;s time to build the cards.
+          </p>
+
+          <p class="blogText">
+            The card will have the attack name on it and all the stats. So i have a title and then everything else is put within a flex box to show the damage, cost, a picture of the type and a picture of the direction of the attack.
+
+          </p>
+
+          <h4 class="sectionHeader">Main Content</h4>
+          <p class="blogText">
+            When thinking about the main screen of the project I wanted somewhere to put the canvas to show the playing board and the players stats underneath. I acheviet that with this.
+          </p>
+
+          <h5 class="codeTitle">Main Content Area HTML</h5>
+          <pre>
+            <code>
+&lt;div class="" id="canvas-area"&gt;
+  &lt;div class="main-content-size" id="phone-attack-box"&gt;
+
+  &lt;/div&gt;
+  &lt;canvas id="canvas" class="main-content-size" width="300" height="300"&gt;&lt;/canvas&gt;
+  &lt;div class="stat-box | main-content-size"&gt;
+    &lt;p class="center"&gt;Stats&lt;/p&gt;
+    &lt;hr&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+            </code>
+          </pre>
+
+          <p class="blogText">
+            This doesn&apos;t have a lot of HTML in it at this time due to most this area being controlled by the javascript. There will be more to this area as we progress through the days.
+          </p>
+
+          <h4 class="sectionHeader">Enemy Box</h4>
+          <p class="blogText">
+            This is another small section. This is going to lool a lot like the attack box but this is going to have enemy cards in it. I&apos;m still brainstorming how that will look at the end but I would love to be able to show the enemies when hovering over a card and show some of there stats
+          </p>
+
+          <h5 class="codeTitle">Enemy box HTML</h5>
+          <pre>
+            <code>
+&lt;div class="long-box" id="enemy-box"&gt;
+  &lt;p class="center"&gt; Enemies&lt;/p&gt;
+
+  &lt;hr&gt;
+
+
+&lt;/div&gt;
+
+            </code>
+          </pre>
+
+
+          <p class="blogText">
+            This box has a lot of its information coded by javascript. This causes it to be pretty bare at this point.
+
+          </p>
+
+          <p class="blogText">
+            Tomorrow we will get into some of the javascript and more of my thought process on this project
+          </p>
+
+
+
+
+        </article>
+      </div>
+      <div>
+      </div>
+    </div>
+  </body>
+</html>

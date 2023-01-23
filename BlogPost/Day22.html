@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <link rel="stylesheet" type="text/css" href="../CSS/Navbar.CSS?v=1.1">
+    <link rel="stylesheet" type="text/css" href="../CSS/BlogPost.CSS">
+    <link rel="icon" type="image/x-icon" href="/BlogPictures/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="charset" content="UTF-8">
+    <meta name="keywords" content="Journey, Programming, HMTL">
+    <meta name="description" content="My journey from being a progamming noob to a programing hero">
+    <title>Day 22</title>
+  </head>
+  <body>
+    <header>
+      <h1><a id="header-title" href="index.html">Journey <br> Of <br> Improvement</a></h1>
+    </header>
+
+    <nav class="main-nav">
+      <ul>
+        <li class="nav-button"><a class="nav-link" href="../index.html">Home</a></li>
+        <li class="nav-pipe">|</li>
+        <li class="nav-button"><a class="nav-link" href="../AboutMe.html">About Me</a></li>
+        <li class="nav-pipe">|</li>
+        <li class="nav-button"><a class="nav-link" href="BlogNavigation.html">Blogs</a></li>
+        <li class="nav-pipe">|</li>
+        <li class="nav-button"><a class="nav-link" href="../ProjectPage.html">Projects</a></li>
+        <li class="nav-pipe">|</li>
+        <li class="nav-button"><a class="nav-link" href="../Skills.html">Skills</a></li>
+      </ul>
+    </nav>
+    <div class="grid-container">
+      <div>
+      </div>
+      <div>
+        <article class="BlogPost">
+
+          <h3 class="title">Day 22: Coding a Game Part 1 </h3>
+          <p class="blogText">
+            This project is a lot more massive than the last project. I&apos;m most likely going to split the JavaScript files into different files just to make it a little bit easier. There are a lot of things that I&apos;m going to have to go over to talk about everything. There are a few things that make this page what it is. First, let&apos;s talk about what I&apos;m going to have to code to make this game work out. I&apos;ll need a player that can attack, I&apos;ll need enemies and a score.
+          </p>
+
+          <h4 class="sectionHeader">Building the game board </h4>
+          <p class="blogText">
+            Every game needs a gameboard this game is no exception. I want to have the canvas draw a board that can that has four columns and four rows. This will give me sixteen spaces in total. This is the first thing that I have to build to make the game.
+          </p>
+
+          <h5 class="codeTitle">Canvas JavaScript </h5>
+          <pre>
+            <code>
+let c = document.getElementById("canvas");
+let ctx = c.getContext("2d");
+
+const gameBoard = [
+  ["open", "open", "open", "open"],
+  ["open", "open", "open", "open"],
+  ["open", "open", "open", "open"],
+  ["open", "open", "open", "open"]]
+
+            </code>
+          </pre>
+
+          <p class="blogText">
+            Okay the first thing you need, if you are going to be drawing to the canvas, is getting the element from the HTML. Which is done with a document get element by id. Next, you will need to get the context. This is going to be the way you draw to the board. I also create a variable to hold what spots are open on the game board. Next is drawing the board
+          </p>
+
+          <h5 class="codeTitle">Gameboard Fundementals</h5>
+          <pre>
+            <code>
+function direct(area, width, height, x, y){
+  area.beginPath();
+  area.rect(x,y,width,height)
+  ctx.stroke()
+}
+
+function drawFillRect(area, width, height, x, y,color){
+  area.fillStyle = color
+  area.beginPath();
+  area.fillRect(x,y,width,height)
+  ctx.stroke()
+  area.fillStyle = "FFFFFF"
+}
+
+function clearCanvas(){
+  ctx.clearRect(0,0,300,300)
+}
+
+function drawboard(){
+  for (var x = 0; x < 4; x++) {
+    for (var y = 0; y < 4; y++) {
+      drawrect(ctx,50,50,x*50+50,y*50+50)
+    }
+  }
+
+}
+
+            </code>
+          </pre>
+
+          <p class="blogText">
+            I used four functions to get the fundamental of the board that I need. The first thing is to draw rect. This function will draw a rectangle with my width, height, x, y. I&apos;ll need this later to draw all sixteen spaces.
+          </p>
+
+          <p class="blogText">
+            Next is the fill rect function. This is going to be the way that the player and the monsters get drawn to the board. The only difference between this and the other function is that it fills the space in between the rectangle. that‘s why it has a color augment.
+          </p>
+
+          <p class="blogText">
+            The clear canvas function is a simple one. This function takes the whole area of the canvas and clears it out. This is going to be used to help create the frames later to run the game.
+          </p>
+
+          <p class="blogText">
+            Finally, we have the draw board function. This will go through two for loops to draw all sixteen squares to the canvas to make the gameboard. These four functions are the foundation of the gameboard and the game. This is how most things will be drawn. Now let&apos;s talk about some not-so-conventional functions for the game board
+          </p>
+
+          <h5 class="codeTitle">Other Gameboard Functions </h5>
+          <pre>
+            <code>
+function cordToNum(num){
+  if (num == 25) {
+    return 0
+  }else{
+    switch (num/5) {
+      case 35:
+        return 3
+      break;
+      case 25:
+        return 2
+      break;
+      case 15:
+        return 1
+      break;
+      default:
+    }
+  }
+}
+
+function cleanUpBoard(arr){
+  for (var i = 0; i < arr.length; i++) {
+    for (var j = 0; j < arr[i].length; j++) {
+      arr[i][j] = "open"
+    }
+  }
+}
+
+function searchcord(piece,arr){
+  let xcord = cordToNum(piece.x);
+  let ycord = cordToNum(piece.y);
+
+  arr[xcord][ycord] = "closed";
+}
+
+function numToCord(num){
+  switch (num) {
+    case 0:
+      return 25;
+    break;
+    case 1:
+      return 75;
+    break;
+    case 2:
+      return 125;
+    break;
+    case 3:
+      return 175;
+    break;
+    default:
+
+  }
+}
+
+function gameBoardUpdate(player1,arr){
+  cleanUpBoard(gameBoard)
+  searchcord(player1,gameBoard);
+  if (arr.length == 0) {
+
+  }else{
+    for (var i = 0; i < arr.length; i++) {
+      searchcord(arr[i],gameBoard)
+    }
+  }
+
+}
+
+            </code>
+          </pre>
+
+          <p class="blogText">
+            Here are another four functions that control the game board. First, we have cord to num. This function is used to change canvas coordinates to the number it is on the game board array. This is used to help send information from the canvas to the gameboard.
+          </p>
+
+          <p class="blogText">
+            Next, we have clean up the board. This function is used to reset the game board array to open so that I can update it again.
+          </p>
+
+          <p class="blogText">
+            Search cords will take the cords of an object and send the gameboard back to the location that is locked since something is within.
+          </p>
+
+          <p class="blogText">
+            Next, we have a similar function to the second function. The num to cords is the reverse where it will use a switch to change from the array number to the canvas coordinates.
+          </p>
+
+          <p class="blogText">
+            Finally, we have a game board update. This will take the player and the monster array and change all the game board locations that have something in them.
+          </p>
+
+          <p class="blogText">
+
+              That&apos;s it for today. Tomorrow will be more on the javascript side. We&apos;ll be talking about the player and monsters tomorrow
+
+          </p>
+
+
+        </article>
+      </div>
+      <div>
+      </div>
+    </div>
+  </body>
+</html>
