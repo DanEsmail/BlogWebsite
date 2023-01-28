@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <link rel="stylesheet" type="text/css" href="../CSS/Navbar.CSS?v=1.1">
+    <link rel="stylesheet" type="text/css" href="../CSS/BlogPost.CSS">
+    <link rel="icon" type="image/x-icon" href="/BlogPictures/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="charset" content="UTF-8">
+    <meta name="keywords" content="Journey, Programming, HMTL">
+    <meta name="description" content="My journey from being a progamming noob to a programing hero">
+    <title>Day 23 </title>
+  </head>
+  <body>
+    <header>
+      <h1><a id="header-title" href="index.html">Journey <br> Of <br> Improvement</a></h1>
+    </header>
+
+    <nav class="main-nav">
+      <ul>
+        <li class="nav-button"><a class="nav-link" href="../index.html">Home</a></li>
+        <li class="nav-pipe">|</li>
+        <li class="nav-button"><a class="nav-link" href="../AboutMe.html">About Me</a></li>
+        <li class="nav-pipe">|</li>
+        <li class="nav-button"><a class="nav-link" href="BlogNavigation.html">Blogs</a></li>
+        <li class="nav-pipe">|</li>
+        <li class="nav-button"><a class="nav-link" href="../ProjectPage.html">Projects</a></li>
+        <li class="nav-pipe">|</li>
+        <li class="nav-button"><a class="nav-link" href="../Skills.html">Skills</a></li>
+      </ul>
+    </nav>
+    <div class="grid-container">
+      <div>
+      </div>
+      <div>
+        <article class="BlogPost">
+
+          <h3 class="title">Day 23 Coding a Game Part 2 Classes  </h3>
+
+
+          <p class="blogText">
+            Something that I have wanted to do with this project is get my head more wrapped around JavaScript classes. It&apos;s one thing to read and another thing to do. I have been trying to work in classes where I can. I&apos;m going to go through some of the information that I have been learning and coding. These classes will probably change as I go.
+          </p>
+          <p class="blogText">
+            While thinking about making classes I wanted to test my hand at inheritance. That is when you make one class and then another class will inherit the properties and methods from that class. The way that I was going to use this makes master classes for objects/ components that are going to be drawn to the board. That would be anything from monsters to the player.
+          </p>
+
+          <h5 class="codeTitle">Compant Class</h5>
+          <pre>
+            <code>
+  class Component {
+  constructor(x,y){
+    this.x = x;
+    this.y = y;
+    this.color = "FFFFFF"
+  }
+  draw(area){
+    drawFillRect(area,this.width,this.height,this.x+37.5,this.y+37.5,this.color)
+  }
+}
+
+            </code>
+          </pre>
+          <p class="blogText">
+            This ended up being a really basic class for the time being. It will take in an x and y no matter what. This is due to me knowing that a player or a monster needs to have coordinates on the board. Next is the draw method since I&apos;m drawing both components the same way I  could use a shared method to help create this. Next, we will look at the Hero class that extends this component class
+          </p>
+          <h5 class="codeTitle">Hero Class</h5>
+          <pre>
+            <code>
+class Hero extends Component {
+  constructor(x,y) {
+    super(x,y)
+    this.color = "#8A2BE2"
+    this.width = 25;
+    this.height = 25;
+    this.face direction = "right"
+    this.attackBelt = [];
+    this.deck = fireDeck;
+  }
+
+  move(direction){
+    switch (direction) {
+      case "down":
+        if (this.y >= 175 ) {
+
+        }else{
+          this.y += 50
+        }
+        break;
+      case "up":
+        if (this.y <= 25 ) {
+
+        }else{
+          this.y -= 50
+        }
+        break;
+      case "right":
+        if (this.x >= 175 ) {
+
+        }else{
+          this.x += 50
+
+        }
+        break;
+      case "left":
+        if (this.x <= 25 ) {
+
+        }else{
+          this.x -= 50
+        }
+        break;
+      default:
+
+    }
+  }
+
+  attack(newAttack){
+    this.attackBelt.push(newAttack);
+  }
+  drawAttackCard(num, id){
+    $("#attack-box").append(`
+      &lt;div class="attack" id="atk-`+id+`"&gt;
+        &lt;p class="attack-title | center"&gt;`+this.deck[num].name+`&lt;/p&gt;
+        &lt;div class="flex-box"&gt;
+          &lt;p class="attack-des"&gt;Dmg: `+this.deck[num].dmg+`&lt;/p&gt;
+          &lt;p class="attack-des" &gt;Cost: `+this.deck[num].cost+`&lt;/p&gt;
+          &lt;i class="`+this.deck[num].class+`"&gt;&lt;/i&gt;
+          &lt;picture class="attack-img"&gt;
+            &lt;img src="`+this.deck[num].img+`" alt=""&gt;
+          &lt;/picture&gt;
+
+        &lt;/div&gt;
+      &lt;/div&gt;
+      `
+)
+  }
+
+  pullCard(){
+    let max = Object.keys(this.deck).length
+    let num = random(0, max-1)
+    let id = this.attackBelt.length
+    this.attack(new Attacks(this.deck[num].name, this.deck[num].type, this.deck[num].squance, id, this.deck[num].dmg, this.deck[num].cost))
+    this.drawAttackCard(num,id)
+  }
+}
+
+            </code>
+          </pre>
+
+          <p class="blogText">
+            Now the first to talk about is super. Super will use the constructor of the first parent classes to give all of its information to the child. Now there are a few more properties that I want to use in the hero class. That would be the height, width, the direction the layer is facings, what attacks they have in their belt, and what deck they are using. All of these are outside the component class. Also with the player I add in a few more methods. I have the move method that will handle how the play is going to move around the board. At this point, it just moves the player into the next space without going outside of the board. Then I set a method that will push a new card into the player attack inventory. This is used later when drawing cards. Next, I have the method that will draw the cards on the board. Finally, the pull card method will be the way that a random card will get populated into the hero's inventory and get drawn. This is all due to the other methods that came before it.
+          </p>
+          <h5 class="codeTitle">Monster Class</h5>
+          <pre>
+            <code>
+              class Monster extends Component {
+  constructor(x,y,type,id) {
+    super(x,y)
+    this.type = type;
+    this.width = 25;
+    this.height = 25;
+    this.color = "#568203";
+    this.hp = 4;
+    this.id = id;
+    this.status = "alive"
+  }
+
+
+
+  CreateNameCard(){
+    $("#enemy-box").append(`
+      &lt;div class="enemy-box" id="mon-`+this.id+`"&gt;
+        &lt;p class="enemy-title | center"&gt;Goblin&lt;/p&gt;
+        &lt;div class="enemy-status"&gt;
+          &lt;p class="enemy-hp | center"&gt;Hp: `+this.hp+`&lt;/p&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;  `)
+  }
+
+  takeDamge(dmg){
+    if (this.hp-dmg <=0 ) {
+      this.hp = 0;
+      this.status = "dead"
+      $("#" + this.id).html(`
+        &lt;p class="enemy-title | center"&gt;Goblin&lt;/p&gt;
+        &lt;div class="enemy-status"&gt;
+          &lt;p class="enemy-hp | center"&gt;Hp: `+this.hp+`&lt;/p&gt;
+        &lt;/div&gt;
+          `)
+          return "dead"
+    }else{
+      this.hp -= dmg
+      $("#" + this.id).html(`
+        &lt;p class="enemy-title | center"&gt;Goblin&lt;/p&gt;
+        &lt;div class="enemy-status"&gt;
+          &lt;p class="enemy-hp | center"&gt;Hp: `+this.hp+`&lt;/p&gt;
+        &lt;/div&gt;
+          `)
+          return "alive"
+    }
+  }
+}
+
+            </code>
+          </pre>
+
+          <p class="blogText">
+            Next, we have the monster class. This takes a few more arguments and will most likely keep organically changing as I build on to this project. We have the same width height color, x, and y. We also add in hp, id, and status. These could be brought into the hero later as I build out the status but only want it here for now. Some of the other methods are creating a name card. This will help create the HTML sidebar to tell the player about the enemies. Also, there is take damage. This method is used to help clean up the monster array when the monster dies. This also tells the system when the monster has taken too much damage.
+          </p>
+          <p class="blogText">
+            Next time I&apos;ll talk more about the attack classes and a little bit more about the unity function that I&apos;m currently using to build out the game.
+          </p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </article>
+      </div>
+      <div>
+      </div>
+    </div>
+  </body>
+</html>

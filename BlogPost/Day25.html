@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <link rel="stylesheet" type="text/css" href="../CSS/Navbar.CSS?v=1.1">
+    <link rel="stylesheet" type="text/css" href="../CSS/BlogPost.CSS">
+    <link rel="icon" type="image/x-icon" href="/BlogPictures/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="charset" content="UTF-8">
+    <meta name="keywords" content="Journey, Programming, HMTL">
+    <meta name="description" content="My journey from being a progamming noob to a programing hero">
+    <title>Day 25</title>
+  </head>
+  <body>
+    <header>
+      <h1><a id="header-title" href="index.html">Journey <br> Of <br> Improvement</a></h1>
+    </header>
+
+    <nav class="main-nav">
+      <ul>
+        <li class="nav-button"><a class="nav-link" href="../index.html">Home</a></li>
+        <li class="nav-pipe">|</li>
+        <li class="nav-button"><a class="nav-link" href="../AboutMe.html">About Me</a></li>
+        <li class="nav-pipe">|</li>
+        <li class="nav-button"><a class="nav-link" href="BlogNavigation.html">Blogs</a></li>
+        <li class="nav-pipe">|</li>
+        <li class="nav-button"><a class="nav-link" href="../ProjectPage.html">Projects</a></li>
+        <li class="nav-pipe">|</li>
+        <li class="nav-button"><a class="nav-link" href="../Skills.html">Skills</a></li>
+      </ul>
+    </nav>
+    <div class="grid-container">
+      <div>
+      </div>
+      <div>
+        <article class="BlogPost">
+
+          <h3 class="title">Day 25: Building a Game Part 4 Monsters  </h3>
+
+          <p class="blogText">
+            As I get closer to having something functional I need to start taling about how I&apos;m going to be summoning monsters to the board. Right now this looks like a green square but down the road it might be something more complex. There are a lot of things to think about with this. Like how many can fit on board, if there is an open space, and more.
+          </p>
+          <p class="blogText">
+            First lets talk about finding an open space for a monster to be drawn to the board. This is one of the reason I made the game board array. This helps me tell the system what is open and what is occupied. That&apos;s where I will bring up the first function find random open space.
+          </p>
+          <h5 class="codeTitle">Find Random Open Space Function </h5>
+          <pre>
+            <code>
+  function findRandomOpenSpace(arr){
+  let row = random(0,3);
+  let column = random(0,3);
+  let spot = []
+  if (arr[row][column] == "open") {
+    spot.push(row);
+    spot.push(column);
+    return spot;
+  }else{
+    return "fail";
+  }
+
+}
+
+            </code>
+          </pre>
+          <p class="blogText">
+
+This function takes in an array. This array will be the game board that has already been updated by the game board update function. If you remember that function goes through the game board array and writes closed for any tile that is occupied by the player or a monster. Now after that the function will take a random number from zero to three. This will be for both rows and columns. Then it will look at the array and if it&apos;s close it will return a fail. This is important because if nothing is open I don&apos;t want to draw more monsters.
+
+          </p>
+          <h5 class="codeTitle">Draw Monster Function</h5>
+          <pre>
+            <code>
+function drawMonsters(arr){
+  if (arr.length == 0) {
+  }else{
+    for (var i = 0; i < arr.length; i++) {
+      arr[i].draw(ctx)
+    }
+  }
+}
+
+            </code>
+          </pre>
+          <p class="blogText">
+            Talking about creating the monster we need a function that will create all the new monster. This is going to be done with the create monster function. This function will take in the arguments that are needed for the monster class constructor, and the monster array. This will take the length of the monster array and give it to the new monster for it&apos;s ID. then it will create a new monster giving it the ID and drawing it&apos;s card to the monster column in HTML. Now we can put all of those function together and make a final function for creating monster!
+          </p>
+          <h5 class="codeTitle">Create New Monster Function</h5>
+          <pre>
+            <code>
+  function createNewMonsters(num,failCount){
+  let fails = 0
+  for (var i = 0; i < num; i++) {
+    do{
+      let cords = findRandomOpenSpace(gameBoard)
+      if (cords != "fail") {
+        let x = numToCord(cords[0]);
+        let y = numToCord(cords[1]);
+        createMonster(x,y,"Goblin",monArr);
+        gameBoardUpdate(player,monArr)
+        break;
+      }else{
+        fails++
+      }
+    }while(fails < failCount)
+  }
+}
+
+            </code>
+          </pre>
+          <p class="blogText">
+
+Create New Monster is a function that encapsulates all the monster functions. This will take in the number of monster to be drawn to the board and how many time a single draw can fail before exiting. Next I go into a for loop to create each monster. That for loop has a do while loop to check how many times the monster creation fails. After it reaches the fail count it will terminate that try of creating the monster. If the function finds a open space it will create the monster.
+
+          </p>
+          <p class="blogText">
+            That&apos;s the post for today. I&apos;ll be working on some more things tomorrow and hopefully getting this project to a point that will look good soon.
+          </p>
+
+        </article>
+      </div>
+      <div>
+      </div>
+    </div>
+  </body>
+</html>

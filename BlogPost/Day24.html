@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <link rel="stylesheet" type="text/css" href="../CSS/Navbar.CSS?v=1.1">
+    <link rel="stylesheet" type="text/css" href="../CSS/BlogPost.CSS">
+    <link rel="icon" type="image/x-icon" href="/BlogPictures/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="charset" content="UTF-8">
+    <meta name="keywords" content="Journey, Programming, HMTL">
+    <meta name="description" content="My journey from being a progamming noob to a programing hero">
+    <title>Day 24</title>
+  </head>
+  <body>
+    <header>
+      <h1><a id="header-title" href="index.html">Journey <br> Of <br> Improvement</a></h1>
+    </header>
+
+    <nav class="main-nav">
+      <ul>
+        <li class="nav-button"><a class="nav-link" href="../index.html">Home</a></li>
+        <li class="nav-pipe">|</li>
+        <li class="nav-button"><a class="nav-link" href="../AboutMe.html">About Me</a></li>
+        <li class="nav-pipe">|</li>
+        <li class="nav-button"><a class="nav-link" href="BlogNavigation.html">Blogs</a></li>
+        <li class="nav-pipe">|</li>
+        <li class="nav-button"><a class="nav-link" href="../ProjectPage.html">Projects</a></li>
+        <li class="nav-pipe">|</li>
+        <li class="nav-button"><a class="nav-link" href="../Skills.html">Skills</a></li>
+      </ul>
+    </nav>
+    <div class="grid-container">
+      <div>
+      </div>
+      <div>
+        <article class="BlogPost">
+
+          <h3 class="title">Day 24: Building a Game Part 3 Attacks </h3>
+
+          <p class="blogText">
+            Alright so I have a gameboard and I have classes. Now we have to attack the monster to win the game. Attacks end up taking a lot of time to develop so this post will be all of that.
+          </p>
+          <h4 class="sectionHeader">Attacks</h4>
+
+          <p class="blogText">
+            The first thing I thought about when I wanted to build the attack system us how will I have unique skills and how will these translate to the game. First I wanted a deck-building game sort of. Where the player will randomly get skills from their class. This could be like a pyro wizard pulling fireball, or fire punch. Then they would click the skill to cast it. Now how was I going to do that? First off classes again help out.
+          </p>
+          <h5 class="codeTitle">Attacks Class</h5>
+          <pre>
+            <code>
+  class Attacks {
+  constructor(name, type, sequence, id, dmg, cost) {
+    this.name = name;
+    this.type = type
+    this.sequence = sequence;
+    this.id = id;
+    this.dmg = dmg;
+    this.cost = cost;
+  }
+
+            </code>
+          </pre>
+          <p class="blogText">
+            The constructor for this class is easy because all I have to do is think about what I need for an attack. I have the name of the attack, how much it cost, what the damage, and what&apos;s the type. Other than that I have id to tell the system which attacks it is in an array of attacks. Next, how does this attack play out on the board? I decided for my use it would be a sequence of numbers that are related to the cardinal direction. Like one being north and three being east. I followed that scheme all around the compass. An attack that goes north three times would be an array of three ones. Now when building the method to draw the attack I needed to think ahead of how I was going to do that. So if I wanted to draw the attack I would think first we need to see what direction the player was in, then change the sequence if the player isn&apos;t facing north, then read the new sequence, then cast the attack.
+          </p>
+          <h5 class="codeTitle">New Direction Function </h5>
+          <pre>
+            <code>
+newDirection(num,direction){
+
+  switch (direction) {
+    case "up":
+      return num;
+    break;
+    case "right":
+      if (num == 0) {
+        return 0;
+      }else if (num+2>8) {
+        return num+2-8
+      }else{
+        return num+2
+      }
+    break;
+    case "down":
+    if (num == 0) {
+      return 0;
+    }else if (num+4>8) {
+      return num+4-8
+    }else{
+      return num+4
+    }
+    break;
+    case "left":
+    if (num == 0) {
+      return 0;
+    }else if (num+6>8) {
+      return num+6-8
+    }else{
+      return num+6
+    }
+    break;
+    default:
+
+  }
+}
+
+            </code>
+          </pre>
+          <p class="blogText">
+            The first thing to do was change the sequence depending on direction. I wrote every sequence as if the player is facing nothing. Then I used a switch to read the player's direction. If they were facing east the sequence would be two plus the original number. That is like if north one and if you look east one plus two which would be three sending the attack one box to the right.
+          </p>
+          <h5 class="codeTitle">Sequence Reader Function </h5>
+          <pre>
+            <code>
+  sequanceReader(seq,direction){
+  let arr = []
+  for (var i = 0; i < seq.length; i++) {
+    arr.push(this.newDirection(seq[i],direction))
+
+  }
+  return arr
+}
+
+            </code>
+          </pre>
+          <p class="blogText">
+            Now I needed an in-between function to read the sequence and change. This sequence read uses a loop to check each item of the attack array and hand out a new array for the new sequence. Now that we have the new sequence we can cast our attack.
+          </p>
+          <h5 class="codeTitle">HTML head code</h5>
+          <pre>
+            <code>
+  castAttack(caster){
+    let x = caster.x-25
+    let y = caster.y-25
+    let newSeq = []
+    if (caster.faceDirection =="up") {
+      newSeq = this.sequence;
+    }else{
+
+      newSeq = this.sequanceReader(this.sequence, caster.faceDirection)
+
+    }
+    for (var i = 0; i < newSeq.length; i++) {
+        switch (newSeq[i]) {
+          case 1:
+
+            y -=50;
+            drawFillRect(ctx,50,50,x+50,y+50,"#AA0000")
+            checkIfHit(player,monArr,"player",x,y,this)
+
+          break;
+          case 2:
+            x +=50;
+            y -=50;
+            drawFillRect(ctx,50,50,x+50,y+50,"#AA0000")
+            checkIfHit(player,monArr,"player",x,y,this)
+          break;
+          case 3:
+            x +=50;
+            drawFillRect(ctx,50,50,x+50,y+50,"#AA0000")
+            checkIfHit(player,monArr,"player",x,y,this)
+
+          break;
+          case 4:
+            x +=50 ;
+            y +=50;
+            drawFillRect(ctx,50,50,x+50,y+50,"#AA0000")
+            checkIfHit(player,monArr,"player",x,y,this)
+          break;
+          case 5:
+
+            y +=50;
+            drawFillRect(ctx,50,50,x+50,y+50,"#AA0000")
+            checkIfHit(player,monArr,"player",x,y,this)
+          break;
+          case 6:
+            x -=50;
+            y +=50;
+            drawFillRect(ctx,50,50,x+50,y+50,"#AA0000")
+            checkIfHit(player,monArr,"player",x,y,this)
+          break;
+          case 7:
+            x -=50;
+            drawFillRect(ctx,50,50,x+50,y+50,"#AA0000")
+            checkIfHit(player,monArr,"player",x,y,this)
+          break;
+          case 8:
+            x -=50;
+            y -=50;
+            drawFillRect(ctx,50,50,x+50,y+50,"#AA0000")
+            checkIfHit(player,monArr,"player",x,y,this)
+          break;
+          case 0:
+            x = caster.x-25;
+            y = caster.y-25;
+            drawFillRect(ctx,50,50,x+50,y+50,"#AA0000")
+            checkIfHit(player,monArr,"player",x,y,this)
+          break;
+          default:
+
+        }
+
+    }
+  }
+
+            </code>
+          </pre>
+          <p class="blogText">
+            This will be the code that the computer will use to cast the actual attack. It takes the player's x, y, and face direction. If the face direction is north it doesn&apos;t need the sequence reader. Then it goes into a for loop to start drawing the attack and checking if anything got hit. Also, it starts moving the x and y that it&apos;s holding to move the attack. If there are three east hits. The function will move the x plus 50 each time. With all the function combined the attack finally get drawn to the screen.
+          </p>
+          <p class="blogText">
+            As you can see there are a lot of pieces that go into one aspect of the program. Tomorrow I&apos;ll be back with more progress and for now, I&apos;ll put the alpha stage of the game up on the website.
+          </p>
+
+
+        </article>
+      </div>
+      <div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <link rel="stylesheet" type="text/css" href="../CSS/Navbar.CSS?v=1.1">
+    <link rel="stylesheet" type="text/css" href="../CSS/BlogPost.CSS">
+    <link rel="icon" type="image/x-icon" href="/BlogPictures/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="charset" content="UTF-8">
+    <meta name="keywords" content="Journey, Programming, HMTL">
+    <meta name="description" content="My journey from being a progamming noob to a programing hero">
+    <title>Day 26</title>
+  </head>
+  <body>
+    <header>
+      <h1><a id="header-title" href="index.html">Journey <br> Of <br> Improvement</a></h1>
+    </header>
+
+    <nav class="main-nav">
+      <ul>
+        <li class="nav-button"><a class="nav-link" href="../index.html">Home</a></li>
+        <li class="nav-pipe">|</li>
+        <li class="nav-button"><a class="nav-link" href="../AboutMe.html">About Me</a></li>
+        <li class="nav-pipe">|</li>
+        <li class="nav-button"><a class="nav-link" href="BlogNavigation.html">Blogs</a></li>
+        <li class="nav-pipe">|</li>
+        <li class="nav-button"><a class="nav-link" href="../ProjectPage.html">Projects</a></li>
+        <li class="nav-pipe">|</li>
+        <li class="nav-button"><a class="nav-link" href="../Skills.html">Skills</a></li>
+      </ul>
+    </nav>
+    <div class="grid-container">
+      <div>
+      </div>
+      <div>
+        <article class="BlogPost">
+
+
+
+
+
+
+
+          <h3 class="title">Day 26: Building a Game Part 5 Game Loop </h3>
+
+          <p class="blogText">
+            The game has finally gotten to a place where it can be played in a basic version on the desktop. Now that is considered done for the time being. There will be a lot more added throughout the time that I program but for now, I would like to move on to something else. This could be data visualization, PHP forms, or even javascript cookies. At this time though let's talk about the final additions I have made to the magic attack this time.
+          </p>
+
+          <h4 class="sectionHeader">Setting up the game loop</h4>
+
+          <p class="blogText">
+            With my game one thing I haad to do was set up turn for the player and the monster to do this. I set up a game status variable that would switch the game back and forth between the player and the monsters. Turning over the game after moves and attack from the player. I made sure that everything would be run through an update function that would happen everytime the game had to update.
+
+          </p>
+
+          <h5 class="codeTitle">Update game</h5>
+          <pre>
+            <code>
+function updateGame(){
+  clearCanvas()
+  drawboard()
+  player.draw(ctx)
+  drawMonsters(monArr)
+  if (monArr.length == 0) {
+    createNewMonsters(3,3)
+  }
+  if (gameStatus == 0) {
+    monstersTurn(monArr)
+    upKeep()
+    player.pullCard();
+    player.moves = player.speed;
+    gameStatus = 1;
+  }
+}
+
+            </code>
+          </pre>
+
+          <p class="blogText">
+            This code would execute a few things when run. First off it would clear the canas and draw the board everytime the game updates. Next would be the players draw function. With this in mind the monster in the monster array would all be drawn to the game too. Also this function looks at the board and if there are no monsters it adds three more.  Now after this is were the game turns comes into player with the monsters turn function and the up keep function.
+
+          </p>
+          <h5 class="codeTitle">Monsters Turn and find player function </h5>
+          <pre>
+            <code>
+function monstersTurn(arr){
+  for (var i = 0; i < arr.length; i++) {
+    arr[i].findPlayer(player)
+  }
+
+
+  findPlayer(target){
+    let monsterX = cordToNum(this.x);
+    let monsterY = cordToNum(this.y);
+    let playerX = cordToNum(target.x);
+    let playerY = cordToNum(target.y);
+    let xAway = monsterX - playerX;
+    let yAway = monsterY - playerY;
+
+    if (xAway + yAway == 1 || xAway + yAway == -1) {
+      this.attackPlayer(xAway,yAway)
+    }else{
+      this.move(xAway,yAway)
+    }
+
+  }
+
+}
+
+            </code>
+          </pre>
+
+          <p class="blogText">
+
+The monsters turn function would use the monster&apos;s find player function to tell the monsters what to do. First the find player function breaks down where the player is and where the monster is. If the player is within one space away from the monster it would attack the player. If the monster was farther it would move to the player.
+
+          </p>
+
+          <h5 class="codeTitle">Upkeep function</h5>
+          <pre>
+            <code>
+function upKeep(){
+  if (player.mana != player.maxMana) {
+    player.mana +=1;
+    player.setManaBar()
+  }
+  updateScore();
+}
+
+
+            </code>
+          </pre>
+          <p class="blogText">
+            Next is the up keep function. This function is used to do anything that needs to happen before it&apos;s the players turn. As of right now that is giving the player mana and resting the players mana. Alos the score is updated.
+          </p>
+          <p class="blogText">
+            That is everything that lets the game function. Tomorrow will be a shorter blog post to round up everything with this project and start the research cycle again.
+          </p>
+
+
+
+
+
+        </article>
+      </div>
+      <div>
+      </div>
+    </div>
+  </body>
+</html>
