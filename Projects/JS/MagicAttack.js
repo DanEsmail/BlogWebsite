@@ -554,130 +554,126 @@ class Monster extends Component {
 }
 
 class Attacks {
+  //class for all the attack cards
   constructor(name, type, squance, id, dmg, cost,team) {
     this.name = name;
-    this.type = type
-    this.squance = squance;
+    this.type = type;
+    this.squance = squance; //direction the attacks go
     this.id = id;
     this.dmg = dmg;
     this.cost = cost;
-    this.team = team;
+    this.team = team; //who casts the spell
   }
 
   newDirection(num,direction){
+    //changes the direction of the attack sequance based on direction caster is facing
+      //used in Attack.sequanceReader()
 
+    //switch reads direction and added based on location
     switch (direction) {
       case "up":
-        return num;
-      break;
+        return num; //all attacks are based off north don't change if player is facing north
       case "right":
         if (num == 0) {
-          return 0;
+          return 0; //if hold number return hold number don't change
         }else if (num+2>8) {
-          return num+2-8
+          return num+2-8; //if number goes over 8 which is north west subtract 8
         }else{
-          return num+2
+          return num+2; //add to to face spell east
         }
-      break;
       case "down":
       if (num == 0) {
-        return 0;
+        return 0; //if hold number return hold number don't change
       }else if (num+4>8) {
-        return num+4-8
+        return num+4-8; //if number goes over 8 which is north west subtract 8
       }else{
-        return num+4
+        return num+4; //add to to face spell south
       }
-      break;
       case "left":
       if (num == 0) {
-        return 0;
+        return 0; //if hold number return hold number don't change
       }else if (num+6>8) {
-        return num+6-8
+        return num+6-8; //if number goes over 8 which is north west subtract 8
       }else{
-        return num+6
+        return num+6; //add to to face spell west
       }
-      break;
       default:
-
     }
   }
 
   sequanceReader(seq,direction){
-    let arr = []
-    for (var i = 0; i < seq.length; i++) {
-      arr.push(this.newDirection(seq[i],direction))
-
+    //creates a new array for the attack sequance
+      //used in Attack.castAttack
+    let arr = [] //intailize the new array
+    for (var i = 0; i < seq.length; i++) { //go through the attack sequance
+      arr.push(this.newDirection(seq[i],direction)) //push the new direction to the new array
     }
-    return arr
+    return arr //return the new array
   }
 
   castAttack(caster){
-
-    let x = caster.x-25
-    let y = caster.y-25
-    let newSeq = []
+    //casts the attack by the caster
+      //used in Monster.AttackPlayer(), and when player attacks
+    let x = caster.x-25; // 0 out attack X
+    let y = caster.y-25; // 0 out attack Y
+    let newSeq = []; //initialize a new array to hold the sequance if it changes
     if (caster.faceDirection =="up") {
-      newSeq = this.squance;
+      newSeq = this.squance;  //if the caster is facing north don't change sequance
     }else{
-
-      newSeq = this.sequanceReader(this.squance, caster.faceDirection)
-
+      newSeq = this.sequanceReader(this.squance, caster.faceDirection); //if caster isn't facing north change the seqance
     }
+    //go through seqance to attack in order
     for (var i = 0; i < newSeq.length; i++) {
-        switch (newSeq[i]) {
-          case 1:
-
-            y -=50;
-            drawFillRect(ctx,50,50,x+50,y+50,"#AA0000")
-            checkIfHit(player,monArr,this.team,x,y,this)
-
+        switch (newSeq[i]) { //read the seqance number and move in a cardnal direction
+          case 1: //north
+            y -=50; //move 50 up
+            drawFillRect(ctx,50,50,x+50,y+50,"#AA0000"); //draw attack
+            checkIfHit(player,monArr,this.team,x,y,this); //check if something got hit
           break;
-          case 2:
-            x +=50;
-            y -=50;
-            drawFillRect(ctx,50,50,x+50,y+50,"#AA0000")
-            checkIfHit(player,monArr,this.team,x,y,this)
+          case 2: //NorthEast
+            x +=50; //move right
+            y -=50; //move up
+            drawFillRect(ctx,50,50,x+50,y+50,"#AA0000"); //draw attack
+            checkIfHit(player,monArr,this.team,x,y,this); //check if something got hit
           break;
-          case 3:
-            x +=50;
-            drawFillRect(ctx,50,50,x+50,y+50,"#AA0000")
-            checkIfHit(player,monArr,this.team,x,y,this)
-
+          case 3: // East
+            x +=50; //move right
+            drawFillRect(ctx,50,50,x+50,y+50,"#AA0000"); //draw attack
+            checkIfHit(player,monArr,this.team,x,y,this); //check if something got hit
           break;
-          case 4:
-            x +=50 ;
-            y +=50;
-            drawFillRect(ctx,50,50,x+50,y+50,"#AA0000")
-            checkIfHit(player,monArr,this.team,x,y,this)
+          case 4: // SouthEast
+            x +=50 ; //move right
+            y +=50; // move down
+            drawFillRect(ctx,50,50,x+50,y+50,"#AA0000"); //draw attack
+            checkIfHit(player,monArr,this.team,x,y,this); //check if something got hit
           break;
-          case 5:
-
-            y +=50;
-            drawFillRect(ctx,50,50,x+50,y+50,"#AA0000")
-            checkIfHit(player,monArr,this.team,x,y,this)
+          case 5: //south
+            y +=50; //move down
+            drawFillRect(ctx,50,50,x+50,y+50,"#AA0000"); //draw attack
+            checkIfHit(player,monArr,this.team,x,y,this); //check if something got hit
           break;
-          case 6:
-            x -=50;
-            y +=50;
-            drawFillRect(ctx,50,50,x+50,y+50,"#AA0000")
-            checkIfHit(player,monArr,this.team,x,y,this)
+          case 6: // move Southwest
+            x -=50; //move left
+            y +=50; //move down
+            drawFillRect(ctx,50,50,x+50,y+50,"#AA0000"); //draw attack
+            checkIfHit(player,monArr,this.team,x,y,this); //check if something got hit
           break;
-          case 7:
-            x -=50;
-            drawFillRect(ctx,50,50,x+50,y+50,"#AA0000")
-            checkIfHit(player,monArr,this.team,x,y,this)
+          case 7: // move west
+            x -=50; //move left
+            drawFillRect(ctx,50,50,x+50,y+50,"#AA0000"); //draw attack
+            checkIfHit(player,monArr,this.team,x,y,this); //check if something got hit
           break;
-          case 8:
-            x -=50;
-            y -=50;
-            drawFillRect(ctx,50,50,x+50,y+50,"#AA0000")
-            checkIfHit(player,monArr,this.team,x,y,this)
+          case 8: //move northeast
+            x -=50; //move left
+            y -=50; //move up
+            drawFillRect(ctx,50,50,x+50,y+50,"#AA0000"); //draw attack
+            checkIfHit(player,monArr,this.team,x,y,this); //check if something got hit
           break;
-          case 0:
-            x = caster.x-25;
-            y = caster.y-25;
-            drawFillRect(ctx,50,50,x+50,y+50,"#AA0000")
-            checkIfHit(player,monArr,this.team,x,y,this)
+          case 0: //bring back to caster
+            x = caster.x-25; //reset x
+            y = caster.y-25; //reset y
+            drawFillRect(ctx,50,50,x+50,y+50,"#AA0000"); //draw attack
+            checkIfHit(player,monArr,this.team,x,y,this); //check if something got hit
           break;
           default:
 
@@ -686,155 +682,102 @@ class Attacks {
     }
   }
 
-
-
 }
 
-
-
-//game buttons******************************************************************
-
-$(document).keydown(function(e){
-  if (gameStatus == 1) {
-    switch (e.key) {
-      case "a":
-        player.move("left")
-
-        break;
-      case "w":
-        player.move("up")
-
-        break;
-      case "d":
-        player.move("right")
-
-        break;
-      case "s":
-        player.move("down")
-
-        break;
-      default:
-
-    }
-  }
-
-})
-
-function createMonster(x,y,type,arr){
-  let monsterID = arr.length;
-  arr.push(new Monster(x,y,type,monsterID));
-  arr[monsterID].CreateNameCard();
-  arr[monsterID].findAttack();
-}
+//Monster Utility Functions*****************************************************
 
 function drawMonsters(arr){
-  if (arr.length == 0) {
-  }else{
+  //draw all the monsters
+    //used in updateGame()
+
+  //create a for loop to draw the monster array
+  if (arr.length != 0) {
     for (var i = 0; i < arr.length; i++) {
-      arr[i].draw(ctx)
+      arr[i].draw(ctx); //draw the monsters to the board
     }
   }
+}
+
+function createMonster(x,y,type,arr){
+  //creates the main components of the moster when generated
+    //used in createNewMonsters()
+  let monsterID = arr.length; //get the monsters ID by finding the length of the monser array
+  arr.push(new Monster(x,y,type,monsterID)); // create a new monster and push it to the monster array
+  arr[monsterID].CreateNameCard(); //create the card to the browers
+  arr[monsterID].findAttack(); //find the attack the monster is supposed to use
 }
 
 function findRandomOpenSpace(arr){
-  let row = random(0,3);
-  let column = random(0,3);
-  let spot = []
-  if (arr[row][column] == "open") {
-    spot.push(row);
-    spot.push(column);
-    return spot;
+  //used to find a random open space to create a monster
+    //used in createNewMonsters()
+  let row = random(0,arr.length - 1 ); //find a number between 0 and array length -1
+  let column = random(0,arr.length - 1); //find a number between 0 and array length -1
+  let spot = []; //intialize new array
+  if (arr[row][column] == "open") { //check if spot is open
+    spot.push(row); //if open push x
+    spot.push(column); //if open push y
+    return spot; //return x,y in array
   }else{
-    return "fail";
+    return "fail"; //if spot isn't open return fail
   }
-
 }
 
 function createNewMonsters(num,failCount){
-  let fails = 0
-  for (var i = 0; i < num; i++) {
+  //creates a set of new monster
+   //used in updateGame(), and gameStart()
+  let fails = 0; //set fail counter
+  for (var i = 0; i < num; i++) { //for loop between amount of monsters to be created
     do{
-      let cords = findRandomOpenSpace(gameBoard)
-      if (cords != "fail") {
-        let x = numToCord(cords[0]);
-        let y = numToCord(cords[1]);
-        createMonster(x,y,"Goblin",monArr);
-        gameBoardUpdate(player,monArr)
+      let cords = findRandomOpenSpace(gameBoard); //find a random spot on board for monster
+      if (cords != "fail") { //spot is open create monster
+        let x = numToCord(cords[0]); //let x be the x cords from findRandomOpenSpace
+        let y = numToCord(cords[1]); //let y be the y cords from findRandomOpenSpace
+        createMonster(x,y,"Goblin",monArr); //create the monster
+        gameBoardUpdate(player,monArr); //update gameboard
         break;
       }else{
-        fails++
+        fails++; //if fail increment fail counter
       }
-    }while(fails < failCount)
+    }while(fails < failCount) //if fails reach fail count then spot trying to place monster and move on to the next monster
   }
 }
 
+//Player utility functions******************************************************
 
-//player attacks
 function changeAttackDirection(piece){
+  //switch the direction of the imgage and direction of text
+   //used in updateAttackArray() and clicks on the direction box
   switch (piece.faceDirection) {
     case "up":
-      $(".attack-img").css("transform","rotate(0deg)");
-      $("#direction-text").text("Current Direction: right")
-      piece.faceDirection = "right"
+      $(".attack-img").css("transform","rotate(0deg)"); //move image to orignal position
+      $("#direction-text").text("Current Direction: right"); //change direction on text to right
+      piece.faceDirection = "right"; //change face direction to right
     break;
     case "right":
-      $(".attack-img").css("transform","rotate(90deg)");
-      $("#direction-text").text("Current Direction: down")
-      piece.faceDirection = "down"
+      $(".attack-img").css("transform","rotate(90deg)"); //rotate image 90 degress
+      $("#direction-text").text("Current Direction: down"); //change direction on text to down
+      piece.faceDirection = "down"; //change face direction to down
     break;
     case "down":
-      $(".attack-img").css("transform","rotate(180deg)");
-      $("#direction-text").text("Current Direction: left")
-      piece.faceDirection = "left"
+      $(".attack-img").css("transform","rotate(180deg)"); //rotate image 180 degress
+      $("#direction-text").text("Current Direction: left"); //change direction on text to left
+      piece.faceDirection = "left"; //change face direction to left
     break;
     case "left":
-      $(".attack-img").css("transform","rotate(270deg)");
-      $("#direction-text").text("Current Direction: up")
-      piece.faceDirection = "up"
+      $(".attack-img").css("transform","rotate(270deg)"); //rotate image 270 degress
+      $("#direction-text").text("Current Direction: up"); //change direction on text to down
+      piece.faceDirection = "up"; //change face direction to up
     break;
     default:
 
   }
 }
 
-$("#attack-box").on("click", ".direction-button",function(){
-  changeAttackDirection(player)
-})
-
-
-
-$("#attack-box").on("click", ".attack",function(){
-  if (gameStatus == 1) {
-    let str = $(this).attr("id")
-    let arr = str.split("-")
-    let num = parseInt(arr[1])
-    if (player.mana - player.attackBelt[num].cost < 0) {
-
-    }else{
-      player.useMana(player.attackBelt[num].cost )
-      player.attackBelt[num].castAttack(player)
-      player.attackBelt = updateAttackArray(player.attackBelt, num, player)
-      gameStatus = 0;
-      turns++;
-    }
-
-  }
-
-})
-
-$("#attack-box").on("click",".draw-card",function(){
-  if (player.attackBelt.length != player.maxCards) {
-    player.pullCard()
-    gameStatus = 0;
-  }
-
-
-})
-
 function updateAttackArray(arr,oldId,caster){
-  let newArr= [];
-  let counter = 0;
-  let num;
+  //updates the player's attack array after using an attack
+  let newArr= []; //intialize the new array
+  let counter = 0; //set a counter to zero
+  let num; //intailize a number to be used for the speels number in the deck
   $("#attack-box").html(`
       <p class="center">Attacks</p>
       <button class="draw-card | button-class" type="button" name="button">Draw Card</button>
@@ -843,90 +786,154 @@ function updateAttackArray(arr,oldId,caster){
         <p class="center no-margin" id="direction-text">Current Direction: `+caster.faceDirection+ `</p>
       <hr>
     </div>
-    `)
+    `); //clear the attack box in the browser
 
-  for (var i = 0; i < arr.length; i++) {
-    if (i == oldId) {
-
-    }else{
-      newArr.push(arr[i]);
-      arr[i].id = counter;
-      for (var j = 0; j < Object.keys(caster.deck).length; j++) {
-        if (caster.deck[j].name == arr[i].name) {
-          num = j;
-
-          break;
+  for (var i = 0; i < arr.length; i++) { //loop through the attack array
+    if (i != oldId) { //if not the attack that was just used
+      newArr.push(arr[i]); //push attack to new array
+      arr[i].id = counter; // use the counter as the id
+      for (var j = 0; j < Object.keys(caster.deck).length; j++) { //find the number in the deck
+        if (caster.deck[j].name == arr[i].name) { //if the names match up save the number
+          num = j; //save the card number to j
+          break; //break out of j loop
         }
       }
-      caster.drawAttackCard(num,counter)
-      counter++
+      caster.drawAttackCard(num,counter); // draw the attack in it's new position
+      counter++; //increment counter
     }
-
   }
-  return newArr
-}
-function updateScore(){
-  $("#score").text("Score : "+score+ " | Turns: " + turns)
+  changeAttackDirection(player) //update the direction of attacks
+  return newArr //return the new array
 }
 
-function monstersTurn(arr){
-  for (var i = 0; i < arr.length; i++) {
-    arr[i].findPlayer(player)
+//game buttons and clicks to the screen*****************************************
+
+$(document).keydown(function(e){ //when a key gets pressed grab the event
+  //moves the player with the W,A,S and D Keys
+    //used in playermovements
+  if (gameStatus == 1) { // only lets the player move when game status is 1
+    switch (e.key) { //grab the key from the event
+      case "a": //if A is pressed go left
+        player.move("left");
+        break;
+      case "w": //if W is pressed go up
+        player.move("up");
+        break;
+      case "d": //if D is pressed go right
+        player.move("right");
+        break;
+      case "s": //if S is pressed go down
+        player.move("down");
+        break;
+      default:
+
+    }
   }
 
-}
-function upKeep(){
-  if (player.mana != player.maxMana) {
-    player.mana +=1;
-    player.setManaBar()
-  }
-  updateScore();
-}
+})
 
-$("#attack-box").on("click", "#rest",function(){
+$("#attack-box").on("click", ".direction-button",function(){
+  //what do when dirction button is pressed
+  changeAttackDirection(player); //change direction of image and text
+})
 
-  if (player.mana + 2 > player.maxMana) {
-    console.log("overload");
-  }else{
-    player.mana +=2;
-    gameStatus = 0;
+$("#attack-box").on("click", ".attack",function(){
+  //casts a player's speel
+    //used when an attack is pressed on screen
+
+  if (gameStatus == 1) { //only cast spell if game status is 1
+    let str = $(this).attr("id"); //save attack's id to a string
+    let arr = str.split("-"); //split id by a -
+    let num = parseInt(arr[1]); //take the first part of the split and use as attack's id in players attack array
+    if (player.mana - player.attackBelt[num].cost < 0) { //if mana is to low nothing happens
+    }else{
+      player.useMana(player.attackBelt[num].cost ); //use the players mana to cast spell
+      player.attackBelt[num].castAttack(player); //cast the player's spell
+      player.attackBelt = updateAttackArray(player.attackBelt, num, player); //update the players arrack array
+      gameStatus = 0; //set game status to zero
+      turns++; //add 1 to the turns
+    }
   }
 })
 
-//lives
+$("#attack-box").on("click",".draw-card",function(){
+  //draws a new card from the deck for the player
+    //used to for what the draw card button does
+    if (gameStatus == 1 ) { //if game status is 1
+      if (player.attackBelt.length != player.maxCards) {
+        player.pullCard(); //pull a card
+        gameStatus = 0; //set game status
+        turns++; //increment turns
+      }
+    }
+})
 
-//status effects
-
-//game frames
-function updateGame(){
-  clearCanvas()
-  drawboard()
-  player.draw(ctx)
-  drawMonsters(monArr)
-  if (monArr.length == 0) {
-    createNewMonsters(3,3)
+$("#attack-box").on("click", "#rest",function(){
+//gives the player 2 mana if they rest
+  //used to handle the rest button
+  if (player.mana + 2 > player.maxMana) {
+    console.log("overload"); //if player will max out with the extra mana block rest
+  }else{
+    player.mana +=2; //give player 2 mana
+    gameStatus = 0; //change game status
+    turns++; //increment turns
   }
-  if (gameStatus == 0) {
-    monstersTurn(monArr)
-    upKeep()
-    player.pullCard();
-    player.moves = player.speed;
-    gameStatus = 1;
+})
+
+//Game Loop Functions***********************************************************
+function updateScore(){
+  //updates the score
+    //used in updateGame()
+  $("#score").text("Score : "+score+ " | Turns: " + turns); //sets the text of score and turns
+}
+
+function monstersTurn(arr){
+  //handles the monsters turn
+    //used in updateGame()
+  for (var i = 0; i < arr.length; i++) {
+    arr[i].findPlayer(player); //each monster uses their find player function
   }
 }
 
+function upKeep(){
+  //extra up keep sets inbetween player and monster's turns
+    //used in updateGame()
+  if (player.mana != player.maxMana) {
+    player.mana +=1; //give player 1 mana
+    player.setManaBar(); //update players mana bar
+  }
+  updateScore(); //update score
+  player.pullCard(); //pull a player card
+  player.moves = player.speed; //reset players moves
+}
+
+function updateGame(){
+  //updates games based on frames
+  clearCanvas(); //clear canvas
+  drawboard(); //draw the board
+  player.draw(ctx); //draw player
+  drawMonsters(monArr); //draw monster
+  if (monArr.length == 0) {
+    createNewMonsters(3,3); //create monsters if board is empty
+  }
+  if (gameStatus == 0) { //when monsters turn
+    monstersTurn(monArr); //play monsters turn
+    upKeep(); //reset score and give mana
+    gameStatus = 1; //set game status to 1
+  }
+}
 
 function gameStart(){
-
-  gameBoardUpdate(player,monArr);
-  player.setStats();
-  createNewMonsters(3,3);
-  player.pullCard();
-  player.pullCard();
-  player.pullCard();
+//funciton to run when the game is started
+  player.setStats(); //set player's stats for the first game
+  createNewMonsters(3,3); //create three monsters
+  gameBoardUpdate(player,monArr); //update the board based on monsters and player
+  for (var i = 0; i < 3; i++) {
+      player.pullCard(); //pull three cards for the player
+  }
   setInterval(function () {
-    updateGame()
+    updateGame(); //start updating the game at 60 fps
   }, 20);
 }
 
-gameStart();
+gameStart(); //start the game

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <link rel="stylesheet" type="text/css" href="../CSS/Navbar.CSS?v=1.1">
+    <link rel="stylesheet" type="text/css" href="../CSS/BlogPost.CSS">
+    <link rel="icon" type="image/x-icon" href="../BlogPictures/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="charset" content="UTF-8">
+    <meta name="keywords" content="PHP, Javascript, MySQLi, SQL, Database">
+    <meta name="description" content="getting the infromation from a database onto a browsers and holding it">
+    <title>Day 33: Grabbing Data </title>
+  </head>
+  <body>
+    <header>
+      <h1><a id="header-title" href="index.html">Journey <br> Of <br> Improvement</a></h1>
+    </header>
+
+    <nav class="main-nav">
+      <ul>
+        <li class="nav-button"><a class="nav-link" href="../index.html">Home</a></li>
+        <li class="nav-pipe">|</li>
+        <li class="nav-button"><a class="nav-link" href="../AboutMe.html">About Me</a></li>
+        <li class="nav-pipe">|</li>
+        <li class="nav-button"><a class="nav-link" href="BlogNavigation.html">Blogs</a></li>
+        <li class="nav-pipe">|</li>
+        <li class="nav-button"><a class="nav-link" href="../ProjectPage.html">Projects</a></li>
+        <li class="nav-pipe">|</li>
+        <li class="nav-button"><a class="nav-link" href="../Skills.html">Skills</a></li>
+      </ul>
+    </nav>
+    <div class="grid-container">
+      <div>
+      </div>
+      <div>
+        <article class="BlogPost">
+
+          <h3 class="title">Day 33: Grabbing Data </h3>
+          <p class="blogText">
+            Alright, we are sending data to the database but now we are going to have to take that data and do something with that. Oh my gosh did that take forever to learn how to do it. The big thing that I have to do is get the data to change it into JSON and then send it to the javascript code. This is how I did it.
+          </p>
+          <h4 class="sectionHeader">PHP code first</h4>
+          <p class="blogText">
+            First I have to connect to the database again create a connection and kill the connection if I can’t get in. then from there I write my sql code to grab results. This is were I started to beat my head against the wall. This could have been prevented if I understood PHP and MySQLi better. Here is my solution.
+          </p>
+          <h5 class="codeTitle">PHP Code</h5>
+          <pre>
+            <code>
+$results = $conn->query($sql);
+$counter = 0;
+if ($results->num_rows > 0) {
+  // output data of each row
+    echo '{';
+
+    while($row = $results->fetch_assoc()) {
+          if($counter == $results->num_rows-1){
+            echo  '"' .$counter .'":{"id":"'. $row["id"] . '","Exercise":"' . $row["Exercise"]  .'","Rep":"' . $row["Rep"] .'","Weight":"' . $row["Weight"] .'","Date":"' . $row["W_date"] .'"}';
+        }else{
+            echo  '"' .$counter .'":{"id":"'. $row["id"] . '","Exercise":"' . $row["Exercise"]  .'","Rep":"' . $row["Rep"] .'","Weight":"' . $row["Weight"] .'","Date":"' . $row["W_date"] .'"},';
+            $counter++;
+        }
+  }
+
+
+  echo '}';
+} else {
+  echo "0 results";
+}
+
+
+
+$conn->close();
+
+ ?>
+
+            </code>
+          </pre>
+          <p class="blogText">
+            Now I query the system and save all the data to results. Here is the killer the data comes in the form of an object. You can’t echo an object from what I can tell I can only echo a string but don’t quote me because I have only been doing this for 33 days. Now there I looked at like ten tutorials. I just looked at all these ->s and had no idea what the heck there was. These are just the periods in javascript. All the methods and properties of the object get called this way. That helps a bunch to know this. Here was the next problem I had I wanted to send the string to the javascript file and convert it over to a JSON file. There is a PHP function called json_encode. Could not figure out how to do that whatsoever. That’s where all this crazy code comes from because JSON is so particular about how it wants to be formatted. I need to have curly brackets  in the front and in the back that is why I need to echo them at the end. Then I need to make sure that the echo line has a prosperity name that’s where the counter comes in. the counter will be the property name of the top level of the objects. Also, I have to use the number of rows minus one so the last row of the code doesn’t have a comma in it at the end. Finally, after all of that, I can send it the javascript file and then run JSON.parse on it and it will become a JSON object. With this, I know how I’m going to send the data to the page so I can take a snippet and work on my page with it.
+          </p>
+
+
+        </article>
+      </div>
+      <div>
+      </div>
+    </div>
+  </body>
+</html>

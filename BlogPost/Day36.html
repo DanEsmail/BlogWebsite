@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <link rel="stylesheet" type="text/css" href="../CSS/Navbar.CSS?v=1.1">
+    <link rel="stylesheet" type="text/css" href="../CSS/BlogPost.CSS">
+    <link rel="icon" type="image/x-icon" href="../BlogPictures/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="charset" content="UTF-8">
+    <meta name="keywords" content="Journey, Flask, Dash">
+    <meta name="description" content="My journey from being a progamming noob to a programing hero">
+    <title>Day 36: Security with flask</title>
+  </head>
+  <body>
+    <header>
+      <h1><a id="header-title" href="index.html">Journey <br> Of <br> Improvement</a></h1>
+    </header>
+
+    <nav class="main-nav">
+      <ul>
+        <li class="nav-button"><a class="nav-link" href="../index.html">Home</a></li>
+        <li class="nav-pipe">|</li>
+        <li class="nav-button"><a class="nav-link" href="../AboutMe.html">About Me</a></li>
+        <li class="nav-pipe">|</li>
+        <li class="nav-button"><a class="nav-link" href="BlogNavigation.html">Blogs</a></li>
+        <li class="nav-pipe">|</li>
+        <li class="nav-button"><a class="nav-link" href="../ProjectPage.html">Projects</a></li>
+        <li class="nav-pipe">|</li>
+        <li class="nav-button"><a class="nav-link" href="../Skills.html">Skills</a></li>
+      </ul>
+    </nav>
+    <div class="grid-container">
+      <div>
+      </div>
+      <div>
+        <article class="BlogPost">
+
+          <h3 class="title">Day 36: Security with Flask </h3>
+          <p class="blogText">
+            Today I got tasked with a job to find a way to only show certain elements of a data frame to people with clearance. I developed the test case to be with two users. If one user was logged in they would be able to see rows 1 and 2 from the data frame. If the other user was logged in they would only see the other two lines in the data frame. We already have a way to log in users with flask. Once the user has login we have a PHP GET that will hold onto their username for us. This gave me the ability to use the user's login name to filter out the rows they could see. Sound super easy right?
+          </p>
+          <h4 class="sectionHeader">The Process </h4>
+          <p class="blogText">
+            Now, this small project was the first time I have done a lot of things. I have never been able to collaborate with anything on a project with code. Except for once in college but the person just had me do everything so it didn&apos;t really end up being collaborating. Next, I have a really low level of knowledge when it comes to python and frameworks. This project has multiple, we are using Dash, Flask, Plotly, Pandas, and a few utility frameworks that help everything else combined. You can see where this is going. I&apos;m very lucky that I have dabbled in node a little bit and that helped speed up some of the things that I was doing. Flask and jinja2 feel very much like node.js and pug. They both render paths and create an HTML webpage. The syntax is different but the concept is the same. that‘s something I&apos;m learning pretty fast if you can do it in one programming language you can probably apply the concepts and do it in another language.
+          </p>
+          <p class="blogText">
+            Now looking at someone else's code also comes with problems. You don&apos;t know if the code works for sure, you don&apos;t know how much of the code was copied, and you don&apos;t always know if the code will work in the same environment. I got lucky and the person I work with writes pretty good code so it was easy to follow. The bad thing was it didn&apos;t work right outside the box. I had a lot of things to configure with pycharm and a lot of things to troubleshoot. This took up most of my day.
+          </p>
+          <p class="blogText">
+            Once I got all the concepts of the machine together and connected it was time to finally tackle my task at hand. This was the easiest part of the day. It was actually three lines of code at the end of the day. So the response for username came in as something like 	&#91;&#123;"username: name"	&#125;&#93;. Now at this point, I see this as JSON. luckily it&apos;s a quick import and I was able to change it to JSON and then throw it into a pandas filter and boom bam we got our new data frame that only shows who needs it in what row.
+          </p>
+          <p class="blogText">
+            For the time being, I&apos;ll be taking a short break from the workout app so that I can focus on work now that I will be coding there.
+          </p>
+
+
+
+7
+        </article>
+      </div>
+      <div>
+      </div>
+    </div>
+  </body>
+</html>

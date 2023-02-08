@@ -1,0 +1,49 @@
+
+.grid-container{
+  display: grid;
+  grid-template-columns: 1fr 50% 1fr;
+  justify-content: center;
+  text-align:center;
+}
+.workout-row{
+  outline: solid green 0.1em;
+  display: flex;
+}
+
+.in-box{
+  display: inline-block;
+}
+.set-box{
+  outline: solid pink 0.1em;
+  width: 15%;
+}
+.form-text{
+  width: 20%;
+  justify-content: space-between;
+  text-align: center;
+  background-color: white;
+  border: none;
+}
+p{
+  margin: 0
+}
+#workout-countainer{
+  margin-top: 5em;
+}
+.add-box{
+  border: solid black 0.1em;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 30%;
+  padding: 1em;
+}
+.work-form{
+  margin-top: 3em;
+}
+.Exercise-header{
+  margin-left: 0.5em;
+  margin-right: 0.5em;
+  margin-top: 1em;
+  margin-bottom: auto;
+  display: inline-block;
+}
