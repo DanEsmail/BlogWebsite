@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <link rel="stylesheet" type="text/css" href="../CSS/Navbar.CSS?v=1.1">
+    <link rel="stylesheet" type="text/css" href="../CSS/BlogPost.CSS">
+    <link rel="icon" type="image/x-icon" href="../BlogPictures/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="charset" content="UTF-8">
+    <meta name="keywords" content="Journey, Programming, HMTL">
+    <meta name="description" content="Writing the HTML to the Workout Post project">
+    <title>Day 39: HTML Workout post</title>
+  </head>
+  <body>
+    <header>
+      <h1><a id="header-title" href="index.html">Journey <br> Of <br> Improvement</a></h1>
+    </header>
+
+    <nav class="main-nav">
+      <ul>
+        <li class="nav-button"><a class="nav-link" href="../index.html">Home</a></li>
+        <li class="nav-pipe">|</li>
+        <li class="nav-button"><a class="nav-link" href="../AboutMe.html">About Me</a></li>
+        <li class="nav-pipe">|</li>
+        <li class="nav-button"><a class="nav-link" href="BlogNavigation.html">Blogs</a></li>
+        <li class="nav-pipe">|</li>
+        <li class="nav-button"><a class="nav-link" href="../ProjectPage.html">Projects</a></li>
+        <li class="nav-pipe">|</li>
+        <li class="nav-button"><a class="nav-link" href="../Skills.html">Skills</a></li>
+      </ul>
+    </nav>
+    <div class="grid-container">
+      <div>
+      </div>
+      <div>
+        <article class="BlogPost">
+
+          <h3 class="title">Day 39: HTML of the Workoutpost  </h3>
+
+          <p class="blogText">
+            Finally getting some time to work on the workout post again. I have built out a really basic format for the workout post front page. This is going to include a chart that shows the user everything that they have done so far. Plus it will have an area where they will be able to put in the current exercise that they are working on. In the future, I would love to improve this with CSS and just give it an overall better feel.
+          </p>
+
+          <h4 class="sectionHeader">HTML</h4>
+          <p class="blogText">
+            The first thing I wanted to accomplish when building out the HTML is changing the form that was already there with a box to add the current exercise information to the chart. I did that by just changing the box to a div instead of a form. With that done I just added a button instead of an input submit so that I could access the information without submitting it to the PHP script that I have.
+          </p>
+
+          <h5 class="codeTitle">Add Box HTML</h5>
+          <pre>
+            <code>
+    &lt;div class="add-box"&gt;
+    &lt;h3&gt;Add An Exercise&lt;/h3&gt;
+    &lt;label for="Team" class="label | padding-form"&gt;Exercise&lt;/label&gt;&lt;br&gt;
+    &lt;input type="text" name="Exercise" value="" class="text-box | padding-form"&gt;&lt;br&gt;&lt;br&gt;
+    &lt;label for="Team" class="label | padding-form"&gt;Reps&lt;/label&gt;&lt;br&gt;
+    &lt;input type="number" name="Rep" value="" min="1" max="15" class="text-box | padding-form"&gt;&lt;br&gt;&lt;br&gt;
+    &lt;label for="Team" class="label | padding-form"&gt;Weight&lt;/label&gt;&lt;br&gt;
+    &lt;input type="number" name="Weight" value="" min="0" max="1000" class="text-box | padding-form"&gt;&lt;br&gt;&lt;br&gt;
+    &lt;button type="button" name="button" id="add-button"&gt;Add&lt;/button&gt;
+
+&lt;/div&gt;
+
+            </code>
+          </pre>
+
+          <p class="blogText">
+
+Now after the user presses the add button the information will move to the form that is the chart. My plan for that is going to have each input box in the workout box have a number and a delimiter. This will be done so that I will be able to use a loop to go through all the data that gets imputed to the PHP script. Knowing this I started to split up everything into rows and divs. The easier I can access everything the better.
+
+          </p>
+
+          <h5 class="codeTitle">HTML Chart Box</h5>
+          <pre>
+            <code>
+    &lt;form class="work-form" action="index.html" method="post"&gt;
+       &lt;label for="Team" class="label | padding-form"&gt;Date&lt;/label&gt;&lt;br&gt;
+       &lt;input type="date" name="W_date" value="" class="text-box | padding-form"&gt;&lt;br&gt;&lt;br&gt;
+
+
+     &lt;div class="workout-row"&gt;
+       &lt;div class="workout-name-box | in-box"&gt;
+         &lt;p class="Exercise-header"&gt;&lt;b&gt;Chest Press&lt;/b&gt;&lt;/p&gt;
+       &lt;/div&gt;
+       &lt;div class="set-box  | in-box"&gt;
+         &lt;label for="rep-1"&gt;Reps: &lt;/label&gt;
+         &lt;input class="form-text" type="text" name="rep1" value="10" disabled&gt;&lt;br&gt;
+         &lt;label for="weight-1"&gt;Weight: &lt;/label&gt;
+         &lt;input class="form-text" type="text" name="weight2" value="135" disabled&gt;
+       &lt;/div&gt;
+       &lt;div class="set-box  | in-box"&gt;
+         &lt;label for="rep-2"&gt;Reps: &lt;/label&gt;
+         &lt;input class="form-text" type="text" name="rep1" value="10" disabled&gt;&lt;br&gt;
+         &lt;label for="weight-2"&gt;Weight: &lt;/label&gt;
+         &lt;input class="form-text" type="text" name="weight2" value="135" disabled&gt;
+       &lt;/div&gt;
+       &lt;div class="set-box  | in-box"&gt;
+         &lt;label for="rep-3"&gt;Reps: &lt;/label&gt;
+         &lt;input class="form-text" type="text" name="rep1" value="10" disabled&gt;&lt;br&gt;
+         &lt;label for="weight-3"&gt;Weight: &lt;/label&gt;
+         &lt;input class="form-text" type="text" name="weight2" value="135" disabled&gt;
+       &lt;/div&gt;
+       &lt;div class="set-box  | in-box"&gt;
+         &lt;label for="rep-4"&gt;Reps: &lt;/label&gt;
+         &lt;input class="form-text" type="text" name="rep1" value="10" disabled&gt;&lt;br&gt;
+         &lt;label for="weight-4"&gt;Weight: &lt;/label&gt;
+         &lt;input class="form-text" type="text" name="weight2" value="135" disabled&gt;
+       &lt;/div&gt;
+       &lt;div class="set-box  | in-box"&gt;
+         &lt;label for="rep-5"&gt;Reps: &lt;/label&gt;
+         &lt;input class="form-text" type="text" name="rep1" value="10" disabled&gt;&lt;br&gt;
+         &lt;label for="weight-5"&gt;Weight: &lt;/label&gt;
+         &lt;input class="form-text" type="text" name="weight2" value="135" disabled&gt;
+       &lt;/div&gt;
+       &lt;div class="total-vol"&gt;
+         &lt;p class="vol-text"&gt;Total Vol&lt;/p&gt;
+         &lt;p class="vol-text"&gt;1,300&lt;/p&gt;
+       &lt;/div&gt;
+     &lt;/div&gt;
+     &lt;br&gt;
+     &lt;input type="submit" name="" value="Submit Workout"&gt;
+   &lt;/form&gt;
+   &lt;/div&gt;
+
+            </code>
+          </pre>
+          <p class="blogText">
+            This gets me to the point where I can start working on the JavaScript that will be dealing with sending information from the add box to the chart box. Tomorrow I will hopefully be working on  more JavaScript.
+          </p>
+
+
+        </article>
+      </div>
+      <div>
+      </div>
+    </div>
+  </body>
+</html>

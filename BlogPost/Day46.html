@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <link rel="stylesheet" type="text/css" href="../CSS/Navbar.CSS?v=1.1">
+    <link rel="stylesheet" type="text/css" href="../CSS/BlogPost.CSS">
+    <link rel="icon" type="image/x-icon" href="../BlogPictures/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="charset" content="UTF-8">
+    <meta name="keywords" content="Journey, Programming, Dash, Plotly, Mutipage">
+    <meta name="description" content="My journey from being a progamming noob to a programing hero">
+    <title>Day 46: Data and Pages </title>
+  </head>
+  <body>
+    <header>
+      <h1><a id="header-title" href="index.html">Journey <br> Of <br> Improvement</a></h1>
+    </header>
+
+    <nav class="main-nav">
+      <ul>
+        <li class="nav-button"><a class="nav-link" href="../index.html">Home</a></li>
+        <li class="nav-pipe">|</li>
+        <li class="nav-button"><a class="nav-link" href="../AboutMe.html">About Me</a></li>
+        <li class="nav-pipe">|</li>
+        <li class="nav-button"><a class="nav-link" href="BlogNavigation.html">Blogs</a></li>
+        <li class="nav-pipe">|</li>
+        <li class="nav-button"><a class="nav-link" href="../ProjectPage.html">Projects</a></li>
+        <li class="nav-pipe">|</li>
+        <li class="nav-button"><a class="nav-link" href="../Skills.html">Skills</a></li>
+      </ul>
+    </nav>
+    <div class="grid-container">
+      <div>
+      </div>
+      <div>
+        <article class="BlogPost">
+          <h3 class="title">Day 46: Storing Data and Mutipage</h3>
+          <p class="blogText">
+            With the project we want to create for our company we&apos;ll want to have multiple pages and that comes with some complications. How do we store user data and how do we use multipage? these are hopefully two questions that I will be able to address within this post.
+          </p>
+          <p class="blogText">
+            First off when storing information you can store it in a multitude of ways. The first one that caught my attention was dcc.store. This will store the user's session in JSON format. There is also a flash cache function that can be used. Most likely I&apos;ll be trying to hold onto the information with the dcc.store function to try and hold onto things like user name.
+          </p>
+          <p class="blogText">
+            Next, we have to address the issue of multi-page layouts. Currently, we are using the dcc.location function to get the path of the URL that we are using. This is good but is slapping us with a big old 404 in one section of content. From what I have been reading we can use page register to get around this, but that has yet to be seen.
+          </p>
+
+
+        </article>
+      </div>
+      <div>
+      </div>
+    </div>
+  </body>
+</html>

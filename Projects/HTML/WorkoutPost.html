@@ -6,7 +6,7 @@
       <script src="https://kit.fontawesome.com/89fc4497e2.js" crossorigin="anonymous"></script>
       <link rel="stylesheet" type="text/css" href="../../CSS/Navbar.CSS?v=1.1">
       <link rel="stylesheet" type="text/css" href="../../CSS/SupportClass.CSS?v=1.1">
-        <link rel="stylesheet" type="text/css" href="../CSS/WorkoutPost.CSS">
+        <link rel="stylesheet" type="text/css" href="../CSS/WorkoutPost.CSS?v=1.1">
       <link rel="icon" type="image/x-icon" href="../../BlogPictures/favicon.ico">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="charset" content="UTF-8">
@@ -42,98 +42,56 @@
     <div id="workout-countainer">
 
       <div class="add-box">
-
+          <h3>Add An Exercise</h3>
           <label for="Team" class="label | padding-form">Exercise</label><br>
-          <input type="text" name="Exercise" value="" class="text-box | padding-form"><br>
+          <select class="text-box | padding-form" name="Exercise">
+            <option value="Bench press">Bench press</option>
+            <option value="Push up">Push up</option>
+            <option value="Lat Pulldown">Lat Pulldown</option>
+            <option value="Chin up">Chin up</option>
+            <option value="Decline Chest Press">Decline Chest Press</option>
+            <option value="Pull up">Pull up</option>
+            <option value="Machine Crunch">Machine Crunch</option>
+            <option value="Ab Rotation">Ab Rotation</option>
+            <option value="Crunch">Crunch</option>
+            <option value="Ab Bicycle">Ab Bicycle</option>
+            <option value="Tri Press">Tri Press</option>
+            <option value="Preacher Curl">Preacher Curl</option>
+            <option value="Standing Curl">Standing Curl</option>
+            <option value="Tri Extension">Tri Extension</option>
+            <option value="Lat Raise">Lat Raise</option>
+            <option value="Shoulder Raise">Shoulder Raise</option>
+            <option value="Deep Squat">Deep Squat</option>
+            <option value="RDL">RDL</option>
+            <option value="Leg Curl">Leg Curl</option>
+            <option value="Leg Extension">Leg Extension</option>
+            <option value="Calf Raise">Calf Raise</option>
+            <option value="Seated Leg Curl">Seated Leg Curl</option>
+            <option value="Lunge">Lunge</option>
+            <option value="Single Calf">Single Calf</option>
+            <option value="Lying Tri Extension">Lying Tri Extension</option>
+            <option value="Russin Twist">Russin Twist</option>
+            <option value="Other">Other</option>
+          </select><br><br>
+
           <label for="Team" class="label | padding-form">Reps</label><br>
-          <input type="number" name="Rep" value="" min="1" max="15" class="text-box | padding-form"><br>
+          <input type="number" name="Rep" value="" min="1" max="15" class="text-box | padding-form"><br><br>
           <label for="Team" class="label | padding-form">Weight</label><br>
-          <input type="number" name="Weight" value="" min="0" max="1000" class="text-box | padding-form"><br>
-          <label for="Team" class="label | padding-form">Date</label><br>
-          <input type="date" name="W_date" value="" class="text-box | padding-form"><br>
-          <button type="button" name="button">Add</button>
+          <input type="number" name="Weight" value="" min="0" max="1000" class="text-box | padding-form"><br><br>
+          <button type="button" name="button" id="add-button">Add</button>
 
       </div>
 
 
-      <form class="work-form" action="index.html" method="post">
+      <form class="work-form" action="../PHP/Action.php" method="post">
+        <label for="Team" class="label | padding-form">Date</label><br>
+        <input type="date" name="W_date" value="" class="text-box | padding-form" required><br><br>
 
 
-      <div class="workout-row">
-        <div class="workout-name-box | in-box">
-          <p class="Exercise-header"><b>Chest Press</b></p>
-        </div>
-        <div class="set-box  | in-box">
-          <label for="rep1">Reps: </label>
-          <input class="form-text" type="text" name="rep1" value="10" disabled><br>
-          <label for="weight1">Weight: </label>
-          <input class="form-text" type="text" name="weight2" value="135" disabled>
-        </div>
-        <div class="set-box  | in-box">
-          <label for="rep1">Reps: </label>
-          <input class="form-text" type="text" name="rep1" value="10" disabled><br>
-          <label for="weight1">Weight: </label>
-          <input class="form-text" type="text" name="weight2" value="135" disabled>
-        </div>
-        <div class="set-box  | in-box">
-          <label for="rep1">Reps: </label>
-          <input class="form-text" type="text" name="rep1" value="10" disabled><br>
-          <label for="weight1">Weight: </label>
-          <input class="form-text" type="text" name="weight2" value="135" disabled>
-        </div>
-        <div class="set-box  | in-box">
-          <label for="rep1">Reps: </label>
-          <input class="form-text" type="text" name="rep1" value="10" disabled><br>
-          <label for="weight1">Weight: </label>
-          <input class="form-text" type="text" name="weight2" value="135" disabled>
-        </div>
-        <div class="set-box  | in-box">
-          <label for="rep1">Reps: </label>
-          <input class="form-text" type="text" name="rep1" value="10" disabled><br>
-          <label for="weight1">Weight: </label>
-          <input class="form-text" type="text" name="weight2" value="135" disabled>
-        </div>
-        <div class="total-vol">
-          <p>Total Vol</p><br>
-          <p>1,300</p>
-        </div>
-      </div>
-      <div class="workout-row">
-        <div class="workout-name-box | in-box">
-          <p>Chest Press</p>
-        </div>
-        <div class="set-box  | in-box">
-          <label for="rep1">Reps: </label>
-          <input class="form-text" type="text" name="rep1" value="10" disabled><br>
-          <label for="weight1">Weight: </label>
-          <input class="form-text" type="text" name="weight2" value="135" disabled>
-        </div>
-        <div class="set-box  | in-box">
-
-          <label for="rep1">Reps: </label>
-          <input class="form-text" type="text" name="rep1" value="10" disabled><br>
-          <label for="weight1">Weight: </label>
-          <input class="form-text" type="text" name="weight2" value="135" disabled>
-        </div>
-        <div class="set-box  | in-box">
-          <label for="rep1">Reps: </label>
-          <input class="form-text" type="text" name="rep1" value="10" disabled><br>
-          <label for="weight1">Weight: </label>
-          <input class="form-text" type="text" name="weight2" value="135" disabled>
-        </div>
-        <div class="set-box  | in-box">
-          <label for="rep1">Reps: </label>
-          <input class="form-text" type="text" name="rep1" value="10" disabled><br>
-          <label for="weight1">Weight: </label>
-          <input class="form-text" type="text" name="weight2" value="135" disabled>
-        </div>
-        <div class="set-box  | in-box">
-          <label for="rep1">Reps: </label>
-          <input class="form-text" type="text" name="rep1" value="10" disabled><br>
-          <label for="weight1">Weight: </label>
-          <input class="form-text" type="text" name="weight2" value="135" disabled>
-        </div>
-      </div>
+        <p  id="workout-end" ></p>
+      <input type="number" name="work-rows" value="0"  id="workout-end">
+      <br>
+      <input type="submit" name="submit" value="Submit Workout">
     </form>
     </div>
 
@@ -144,5 +102,8 @@
 
     </div>
         </div>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+        <script type="text/javascript" src="../JS/WorkOutPost.js?v=1.1"></script>
   </body>
 </html>

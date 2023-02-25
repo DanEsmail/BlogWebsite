@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <link rel="stylesheet" type="text/css" href="../CSS/Navbar.CSS?v=1.1">
+    <link rel="stylesheet" type="text/css" href="../CSS/BlogPost.CSS">
+    <link rel="icon" type="image/x-icon" href="../BlogPictures/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="charset" content="UTF-8">
+    <meta name="keywords" content="D3, Javascript, Graph">
+    <meta name="description" content="getting the line graph to work in D3">
+    <title>Day 50: D3 Wroking Graph </title>
+  </head>
+  <body>
+    <header>
+      <h1><a id="header-title" href="index.html">Journey <br> Of <br> Improvement</a></h1>
+    </header>
+
+    <nav class="main-nav">
+      <ul>
+        <li class="nav-button"><a class="nav-link" href="../index.html">Home</a></li>
+        <li class="nav-pipe">|</li>
+        <li class="nav-button"><a class="nav-link" href="../AboutMe.html">About Me</a></li>
+        <li class="nav-pipe">|</li>
+        <li class="nav-button"><a class="nav-link" href="BlogNavigation.html">Blogs</a></li>
+        <li class="nav-pipe">|</li>
+        <li class="nav-button"><a class="nav-link" href="../ProjectPage.html">Projects</a></li>
+        <li class="nav-pipe">|</li>
+        <li class="nav-button"><a class="nav-link" href="../Skills.html">Skills</a></li>
+      </ul>
+    </nav>
+    <div class="grid-container">
+      <div>
+      </div>
+      <div>
+        <article class="BlogPost">
+          <h3 class="title">Day 50: D3 Wroking Graph  </h3>
+          <p class="blogText">
+
+The sage of me trying to get D3 to work continues. Now there are a lot of things that I have learned by failing to get this graph to work I would love to let everyone know my trial and error so they don&apos;t have to sit for hours banging their heads against a table all night
+
+          </p>
+
+          <h4 class="sectionHeader">Data</h4>
+
+          <p class="blogText">
+            Now the way you bring in your data is up to you just remember it matters a lot in the long run. I&apos;m bringing it in from a PHP script which is talking to my SQL server. Now, this seemed like the common way to do it for me. A lot of the examples on the internet though were all importing their data from a file. A CSV one to be exact. I&apos;m sure that I could create a CSV file from the data that I have but I would love to make mistakes like this and work with the JSON data that I&apos;m bringing over.
+
+          </p>
+
+          <p class="blogText">
+            Now when I was bringing my data in I always turned it into JSON to get the information that I needed in the way I wanted. Next, I have to clean the data with a function parsing out the numbers and dates to make sense. This was all done with a function.
+          </p>
+
+          <h5 class="codeTitle">Loading Data function</h5>
+          <pre>
+            <code>
+function loadData(data){
+  let dataframe = {
+    "exerciseArr": [],
+    "repArr": [],
+    "weightArr": [],
+    "dateArr": [],
+    "volArr": []
+  }
+
+
+  for (var i = 0; i &lt; Object.keys(data).length; i++) {
+    if (data[i]["Rep"] != 0) {
+      dataframe["exerciseArr"].push(data[i]["Exercise"]);
+      dataframe["repArr"].push(parseInt(data[i]["Rep"]));
+      dataframe["weightArr"].push(parseInt(data[i]["Weight"]));
+      dataframe["dateArr"].push(new Date(data[i]["Date"]));
+      dataframe["volArr"].push(parseInt(data[i]["Rep"])*parseInt(data[i]["Weight"]));
+    }
+
+  }
+
+  return dataframe;
+}
+
+
+            </code>
+          </pre>
+
+          <p class="blogText">
+            After the data was cleaned I needed to transform the data into the scale that I was using. I ended up using a function to scale the date and give me a line for the graph.
+          </p>
+
+
+          <h5 class="codeTitle">making a line function </h5>
+          <pre>
+            <code>
+function createLine(xArr, yArr){
+  let length = xArr.length;
+  let arr = [];
+  for (var i = 0; i &lt; length; i++) {
+    let cord = [];
+    cord.push(x(xArr[i]));
+    cord.push(y(yArr[i]));
+    arr.push(cord);
+  }
+return arr;
+
+}
+
+            </code>
+          </pre>
+
+          <p class="blogText">
+            Now, this finally gave me a line that would create a line for my graph on the correct points. I&apos;m learning right now that there is a CSV parse function that can turn a variable into a CSV file for D3. I&apos;m going to have to check it out to see if my data comes in better that way. Guess I have to hit the old drawing board. See you tomorrow
+          </p>
+
+
+
+          <div class="HelpfulLinks">
+            <h4>Some Helpful links</h4>
+            <a href="https://d3-graph-gallery.com/graph/connectedscatter_basic.html" target="_blank">Favicon Website</a><br>
+
+          </div>
+        </article>
+      </div>
+      <div>
+      </div>
+    </div>
+  </body>
+</html>

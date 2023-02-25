@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <link rel="stylesheet" type="text/css" href="../CSS/Navbar.CSS?v=1.1">
+    <link rel="stylesheet" type="text/css" href="../CSS/BlogPost.CSS">
+    <link rel="icon" type="image/x-icon" href="../BlogPictures/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="charset" content="UTF-8">
+    <meta name="keywords" content="Javascript Pronmises, ChatGPT">
+    <meta name="description" content="Using ChatGPT to learn promises">
+    <title>Day 53: Promises </title>
+  </head>
+  <body>
+    <header>
+      <h1><a id="header-title" href="index.html">Journey <br> Of <br> Improvement</a></h1>
+    </header>
+
+    <nav class="main-nav">
+      <ul>
+        <li class="nav-button"><a class="nav-link" href="../index.html">Home</a></li>
+        <li class="nav-pipe">|</li>
+        <li class="nav-button"><a class="nav-link" href="../AboutMe.html">About Me</a></li>
+        <li class="nav-pipe">|</li>
+        <li class="nav-button"><a class="nav-link" href="BlogNavigation.html">Blogs</a></li>
+        <li class="nav-pipe">|</li>
+        <li class="nav-button"><a class="nav-link" href="../ProjectPage.html">Projects</a></li>
+        <li class="nav-pipe">|</li>
+        <li class="nav-button"><a class="nav-link" href="../Skills.html">Skills</a></li>
+      </ul>
+    </nav>
+    <div class="grid-container">
+      <div>
+      </div>
+      <div>
+        <article class="BlogPost">
+
+          <h3 class="title">Day 53: Promises and a little help </h3>
+
+          <p class="blogText">
+            Everything is in place to make the webpage show the graph. That graph has some messed up data but that will be fixed soon enough. There have been more struggles with sending this php data over. Let&apos;s talk about it.
+          </p>
+
+          <h4 class="sectionHeader">What Went Wrong</h4>
+          <p class="blogText">
+            The main concern I had when I was building out the PHP request the first time was that Ascync that Javascript does was going to call the function too early and I won&apos;t have the data in time to have the graph update. Big surprise it didn&apos;t update in time and everything was messy. Now I could use a time out function to make this work but, what happens when it&apos;s too slow? Well, I have no idea but my good friend chatGPT does.
+          </p>
+
+          <h4 class="sectionHeader">Fiing the problem</h4>
+          <p class="blogText">
+            I knew that I was going to need to use promises to make this work. I have no idea how to use promise and I&apos;ve already torn out all my hair with this project already. I checked chatGPT and it gave me what I needed a simple javascript promise that I could work off. Now I wasn&apos;t able to just copy-paste this I had to do a little bit of my own coding to get it to work for me. I now have a working graph. There is a lot more that I want to do. I need to write it all down so I can focus and finish it. The good thing is we are moving forward again.
+          </p>
+
+        </article>
+      </div>
+      <div>
+      </div>
+    </div>
+  </body>
+</html>

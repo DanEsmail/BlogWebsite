@@ -22,19 +22,19 @@ $results = $conn->query($sql);
 $counter = 0;
 if ($results->num_rows > 0) {
   // output data of each row
-    echo '{';
+    echo "id,Exercise,Rep,Weight,Date\n";
 
     while($row = $results->fetch_assoc()) {
           if($counter == $results->num_rows-1){
-            echo  '"' .$counter .'":{"id":"'. $row["id"] . '","Exercise":"' . $row["Exercise"]  .'","Rep":"' . $row["Rep"] .'","Weight":"' . $row["Weight"] .'","Date":"' . $row["W_date"] .'"}';
+            echo $row['id'] . "," . $row['Exercise']  ."," . $row['Rep'] . "," .$row['Weight'] . "," . $row['W_date'] ;
+
         }else{
-            echo  '"' .$counter .'":{"id":"'. $row["id"] . '","Exercise":"' . $row["Exercise"]  .'","Rep":"' . $row["Rep"] .'","Weight":"' . $row["Weight"] .'","Date":"' . $row["W_date"] .'"},';
+            echo $row['id'] . "," . $row['Exercise']  ."," . $row['Rep'] . "," .$row['Weight'] . "," . $row['W_date']. "\n";
             $counter++;
         }
   }
 
 
-  echo '}';
 } else {
   echo "0 results";
 }

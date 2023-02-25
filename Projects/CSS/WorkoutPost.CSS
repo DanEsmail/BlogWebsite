@@ -1,21 +1,25 @@
 
 .grid-container{
   display: grid;
-  grid-template-columns: 1fr 50% 1fr;
+  grid-template-columns: 1fr 70% 1fr;
   justify-content: center;
   text-align:center;
 }
 .workout-row{
-  outline: solid green 0.1em;
+  outline: solid black 0.1em;
   display: flex;
+  height: 4em;
 }
 
 .in-box{
   display: inline-block;
 }
 .set-box{
-  outline: solid pink 0.1em;
-  width: 15%;
+  outline: solid black 0.1em;
+  width: 14.2%;
+}
+.workout-name-box{
+  width: 14.2%
 }
 .form-text{
   width: 20%;
@@ -41,9 +45,23 @@ p{
   margin-top: 3em;
 }
 .Exercise-header{
-  margin-left: 0.5em;
-  margin-right: 0.5em;
-  margin-top: 1em;
+  margin-left: auto;
+  margin-right: auto;
   margin-bottom: auto;
   display: inline-block;
+  background-color: white;
+  padding-left: 0.5em;
+  border: none;
+  overflow: visible;
+}
+.total-vol{
+  text-align: center;
+  width: 14.2%
+}
+
+.vol-text{
+  display: inline-block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 1em;
 }

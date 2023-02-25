@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <link rel="stylesheet" type="text/css" href="../CSS/Navbar.CSS?v=1.1">
+    <link rel="stylesheet" type="text/css" href="../CSS/BlogPost.CSS">
+    <link rel="icon" type="image/x-icon" href="../BlogPictures/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="charset" content="UTF-8">
+    <meta name="keywords" content="D3, Line Graph, workaround">
+    <meta name="description" content="Trying to build a line graph">
+    <title>Day 49: The pain of D3</title>
+  </head>
+  <body>
+    <header>
+      <h1><a id="header-title" href="index.html">Journey <br> Of <br> Improvement</a></h1>
+    </header>
+
+    <nav class="main-nav">
+      <ul>
+        <li class="nav-button"><a class="nav-link" href="../index.html">Home</a></li>
+        <li class="nav-pipe">|</li>
+        <li class="nav-button"><a class="nav-link" href="../AboutMe.html">About Me</a></li>
+        <li class="nav-pipe">|</li>
+        <li class="nav-button"><a class="nav-link" href="BlogNavigation.html">Blogs</a></li>
+        <li class="nav-pipe">|</li>
+        <li class="nav-button"><a class="nav-link" href="../ProjectPage.html">Projects</a></li>
+        <li class="nav-pipe">|</li>
+        <li class="nav-button"><a class="nav-link" href="../Skills.html">Skills</a></li>
+      </ul>
+    </nav>
+    <div class="grid-container">
+      <div>
+      </div>
+      <div>
+        <article class="BlogPost">
+
+          <h3 class="title">Day 49: The Pain of D3  </h3>
+          <p class="blogText">
+            D3 has so many resources and articles! Way more than I thought but it is still a pain sometimes. I have spent way too long trying to get a line graph to work. I have been making workarounds for everything at this current moment and I know it&apos;s wrong but it is all that I can think of for now.
+
+          </p>
+
+          <p class="blogText">
+            Now l have put all my information from the database into an object within arrays for each section. It might not be the best call because this has been causing a lot of difficulties. Most of the difficulties come from the calling the left axis and it being inverted. I have found a way to finally get the left axis to work. Since the left axis has to have the max and the min reversed due to the top of the page being zero. This confused me so much. What I ended up doing to make a D3.line to work was to take my value and minus it from my max value. Now this works but I know it&apos;s wrong and I have to find a better way to get this value to work. Tomorrow more D3 and I will finally find a way to get things to work.
+          </p>
+
+        </article>
+      </div>
+      <div>
+      </div>
+    </div>
+  </body>
+</html>

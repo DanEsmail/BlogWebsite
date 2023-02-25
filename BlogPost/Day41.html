@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <link rel="stylesheet" type="text/css" href="../CSS/Navbar.CSS?v=1.1">
+    <link rel="stylesheet" type="text/css" href="../CSS/BlogPost.CSS">
+    <link rel="icon" type="image/x-icon" href="../BlogPictures/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="charset" content="UTF-8">
+    <meta name="keywords" content="Journey, Programming, PHP">
+    <meta name="description" content="Writing the PHP for the workout post">
+    <title>Day 41 PHP for workout post </title>
+  </head>
+  <body>
+    <header>
+      <h1><a id="header-title" href="index.html">Journey <br> Of <br> Improvement</a></h1>
+    </header>
+
+    <nav class="main-nav">
+      <ul>
+        <li class="nav-button"><a class="nav-link" href="../index.html">Home</a></li>
+        <li class="nav-pipe">|</li>
+        <li class="nav-button"><a class="nav-link" href="../AboutMe.html">About Me</a></li>
+        <li class="nav-pipe">|</li>
+        <li class="nav-button"><a class="nav-link" href="BlogNavigation.html">Blogs</a></li>
+        <li class="nav-pipe">|</li>
+        <li class="nav-button"><a class="nav-link" href="../ProjectPage.html">Projects</a></li>
+        <li class="nav-pipe">|</li>
+        <li class="nav-button"><a class="nav-link" href="../Skills.html">Skills</a></li>
+      </ul>
+    </nav>
+    <div class="grid-container">
+      <div>
+      </div>
+      <div>
+        <article class="BlogPost">
+
+          <h3 class="title">Day 41: PHP update  </h3>
+
+          <p class="blogText">
+            For the final item on my to-do list with the workout post page, I needed to find a way to insert all the information from the work post HTML into the database. This is of course done with PHP and I have done a single row before but never anything on this kind of scale.
+          </p>
+
+          <h4 class="sectionHeader">The Project</h4>
+          <p class="blogText">
+            When working with PHP, JavaScript, and HTML I had a few issues but not a ton. One of the issues that I ran into was that if you use the disabled attribute for an input box it ends up blocking the PHP from reading. This caused a lot of confusion when I was trying to pull the date. I ended up changing my JavaScript a tiny bit to make up for this. All I had to do was delete where I had disabled it.
+          </p>
+
+          <p class="blogText">
+            The next thing was to build out the PHP. this had some issues but was relatively easy after doing a lot of testing. I found a good snippet of code that would give me all the keys when using the POST method with my PHP.
+          </p>
+
+          <h5 class="codeTitle">POST Keys</h5>
+          <pre>
+            <code>
+foreach ($_POST as $key =$gt; $value) { echo "Field ".htmlspecialchars($key)." is ".htmlspecialchars($value)."$lt;br$gt;"; }
+            </code>
+          </pre>
+
+
+          <h5 class="codeTitle">PHP Code</h5>
+          <pre>
+            <code>
+$w_date = $_POST["W_date"];
+$num_row = $_POST["work-rows"];
+// Create connection
+
+$conn = new mysqli($servername, $username, $password, $database);
+
+// Check connection
+if ($conn-$gt;connect_error) {
+  die("Connection failed: " . $conn-$gt;connect_error);
+}
+
+for ($i=0; $i $lt; $num_row; $i++) {
+  $exercise = $_POST["exercise-" . $i];
+  for ($j=1; $j $lt; 6 ; $j++) {
+    $x = $i*5+$j;
+
+    $reps = $_POST["rep-" . $x];
+    $weight = $_POST["weight-" . $x];
+    if ($reps == ""){
+
+    }else{
+    $sql = "INSERT INTO `Workout_Table` (`id`, `Exercise`, `Rep`, `Weight`, `W_date`) VALUES (NULL, '{$exercise}', '{$reps}', '{$weight}', '{$w_date}')";
+
+
+    if ($conn-$gt;query($sql) === TRUE) {
+      echo "New Record Created Successfully";
+    }else{
+      echo "Error: " . $sql . "$lt;BR$gt;" . $conn-$gt;error;
+    }
+    }
+
+  }
+}
+
+
+$conn-$gt;close();
+
+            </code>
+          </pre>
+
+          <p class="blogText">
+            After I found all the names for the form I was able to move on to the next part of the code that I needed to work on. I needed to create two for loops to access all the information from each block of the workout. This was to get the reps and weight for each. I know that five sets were the max that I allowed. Knowing let me do a little bit of math to get each input incrementally. After that, I could send the data to the database as long as the information wasn&apos;t blank.
+          </p>
+
+          <p class="blogText">
+            This isn&apos;t perfect and it&apos;s more of a proof of concept. I just wanted to have the ability to plot out some of my workout data so I can see my progress. Now I have to read up a ton on D3 and understand how to graph.
+          </p>
+
+
+        </article>
+      </div>
+      <div>
+      </div>
+    </div>
+  </body>
+</html>

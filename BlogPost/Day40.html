@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <link rel="stylesheet" type="text/css" href="../CSS/Navbar.CSS?v=1.1">
+    <link rel="stylesheet" type="text/css" href="../CSS/BlogPost.CSS">
+    <link rel="icon" type="image/x-icon" href="../BlogPictures/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="charset" content="UTF-8">
+    <meta name="keywords" content="Journey, Programming, Javascript, PHP, SQL">
+    <meta name="description" content="Working on the Javascript of the workout post page">
+    <title>Day 40 Workout JS </title>
+  </head>
+  <body>
+    <header>
+      <h1><a id="header-title" href="index.html">Journey <br> Of <br> Improvement</a></h1>
+    </header>
+
+    <nav class="main-nav">
+      <ul>
+        <li class="nav-button"><a class="nav-link" href="../index.html">Home</a></li>
+        <li class="nav-pipe">|</li>
+        <li class="nav-button"><a class="nav-link" href="../AboutMe.html">About Me</a></li>
+        <li class="nav-pipe">|</li>
+        <li class="nav-button"><a class="nav-link" href="BlogNavigation.html">Blogs</a></li>
+        <li class="nav-pipe">|</li>
+        <li class="nav-button"><a class="nav-link" href="../ProjectPage.html">Projects</a></li>
+        <li class="nav-pipe">|</li>
+        <li class="nav-button"><a class="nav-link" href="../Skills.html">Skills</a></li>
+      </ul>
+    </nav>
+    <div class="grid-container">
+      <div>
+      </div>
+      <div>
+        <article class="BlogPost">
+
+          <h3 class="title">Day 40: Javascriptfor the workout form  </h3>
+
+          <p class="blogText">
+            The HTML is all done on the page and I can finally start working on the Javascript that is going to be setting up the page. There are only a few things that I&apos;m going to need to do. I have to set up a way to handle the button, I have to send the data to the chart and get the HTML properly setup
+          </p>
+
+          <h4 class="sectionHeader">Javascript</h4>
+
+          <p class="blogText">
+            Since I&apos;m using JavaScript it&apos;s really easy to set up the button all I need to do is target the correct ID. this gives me the access I&apos;m looking for. Then I can grab the rest of the information from the inputs by targeting their names. This sets up all the data I need to pass to the chart.
+          </p>
+
+          <h5 class="codeTitle">adding the last reps</h5>
+          <pre>
+            <code>
+$("#add-button").click(function(){
+  let exercise = $("select[name=Exercise]").val();
+  let rep = $("input[name=Rep]").val();
+  let weight = $("input[name=Weight]").val();
+})
+
+            </code>
+          </pre>
+
+          <p class="blogText">
+            Now handling the chart is a little different I need to create a function and two variables. I will have one function that looks at an array and finds out if the exercise has been used already within the app. It will return a negative one if it hasn&apos;t been used and it will return it&apos;s spot in the array if it has been used before. Now with that in mind I can look through the spot the exercise has been used to see if there are any workout boxes left to input the info into. Finally I can add in any info that hasn&apos;t been imputed yet if the exercise hasn&apos;t been used by inputting the html for a whole new row.
+          </p>
+
+          <h5 class="codeTitle">adding the new box </h5>
+          <pre>
+            <code>
+  $("#add-button").click(function(){
+  let exercise = $("select[name=Exercise]").val();
+  let rep = $("input[name=Rep]").val();
+  let weight = $("input[name=Weight]").val();
+  let exerciseNumber = lookForExercise(exerciseArr, exercise);
+  let workoutBoxes = exerciseArr.length*5
+
+  if (exerciseNumber $gt; -1) {
+    let x = (exerciseNumber)*5
+    for (var i = 1; i $lt; 6; i++) {
+      if ($("input[name=rep-"+(x+i)+"]").val() == "") {
+        $("input[name=rep-"+(x+i)+"]").val(rep)
+        $("input[name=weight-"+(x+i)+"]").val(weight)
+        let vol = parseInt($("#vol-"+exerciseNumber).text()) + (rep*weight);
+        $("#vol-"+exerciseNumber).text(vol)
+        break
+      }
+    }
+  }else{
+    exerciseArr.push(exercise)
+    $("#workout-end").prepend(`
+      $lt;div class="workout-row"$gt;
+        $lt;div class="workout-name-box | in-box"$gt;
+          $lt;p class="Exercise-header"$gt;$lt;b$gt;`+ exercise +`$lt;/b$gt;$lt;/p$gt;
+        $lt;/div$gt;
+        $lt;div class="set-box  | in-box"$gt;
+          $lt;label for="rep-`+ (workoutBoxes+1) +`"$gt;Reps: $lt;/label$gt;
+          $lt;input class="form-text" type="text" name="rep-`+ (workoutBoxes+1) +`" value="`+ rep +`" disabled$gt;$lt;br$gt;
+          $lt;label for="weight-`+ (workoutBoxes+1) +`"$gt;Weight: $lt;/label$gt;
+          $lt;input class="form-text" type="text" name="weight-`+ (workoutBoxes+1) +`" value="`+ weight +`" disabled$gt;
+        $lt;/div$gt;
+        $lt;div class="set-box  | in-box"$gt;
+          $lt;label for="rep-`+ (workoutBoxes+2) +`"$gt;Reps: $lt;/label$gt;
+          $lt;input class="form-text" type="text" name="rep-`+ (workoutBoxes+2) +`" value="" disabled$gt;$lt;br$gt;
+          $lt;label for="weight-`+ (workoutBoxes+2) +`"$gt;Weight: $lt;/label$gt;
+          $lt;input class="form-text" type="text" name="weight-`+ (workoutBoxes+2) +`" value="" disabled$gt;
+        $lt;/div$gt;
+        $lt;div class="set-box  | in-box"$gt;
+          $lt;label for="rep-`+ (workoutBoxes+3) +`"$gt;Reps: $lt;/label$gt;
+          $lt;input class="form-text" type="text" name="rep-`+ (workoutBoxes+3) +`" value="" disabled$gt;$lt;br$gt;
+          $lt;label for="weight-`+ (workoutBoxes+3) +`"$gt;Weight: $lt;/label$gt;
+          $lt;input class="form-text" type="text" name="weight-`+ (workoutBoxes+3) +`" value="" disabled$gt;
+        $lt;/div$gt;
+        $lt;div class="set-box  | in-box"$gt;
+          $lt;label for="rep-`+ (workoutBoxes+4) +`"$gt;Reps: $lt;/label$gt;
+          $lt;input class="form-text" type="text" name="rep-`+ (workoutBoxes+4) +`" value="" disabled$gt;$lt;br$gt;
+          $lt;label for="weight-`+ (workoutBoxes+4) +`"$gt;Weight: $lt;/label$gt;
+          $lt;input class="form-text" type="text" name="weight-`+ (workoutBoxes+4) +`" value="" disabled$gt;
+        $lt;/div$gt;
+        $lt;div class="set-box  | in-box"$gt;
+          $lt;label for="rep-`+ (workoutBoxes+5) +`"$gt;Reps: $lt;/label$gt;
+          $lt;input class="form-text" type="text" name="rep-`+ (workoutBoxes+5) +`" value="" disabled$gt;$lt;br$gt;
+          $lt;label for="weight-`+ (workoutBoxes+5) +`"$gt;Weight: $lt;/label$gt;
+          $lt;input class="form-text" type="text" name="weight-`+ (workoutBoxes+5) +`" value="" disabled$gt;
+        $lt;/div$gt;
+        $lt;div class="total-vol"$gt;
+          $lt;p class="vol-text"$gt;Total Vol$lt;/p$gt;
+          $lt;p class="vol-text" id="vol-`+(exerciseArr.length-1)+`"$gt;`+(rep*weight)+`$lt;/p$gt;
+        $lt;/div$gt;
+      $lt;/div$gt;
+      `)
+  }
+})
+
+            </code>
+          </pre>
+
+
+          <p class="blogText">
+            Now that the Javascripit is done and able to handle the information coming from the box to the form. The last thing to do is get the PHP to handle the form
+          </p>
+
+
+
+        </article>
+      </div>
+      <div>
+      </div>
+    </div>
+  </body>
+</html>
