@@ -29,6 +29,8 @@ function getDataFromPhp(url) {
       });
   });
 }
+
+
 getDataFromPhp("../PHP/getFitness.php")
   .then(function(data) {
     // handle the data here

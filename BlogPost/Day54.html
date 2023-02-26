@@ -6,9 +6,9 @@
     <link rel="icon" type="image/x-icon" href="../BlogPictures/favicon.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="charset" content="UTF-8">
-    <meta name="keywords" content="Journey, Programming, HMTL">
-    <meta name="description" content="My journey from being a progamming noob to a programing hero">
-    <title>Day </title>
+    <meta name="keywords" content="Callbacks, promises">
+    <meta name="description" content="learning promises and Callbacks">
+    <title>Day 54: Callbacks and Promises </title>
   </head>
   <body>
     <header>
@@ -34,21 +34,23 @@
       <div>
         <article class="BlogPost">
 
-          <h3 class="title">Day  </h3>
-          <h4 class="sectionHeader">About Me</h4>
+          <h3 class="title">Day 54: Callbacks and Promises  </h3>
           <p class="blogText">
+            With me not really knowing that much about promises I felt the need to do a little studying on the topic. I spent some time looking at  blog posts about promises and callbacks from Freecodecamp.com they were helpful in understanding the topics. The promise post also brought up the topic of callbacks. I can&apos;t say that I knew a bunch about callbacks. This article helped me understand the topic a little bit more.
           </p>
-          <h5 class="codeTitle">HTML head code</h5>
-          <pre>
-            <code>
-            </code>
-          </pre>
-
+          <h4 class="sectionHeader">Callbacks</h4>
+          <p class="blogText">
+            After reading the article on callbacks I found out that it&apos;s all about calling a function within a function as an argument. The main point is that you can use a function as an argument and call it within the function. Why is this helpful? Well sometime you want functions to fire off in a chain instead of syconously. Like function 1 run and once it&apos;s finish run function 2. That&apos;s ayscrannous coding and exactly what callbacks are for.
+          </p>
+          <h4 class="sectionHeader">Promises</h4>
+          <p class="blogText">
+            Now promises are the ultimate form of callbacks in my opinion. Now when you want to run a callback but you have to wait for data and you don&apos;t want to stop your entire program well waiting for that data. Well you have the beautiful thing called promises. A promise goes hey I&apos;ll run this in the background while you do everything else and I&apos;ll come back with the anwser that your looking for. Now you also have a resolve and a reject for arguments. These will be your first two arguments for the promises and will handle the function if it works or if it fails. Once you have it sorted out if it fails or passes what do you use? That&apos;s where the then() method comes in. This is a method that chains to the resolve or reject and tells the program what to do next.
+          </p>
 
           <div class="HelpfulLinks">
             <h4>Some Helpful links</h4>
-            <a href="https://www.favicon.cc/" target="_blank">Favicon Website</a><br>
-            <a href="https://www.w3schools.com/html/default.asp" target="_blank">HTML Tutorial</a><br>
+            <a href="https://www.freecodecamp.org/news/what-is-promise-in-javascript-for-beginners/" target="_blank">freecodecamp Promises</a><br>
+            <a href="https://www.freecodecamp.org/news/javascript-callback-functions-what-are-callbacks-in-js-and-how-to-use-them/" target="_blank">freecodecamp Callbacks</a><br>
             <a href="https://www.w3schools.com/css/default.asp" target="_blank">CSS Tutorial</a>
           </div>
         </article>
